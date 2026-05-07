@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vikas Gunagi | Content Creation</title>
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      text-decoration:none;
+      scroll-behavior:smooth;
+      font-family:'Poppins',sans-serif;
+    }
+
+    :root{
+      --bg-color:#080808;
+      --second-bg-color:#131313;
+      --main-color:#00ffee;
+      --text-color:#ffffff;
+    }
+
+    body{
+      background:var(--bg-color);
+      color:var(--text-color);
+      overflow-x:hidden;
+    }
+
+    /* ================= HEADER ================= */
+
+    .header{
+      width:100%;
+      padding:2rem 8%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:2.8rem;
+      font-weight:800;
+      color:white;
+    }
+
+    .logo span{
+      color:var(--main-color);
+      text-shadow:0 0 20px var(--main-color);
+    }
+
+    .navbar a{
+      margin-left:3rem;
+      color:white;
+      font-size:1.6rem;
+      transition:0.3s;
+      border-bottom:2px solid transparent;
+    }
+
+    .navbar a:hover{
+      color:var(--main-color);
+      border-bottom:2px solid var(--main-color);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      padding:12rem 8% 5rem;
+      background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('creator-bg.jpg');
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero h1{
+      font-size:7rem;
+      margin-bottom:2rem;
+    }
+
+    .hero h1 span{
+      color:var(--main-color);
+    }
+
+    .hero p{
+      font-size:1.8rem;
+      max-width:900px;
+      line-height:1.8;
+      margin-bottom:3rem;
+    }
+
+    .social-links{
+      display:flex;
+      gap:2rem;
+      margin-top:2rem;
+    }
+
+    .social-links a{
+      width:55px;
+      height:55px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      border-radius:50%;
+      border:2px solid var(--main-color);
+      color:var(--main-color);
+      font-size:2.5rem;
+      transition:0.3s ease;
+    }
+
+    .social-links a:hover{
+      background:var(--main-color);
+      color:black;
+      transform:translateY(-8px);
+      box-shadow:0 0 20px var(--main-color);
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:3rem;
+      padding:1.2rem 3rem;
+      border-radius:40px;
+      background:var(--main-color);
+      color:black;
+      font-size:1.6rem;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px var(--main-color);
+    }
+
+    /* ================= SECTION ================= */
+
+    section{
+      padding:8rem 8%;
+    }
+
+    .heading{
+      font-size:5rem;
+      text-align:center;
+      margin-bottom:6rem;
+    }
+
+    .heading span{
+      color:var(--main-color);
+    }
+
+    /* ================= CONTENT GRID ================= */
+
+    .content-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:3rem;
+    }
+
+    .content-card{
+      background:var(--second-bg-color);
+      border-radius:2rem;
+      overflow:hidden;
+      transition:0.4s ease;
+      border:2px solid transparent;
+    }
+
+    .content-card:hover{
+      transform:translateY(-10px);
+      border:2px solid var(--main-color);
+      box-shadow:0 0 25px rgba(0,255,238,0.5);
+    }
+
+    .content-card img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+    }
+
+    .content-info{
+      padding:2rem;
+    }
+
+    .content-info h3{
+      font-size:2.5rem;
+      margin-bottom:1rem;
+    }
+
+    .content-info p{
+      font-size:1.5rem;
+      line-height:1.8;
+      margin-bottom:2rem;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:0.6rem 1.5rem;
+      border-radius:30px;
+      background:var(--main-color);
+      color:black;
+      font-size:1.3rem;
+      font-weight:600;
+    }
+
+    /* ================= STATS ================= */
+
+    .stats{
+      background:var(--second-bg-color);
+    }
+
+    .stats-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:3rem;
+    }
+
+    .stat-box{
+      padding:4rem 2rem;
+      text-align:center;
+      background:#1c1c1c;
+      border-radius:2rem;
+      transition:0.3s;
+    }
+
+    .stat-box:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px var(--main-color);
+    }
+
+    .stat-box h2{
+      font-size:5rem;
+      color:var(--main-color);
+      margin-bottom:1rem;
+    }
+
+    .stat-box p{
+      font-size:1.8rem;
+    }
+
+    /* ================= INSTAGRAM SECTION ================= */
+
+    .instagram-box{
+      max-width:1000px;
+      margin:auto;
+      background:var(--second-bg-color);
+      border-radius:3rem;
+      padding:5rem;
+      text-align:center;
+      border:2px solid var(--main-color);
+      box-shadow:0 0 20px rgba(0,255,238,0.2);
+    }
+
+    .instagram-box img{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid var(--main-color);
+      margin-bottom:2rem;
+    }
+
+    .instagram-box h2{
+      font-size:4rem;
+      margin-bottom:1rem;
+    }
+
+    .instagram-box p{
+      font-size:1.7rem;
+      line-height:1.8;
+      margin-bottom:2rem;
+    }
+
+    .instagram-id{
+      font-size:2rem;
+      color:var(--main-color);
+      margin-bottom:2rem;
+      display:block;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer{
+      padding:4rem 8%;
+      background:black;
+      text-align:center;
+    }
+
+    .footer p{
+      font-size:1.5rem;
+      margin-top:1rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:991px){
+
+      .hero h1{
+        font-size:5rem;
+      }
+
+      .hero p{
+        font-size:1.6rem;
+      }
+    }
+
+    @media(max-width:768px){
+
+      html{
+        font-size:55%;
+      }
+
+      .header{
+        flex-direction:column;
+        gap:2rem;
+      }
+
+      .navbar a{
+        margin:0 1rem;
+      }
+
+      .hero h1{
+        font-size:4.5rem;
+      }
+
+      .instagram-box{
+        padding:3rem 2rem;
+      }
+    }
+
+    @media(max-width:480px){
+
+      html{
+        font-size:50%;
+      }
+
+      body{
+        overflow-x:hidden;
+      }
+
+      .header{
+        padding:2rem 5%;
+      }
+
+      .logo{
+        font-size:2.2rem;
+      }
+
+      .navbar{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:1rem;
+      }
+
+      .navbar a{
+        margin:0.5rem;
+        font-size:1.4rem;
+      }
+
+      .hero{
+        padding-top:16rem;
+      }
+
+      .hero h1{
+        font-size:4rem;
+        line-height:1.3;
+      }
+
+      .hero p{
+        font-size:1.5rem;
+      }
+
+      .heading{
+        font-size:4rem;
+      }
+
+      .content-grid{
+        grid-template-columns:1fr;
+      }
+
+      .content-card img{
+        height:260px;
+      }
+
+      .content-info h3{
+        font-size:2rem;
+      }
+
+      .content-info p{
+        font-size:1.4rem;
+      }
+
+      .stats-container{
+        grid-template-columns:1fr;
+      }
+
+      .instagram-box img{
+        width:140px;
+        height:140px;
+      }
+
+      .instagram-box h2{
+        font-size:3rem;
+      }
+
+      .social-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .social-links a{
+        width:50px;
+        height:50px;
+      }
+
+      .btn{
+        width:100%;
+        text-align:center;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="header">
+
+    <a href="#" class="logo">
+      Vikas <span>Creates</span>
+    </a>
+
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="#content">Content</a>
+      <a href="#stats">Stats</a>
+      <a href="#instagram">Instagram</a>
+    </nav>
+
+  </header>
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero" id="home">
+
+    <h1>
+      Content Creator <span>& Editor</span>
+    </h1>
+
+    <p>
+      Welcome to my creative world. I create entertaining reels, relatable memes,
+      cinematic edits, and engaging social media content. I love combining humor,
+      storytelling, and editing to build content that people enjoy watching and sharing.
+    </p>
+
+    <a href="#content" class="btn">
+      Explore My Content
+    </a>
+
+    <div class="social-links">
+
+      <a href="https://www.instagram.com/vg_laughlines/">
+        <i class='bx bxl-instagram-alt'></i>
+      </a>
+
+      <a href="https://youtube.com/">
+        <i class='bx bxl-youtube'></i>
+      </a>
+
+      <a href="https://linkedin.com/">
+        <i class='bx bxl-linkedin'></i>
+      </a>
+
+      <a href="https://github.com/">
+        <i class='bx bxl-github'></i>
+      </a>
+
+    </div>
+
+  </section>
+<!-- ================= CONTENT SECTION ================= -->
+
+  <section id="content">
+
+    <h2 class="heading">
+      My <span>Content</span>
+    </h2>
+
+    <div class="content-grid">
+
+      <div class="content-card">
+
+        <img src="image.png" alt="reel image">
+
+        <div class="content-info">
+
+          <h3>Instagram Reels</h3>
+
+          <p>
+            Creative and entertaining reels made using trending audio,
+            transitions, cinematic shots, and storytelling techniques.
+          </p>
+
+          <span class="tag">Reels</span>
+
+        </div>
+
+      </div>
+
+      <div class="content-card">
+
+        <img src="reel2.png" alt="meme image">
+
+        <div class="content-info">
+
+          <h3>Meme Content</h3>
+
+          <p>
+            Funny and relatable memes created with modern humor,
+            social trends, and creative editing.
+          </p>
+
+          <span class="tag">Memes</span>
+
+        </div>
+
+      </div>
+
+      <div class="content-card">
+
+        <img src="reel3.png" alt="edit image">
+
+        <div class="content-info">
+
+          <h3>Video Editing</h3>
+
+          <p>
+            High-quality edits using transitions, color grading,
+            sound syncing, and cinematic effects.
+          </p>
+
+          <span class="tag">Editing</span>
+
+        </div>
+
+      </div>
+
+      <div class="content-card">
+
+        <img src="content1.png" alt="content image">
+
+        <div class="content-info">
+
+          <h3>Creative Posts</h3>
+
+          <p>
+            Social media graphics, thumbnails, and creative visuals
+            designed for better engagement.
+          </p>
+
+          <span class="tag">Design</span>
+
+        </div>
+
+      </div>
+
+      <div class="content-card">
+
+        <img src="1.png" alt="cinematic image">
+
+        <div class="content-info">
+
+          <h3>Cinematic Edits</h3>
+
+          <p>
+            Short cinematic clips with smooth motion, aesthetic visuals,
+            and powerful storytelling.
+          </p>
+
+          <span class="tag">Cinematic</span>
+
+        </div>
+
+      </div>
+  </section>
+
+
+  <!-- ================= STATS ================= -->
+
+  <section class="stats" id="stats">
+
+    <h2 class="heading">
+      Creator <span>Stats</span>
+    </h2>
+
+    <div class="stats-container">
+
+      <div class="stat-box">
+        <h2>50+</h2>
+        <p>Reels Created</p>
+      </div>
+
+      <div class="stat-box">
+        <h2>5M+</h2>
+        <p>Total Views</p>
+      </div>
+
+      <div class="stat-box">
+        <h2>20+</h2>
+        <p>Creative Edits</p>
+      </div>
+
+      <div class="stat-box">
+        <h2>Daily</h2>
+        <p>Content Learning</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= INSTAGRAM ================= -->
+
+  <section id="instagram">
+
+    <h2 class="heading">
+      Follow Me On <span>Instagram</span>
+    </h2>
+
+    <div class="instagram-box">
+
+      <img src="vikas.jpeg" alt="profile image">
+
+      <h2>
+        Vikas Gunagi
+      </h2>
+
+      <span class="instagram-id">
+        @vikas_gunagi
+      </span>
+
+      <p>
+        Follow me for entertaining reels, memes, edits,
+        creative content, and behind-the-scenes creator moments.
+      </p>
+
+      <a href="https://instagram.com/vikas_gunagi" class="btn">
+        Visit Instagram
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="footer">
+
+    <div class="social-links">
+
+      <a href="#">
+        <i class='bx bxl-instagram-alt'></i>
+      </a>
+
+      <a href="#">
+        <i class='bx bxl-youtube'></i>
+      </a>
+
+      <a href="#">
+        <i class='bx bxl-linkedin'></i>
+      </a>
+
+      <a href="#">
+        <i class='bx bxl-github'></i>
+      </a>
+
+    </div>
+
+    <p>
+      © 2026 Vikas Gunagi | Content Creator Portfolio
+    </p>
+
+    <p>
+      Designed with creativity by Vikas Gunagi
+    </p>
+
+  </footer>
+
+</body>
+</html>
