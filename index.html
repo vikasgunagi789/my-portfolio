@@ -1,995 +1,1421 @@
+# Updated Modern Portfolio Website (Complete Code)
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Portfolio Website</title>
+    <title>Vikas Gunagi | Portfolio</title>
+
+    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    font-family: "poppins", sans-serif;
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   GLOBAL STYLES
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    border:none;
+    outline:none;
+    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
 }
 
-:root {
-    --bg-color: #080808;
-    --second-bg-color: #131313;
-    --text-color: white;
-    --main-color: #00ffee;
+:root{
+    --bg-color:#080808;
+    --second-bg-color:#131313;
+    --text-color:#ffffff;
+    --main-color:#00ffee;
+    --card-color:#1b1b1b;
 }
 
-html {
-    font-size: 60%;
-    overflow-x: hidden;
+html{
+    font-size:62.5%;
+    overflow-x:hidden;
 }
 
-body {
-    background: var(--bg-color);
-    color: var(--text-color);
+body{
+    background:var(--bg-color);
+    color:var(--text-color);
 }
 
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 4rem 12% 4rem;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 5;
+section{
+    min-height:100vh;
+    padding:10rem 12% 8rem;
 }
 
-.logo {
-    font-size: 3rem;
-    color: var(--text-color);
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.3s ease;    
+span{
+    color:var(--main-color);
 }
 
-.logo:hover {
-    transform: scale(1.1);
+.heading{
+    font-size:7rem;
+    text-align:center;
+    margin-bottom:6rem;
 }
 
-.logo span {
-    text-shadow: 0 0 25px var(--main-color);
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:2rem 12%;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+.logo{
+    font-size:3rem;
+    color:white;
+    font-weight:800;
+    transition:0.3s ease;
+}
+
+.logo:hover{
+    transform:scale(1.1);
+}
+
+.logo span{
+    text-shadow:0 0 20px var(--main-color);
 }
 
 .navbar a{
-    font-size: 1.8rem;
-    color: var(--text-color);
-    margin-left: 4rem;
-    font-weight: 500;
-    transition: 0.3s ease;
-    border-bottom: 3px solid transparent;
-
+    font-size:1.7rem;
+    color:white;
+    margin-left:4rem;
+    font-weight:500;
+    transition:0.3s ease;
+    border-bottom:3px solid transparent;
 }
 
 .navbar a:hover,
-.navbar a:active {
-    color: var(--main-color);
-    border-bottom: 3px solid var(--main-color);
+.navbar a.active{
+    color:var(--main-color);
+    border-bottom:3px solid var(--main-color);
 }
 
-#menu-icon {
-    font-size: 3.6;
-    color: var(--main-color);
-    display: none;
+#menu-icon{
+    font-size:3.6rem;
+    color:var(--main-color);
+    display:none;
+    cursor:pointer;
 }
 
-section {
-    min-height: 100vh;
-    padding: 10rem 12% 10rem;
+/* =====================================================
+   HOME SECTION
+===================================================== */
+
+.home{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12rem;
 }
 
-.home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15rem;
+.home-content{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
 }
 
-.home-content {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    text-align: left;
-    justify-content: center;
-    margin-top: 3rem;
+.home-content h1{
+    font-size:7rem;
+    font-weight:700;
+    line-height:1.1;
+    letter-spacing:2px;
 }
 
-span {
-    color: var(--main-color);
-
+.home-content h3{
+    font-size:3.5rem;
+    margin:1rem 0 2rem;
 }
 
-.logo span {
-    color: var(--main-color);
-
+.home-content p{
+    font-size:1.7rem;
+    line-height:1.8;
+    max-width:700px;
 }
 
-.home-content h3 {
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    font-size: 3.5rem;
+.home-img img{
+    width:32vw;
+    border-radius:50%;
+    box-shadow:0 0 25px var(--main-color);
+    transition:0.4s ease-in-out;
 }
 
-.home-content h1 {
-    font-size: 7rem;
-    font-weight: 700;
-    margin-top: 1.5rem;
-    line-height: 1;
-}
-
-.home-img {
-    border-radius: 50%;
-}
-
-.home-img img {
-    position: relative;
-    top: 3rem;
-    width: 32vw;
-    border-radius: 50%;
-    box-shadow: 0 0 25px var(--main-color);
-    cursor: pointer;
-    transition: 0.4s ease-in-out;
-}
-.home-img img:hover {
-    box-shadow: 0 0 25px var(--main-color),
-                0 0 50px var(--main-color)
-                0 0 100px var(--main-color);
-}
-
-.home-content p {
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.8;
-    max-width: 1000px;
+.home-img img:hover{
+    box-shadow:
+    0 0 25px var(--main-color),
+    0 0 50px var(--main-color),
+    0 0 100px var(--main-color);
 }
 
 .social-icons a{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 4.5rem;
-    height: 4.5rem;
-    background: transparent;
-    border: 2px solid var(--main-color);
-    font-size: 2.5rem;
-    border-radius: 50%;
-    color: var(--main-color);
-    margin: 3rem 1.5rem 3rem 0;
-    transition: 0.3s ease-in-out;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:4.5rem;
+    height:4.5rem;
+    background:transparent;
+    border:2px solid var(--main-color);
+    border-radius:50%;
+    font-size:2.5rem;
+    color:var(--main-color);
+    margin:3rem 1.5rem 3rem 0;
+    transition:0.3s ease-in-out;
 }
 
-.social-icons a:hover {
-    color: var(--text-color);
-    transform: scale(1.3)translateY(-5px);
-    box-shadow: 0 0 25px var(--main-color);
-    background-color: var(--main-color);
+.social-icons a:hover{
+    background:var(--main-color);
+    color:black;
+    transform:scale(1.2) translateY(-5px);
+    box-shadow:0 0 25px var(--main-color);
 }
 
-.btn {
-    display: inline;
-    padding: 1rem 2.8rem;
-    background: var(--main-color);
-    box-shadow: 0 0 25px --main-color;
-    border-radius: 4rem;
-    font-size: 1.6rem;
-    color: black;
-    border: 2px solid transparent;
-    letter-spacing: 0.1rem;
-    font-weight: 600;
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
+.btn-group{
+    display:flex;
+    gap:1.5rem;
 }
 
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 50px var(--main-color);
-
+.btn{
+    display:inline-block;
+    padding:1.2rem 3rem;
+    background:var(--main-color);
+    border-radius:4rem;
+    color:black;
+    font-size:1.6rem;
+    font-weight:600;
+    transition:0.3s ease;
+    border:2px solid transparent;
 }
 
-.btn-group {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px var(--main-color);
 }
 
-.btn-group a:nth-of-type(2){
-    background-color: black;
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
-    box-shadow: 0 0 25px transparent;
+.btn.secondary{
+    background:transparent;
+    color:var(--main-color);
+    border:2px solid var(--main-color);
 }
 
-.btn-group a:nth-of-type(2):hover {
-    box-shadow: 0 0 25px var(--main-color);
-    background-color: var(--main-color);
-    color: black;
+.btn.secondary:hover{
+    background:var(--main-color);
+    color:black;
 }
 
-.text-animation {
-    font-size: 34px;
-    font-weight: 600;
-    min-width: 280px;
+/* =====================================================
+   TEXT ANIMATION
+===================================================== */
+
+.text-animation{
+    font-size:3.4rem;
+    font-weight:600;
+    min-width:280px;
 }
 
-.text-animation span {
-    position: relative;
+.text-animation span{
+    position:relative;
 }
 
-.text-animation span::before {
-    content: "web Developer";
-    color: var(--main-color);
-    animation: words 20s infinite;
+.text-animation span::before{
+    content:"Web Developer";
+    color:var(--main-color);
+    animation:words 20s infinite;
 }
 
-.text-animation span::after {
-    content: "";
-    background-color: var(--bg-color);
-    position: absolute;
-    width: calc(100% + 8px);
-    height: 100%;
-    border-left: 3px solid var(--bg-color);
-    right: -8px;
-    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+.text-animation span::after{
+    content:"";
+    position:absolute;
+    width:calc(100% + 8px);
+    height:100%;
+    background:var(--bg-color);
+    border-left:3px solid var(--bg-color);
+    right:-8px;
+    animation:cursor 0.6s infinite, typing 20s steps(14) infinite;
 }
 
-@keyframes cursor {
+@keyframes cursor{
     to{
-        border-left: 2px solid var(--main-color);
+        border-left:2px solid var(--main-color);
     }
 }
 
-@keyframes words {
-    0%,
-    20%{
-        content: "Reeler";
+@keyframes words{
+
+    0%,20%{
+        content:"Web Developer";
     }
-    21%,
-    40%{
-        content: "Web Designer";
+
+    21%,40%{
+        content:"Content Creator";
     }
-    41%,
-    60%{
-        content: " An Artist";
+
+    41%,60%{
+        content:"Video Editor";
     }
-    61%,
-    80%{
-        content: "Content Creater";
+
+    61%,80%{
+        content:"Meme Creator";
     }
-    81%,
-    100%{
-        content: "Memer";
+
+    81%,100%{
+        content:"Coder";
     }
 }
 
-@keyframes typing {
-    10%,
-    15%,
-    30%,
-    35%,
-    55%,
-    70%,
-    75%,
-    90%,
-    95%{
-        width: 0;
+@keyframes typing{
+
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width:0;
     }
-    5%,
-    20%,
-    25%,
-    40%,
-    45%,
-    60%,
-    65%,
-    80%,
-    85%{
-        width: calc(100% + 8px);
+
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width:calc(100% + 8px);
     }
 }
 
-.heading {
-    font-size: 8rem;
-    text-align: center;
-    margin: 5rem 0;
+/* =====================================================
+   ABOUT SECTION
+===================================================== */
+
+.about{
+    background:var(--second-bg-color);
 }
 
-.education {
-    padding: 100px 15px;
-    background: var(--second-bg-color);
+.about-container{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:5rem;
+    align-items:center;
 }
 
-.education h2 {
-    margin-bottom: 5rem;
+.about-img img{
+    width:100%;
+    border-radius:2rem;
+    box-shadow:0 0 25px var(--main-color);
+}
+
+.about-content h3{
+    font-size:4rem;
+    margin-bottom:2rem;
+}
+
+.about-content p{
+    font-size:1.7rem;
+    line-height:1.8;
+    margin-bottom:2rem;
+}
+
+/* =====================================================
+   EDUCATION SECTION
+===================================================== */
+
+.education{
+    background:var(--bg-color);
 }
 
 .timeline-items{
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    flex-wrap:wrap;
+    position:relative;
 }
 
-.timeline-items::before {
-    content: "";
-    position: absolute;
-    width: 5px;
-    height: 100%;
-    background-color: var(--main-color);
-    left: calc(50% - 1px);
+.timeline-items::before{
+    content:"";
+    position:absolute;
+    width:5px;
+    height:100%;
+    background:var(--main-color);
+    left:calc(50% - 1px);
 }
 
-.timeline-item {
-    margin-bottom: 40px;
-    width: 100%;
-    position: relative;
+.timeline-item{
+    margin-bottom:40px;
+    width:100%;
+    position:relative;
 }
 
-.timeline-item:last-child {
-    margin-bottom: 0;
+.timeline-item:nth-child(odd){
+    padding-right:calc(50% + 30px);
+    text-align:right;
 }
 
-.timeline-item:nth-child(odd) {
-    padding-right: calc(50% + 30px);
-    text-align: right;
+.timeline-item:nth-child(even){
+    padding-left:calc(50% + 30px);
 }
 
-.timeline-item:nth-child(even) {
-    padding-left: calc(50% + 30px);
+.timeline-dot{
+    height:21px;
+    width:21px;
+    background:var(--main-color);
+    box-shadow:0 0 25px var(--main-color);
+    position:absolute;
+    left:calc(50% - 8px);
+    border-radius:50%;
+    top:10px;
 }
 
-.timeline-dot {
-    height: 21px;
-    width: 21px;
-    background-color: var(--main-color);
-    box-shadow: 0 0 25px var(--main-color),
-                0 0 50px var(--main-color);
-    position: absolute;
-    left: calc(50% - 8px);
-    border-radius: 50%;
-    top: 10px;
+.timeline-date{
+    font-size:2rem;
+    font-weight:800;
+    margin:6px 0 15px;
 }
 
-.timeline-date {
-    font-size: 20px;
-    font-weight: 800;
-    color: white;
-    margin: 6px 0 15px;
+.timeline-content{
+    background:var(--card-color);
+    border:3px solid var(--main-color);
+    padding:30px 40px;
+    border-radius:3rem;
+    transition:0.3s ease;
 }
 
-.timeline-content {
-    background-color: var(--bg-color);
-    border: 3px solid var(--main-color);
-    padding: 30px 50px;
-    border-radius: 4rem;
-    box-shadow: 0 0 10px var(--main-color);
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+.timeline-content:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 25px var(--main-color);
 }
 
-.timeline-content:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px var(--main-color);
+.timeline-content h3{
+    font-size:2.2rem;
+    margin-bottom:1rem;
 }
 
-.timeline-content h3 {
-    font-size: 20px;
-    color: white;
-    margin: 0 0 10px;
-    font-weight: 500;
+.timeline-content p{
+    font-size:1.5rem;
+    line-height:1.7;
 }
 
-.timeline-content p {
-    color: white;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 22px;
-    text-align: justify;
+/* =====================================================
+   CREATIVE WORK SECTION
+===================================================== */
+
+.creativework{
+    background:var(--second-bg-color);
 }
 
-::-webkit-scrollbar {
-    width: 15px;
+.creativework-container{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:3rem;
 }
 
-::-webkit-scrollbar-thumb {
-    background-color: var(--main-color);
+.creativework-box{
+    background:var(--main-color);
+    color:black;
+    padding:1rem;
+    border-radius:3rem;
+    transition:0.4s ease;
 }
 
-::-webkit-scrollbar-track {
-    background-color: var(--bg-color);
-    width: 50px;
+.creativework-box:hover{
+    transform:translateY(-10px);
+    background:white;
+    box-shadow:0 0 30px var(--main-color);
 }
 
-.creativework {
-    background: var(--bg-color);
-    color: black;
+.creativework-info{
+    padding:4rem;
 }
 
-.creativework h2 {
-    margin-bottom: 5rem;
-    color: white;
+.creativework-info h4{
+    font-size:3rem;
+    margin-bottom:1.5rem;
 }
 
-.creativework-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 2.5rem;
+.creativework-info p{
+    font-size:1.5rem;
+    line-height:1.8;
 }
 
-.creativework-box {
-    background-color: var(--main-color);
-    height: 300px;
-    border-radius: 3rem;
-    border: 5px solid transparent;
-    cursor: pointer;
-    transition: 0.4s ease-in-out;
+/* =====================================================
+   PROJECTS SECTION
+===================================================== */
+
+.projects{
+    background:var(--bg-color);
 }
 
-.creativework-box:hover {
-    background: white;
-    color: black;
-    border: 5px solid var(--main-color);
-    transform: scale(1.03);
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:3rem;
 }
 
-.creativework-box .creativework-info {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    max-height: 200px;
-    justify-content: left;
-    align-items: baseline;
-    padding: 5rem 5rem;
+.project-card{
+    background:var(--card-color);
+    border-radius:2rem;
+    overflow:hidden;
+    transition:0.3s ease;
+    border:2px solid transparent;
 }
 
-.creativework-info h4 {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 2;
+.project-card:hover{
+    transform:translateY(-10px);
+    border-color:var(--main-color);
+    box-shadow:0 0 20px var(--main-color);
 }
 
-.creativework-info p {
-    font-size: 1.35rem;
-    font-weight: 600;
-    max-width: 1000px;
-    line-height: 1.7;
-    margin: auto;
+.project-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
 }
 
-.skills {
-    background: var(--second-bg-color);
+.project-content{
+    padding:2rem;
 }
 
-.skills-box {
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.project-content h3{
+    font-size:2.5rem;
+    margin-bottom:1rem;
 }
 
-.skills .heading {
-    margin-bottom: 5rem;
+.project-content p{
+    font-size:1.5rem;
+    line-height:1.7;
+    margin-bottom:2rem;
 }
 
-.skills-box img {
-    width: 15rem;
-    border-radius: 50%;
-    border: 3px solid var(--main-color);
-    box-shadow: 0 0 25px var(--main-color)
+/* =====================================================
+   SKILLS SECTION
+===================================================== */
+
+.skills{
+    background:var(--second-bg-color);
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 3rem;
+.wrapper{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:3rem;
 }
 
-.skills-item {
-    min-height: 350px;
-    max-width: 450px;
-    background: rgba(0, 0, 0, 0.7);
-    border: 3px solid rgba(238, 238, 238, 0.2);
-    border-radius: 2rem;
-    margin: 0 2rem;
-    padding: 30px 60px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1.5rem;
-    color: white;
-    transition: 0.4s ease-in-out;
+.skills-item{
+    background:rgba(0,0,0,0.7);
+    border:3px solid rgba(255,255,255,0.1);
+    border-radius:2rem;
+    padding:3rem;
+    text-align:center;
+    transition:0.3s ease;
 }
 
-.skills-item:hover {
-    border: 3px solid var(--main-color);
-    transform: translateY(-10px)scale(1.03);
-    box-shadow: 0 0 50px var(--main-color);
+.skills-item:hover{
+    border-color:var(--main-color);
+    transform:translateY(-10px);
+    box-shadow:0 0 25px var(--main-color);
 }
 
-.skills-items h2 {
-    font-size: 2.8rem;
+.skills-item img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--main-color);
+    margin-bottom:2rem;
 }
 
-.skills-items p {
-    font-size: 1.3rem;
+.skills-item h2{
+    font-size:2.5rem;
+    margin-bottom:1rem;
 }
 
-#star {
-    color: gold;
-    font-size: 2rem;
+#star{
+    color:gold;
+    font-size:2rem;
 }
 
-.contact {
-    background-color: var(--bg-color);
+/* =====================================================
+   CONTACT SECTION
+===================================================== */
+
+.contact{
+    background:var(--bg-color);
 }
 
-.contact h2 {
-    margin-bottom: 3rem;
-    color: white;
+.contact form{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:2rem;
 }
 
-.contact form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    margin: 5rem auto;
-    text-align: center;
+.input-box{
+    display:flex;
+    gap:2rem;
+    width:100%;
 }
 
-.contact form .input-box {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.contact input,
+.contact textarea{
+    width:100%;
+    padding:2rem;
+    background:var(--second-bg-color);
+    border:2px solid var(--main-color);
+    border-radius:2rem;
+    color:white;
+    font-size:1.6rem;
 }
 
-.contact form .input-box input ,
-.contact form textarea {
-    width: 100%;
-    padding: 2.5rem;
-    font-size: 1.8rem;
-    color: var(--text-color);
-    background: var(--bg-color);
-    border-radius: 2rem;
-    border: 2px solid var(--main-color);
-    margin: 1.5rem 0;
-    resize: none;
+.contact textarea{
+    resize:none;
 }
 
-.contact form .btn {
-    margin-top: 2rem;
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    background:var(--second-bg-color);
+    padding:4rem 0;
+    text-align:center;
 }
 
-.footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    padding: 40px 0;
-    background-color: var(--second-bg-color);
+.footer .social a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:4rem;
+    height:4rem;
+    border:2px solid var(--main-color);
+    color:var(--main-color);
+    border-radius:50%;
+    margin:0 1rem;
+    font-size:2rem;
+    transition:0.3s ease;
 }
 
-.footer .social {
-    text-align: center;
-    padding-bottom: 25px;
-    color: var(--main-color);
+.footer .social a:hover{
+    background:var(--main-color);
+    color:black;
+    transform:translateY(-5px);
 }
 
-.footer .social a {
-    font-size: 25px;
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
-    width: 42px;
-    height: 42px;
-    line-height: 42px;
-    display: inline-block;
-    text-align: center;
-   border-radius: 30%;
-    margin: 0 10px;
-    transition: 0.3s ease-in-out
+.footer p{
+    margin-top:2rem;
+    font-size:1.5rem;
 }
 
-.footer .social a:hover {
-    transform: scale(1.2)translateY(-10px);
-    background-color: var(--main-color);
-    color: black;
-    box-shadow: 0 0 25px var(--main-color);
+#heart{
+    color:red;
 }
 
-.footer .copywrite {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 16px;
-    color: white;
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+    width:15px;
 }
 
-#heart {
-    color: red;
-    font-size: 1.5rem;
-
+::-webkit-scrollbar-thumb{
+    background:var(--main-color);
 }
-/* Responsive Design for Tablets and Phones */
-@media (max-width: 1024px) {
-    html {
-        font-size: 55%;
-    }
 
-    .home {
-        flex-direction: column;
-        text-align: center;
-        gap: 5rem;
-    }
+::-webkit-scrollbar-track{
+    background:var(--bg-color);
+}
 
-    .home-content {
-        align-items: center;
-    }
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
 
-    .home-img img {
-        width: 50vw;
-    }
+@media(max-width:1200px){
 
-    .wrapper {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .creativework-container {
-        grid-template-columns: 1fr;
+    html{
+        font-size:55%;
     }
 }
 
-@media (max-width: 768px) {
-    html {
-        font-size: 50%;
+@media(max-width:991px){
+
+    .header{
+        padding:2rem 5%;
     }
 
-    .header {
-        padding: 3rem 5%;
+    section{
+        padding:10rem 5% 5rem;
     }
 
-    .navbar {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        padding: 2rem;
+    .home{
+        flex-direction:column-reverse;
+        gap:5rem;
+        text-align:center;
     }
 
-    .navbar.active {
-        display: flex;
+    .home-content{
+        align-items:center;
     }
 
-    #menu-icon {
-        display: block;
-        cursor: pointer;
+    .home-img img{
+        width:60vw;
     }
 
-    .home {
-        flex-direction: column;
-        gap: 3rem;
+    .about-container{
+        grid-template-columns:1fr;
     }
 
-    .timeline-items::before {
-        left: 8px;
+    .projects-container{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .timeline-item {
-        padding-left: 30px !important;
-        text-align: left !important;
-    }
-
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        padding-left: 30px;
-        padding-right: 0;
-    }
-
-    .timeline-dot {
-        left: 0;
-    }
-
-    .wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-item {
-        margin: 2rem 0;
+    .wrapper{
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media (max-width: 480px) {
-    .home-content h1 {
-        font-size: 4.5rem;
+@media(max-width:768px){
+
+    #menu-icon{
+        display:block;
     }
 
-    .home-content h3 {
-        font-size: 2.5rem;
+    .navbar{
+        position:absolute;
+        top:100%;
+        left:-100%;
+        width:100%;
+        background:black;
+        display:flex;
+        flex-direction:column;
+        transition:0.3s ease;
+        padding:2rem;
     }
 
-    .text-animation {
-        font-size: 2.2rem;
+    .navbar.active{
+        left:0;
     }
 
-    .heading {
-        font-size: 5rem;
+    .navbar a{
+        margin:2rem 0;
     }
 
-    .home-img img {
-        width: 70vw;
-        height: 50vw;
+    .creativework-container,
+    .projects-container,
+    .wrapper{
+        grid-template-columns:1fr;
     }
 
-    .creativework-info h4 {
-        font-size: 2rem;
+    .timeline-items::before{
+        left:8px;
     }
 
-    .creativework-info p {
-        font-size: 1.1rem;
+    .timeline-item{
+        padding-left:37px !important;
+        text-align:left !important;
     }
 
-    .contact form {
-        flex-direction: column;
+    .timeline-dot{
+        left:0;
     }
 
-    .btn-group {
-        flex-direction: column;
-        gap: 1rem;
+    .input-box{
+        flex-direction:column;
     }
 }
 
+@media(max-width:480px){
 
-    </style>
+    html{
+        font-size:50%;
+    }
+
+    .heading{
+        font-size:5rem;
+    }
+
+    .home-content h1{
+        font-size:5rem;
+    }
+
+    .home-img img{
+        width:75vw;
+    }
+}
+
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <a href="#home" class="logo">Vikas <span>Gunagi</span></a>
-        <i class='bx bx-menu' id="menu-icon"></i>
 
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#education">Education</a>
-            <a href="#creativework">Creative Work</a>
-            <a href="#skills">Skills</a>
-            <a href="#contacts">Contacts</a>
-            
-        </nav>
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    </header>
+<header class="header">
 
-    <section class="home" id="home">
-        <div class="home-content">
-            <h1>Hi, It's <span>Vikas</span> </h1>
-            <h3 class="text-animation">I'm a <span></span></h3>
-            <p>Hello, my name is Vikas Gunagi. I am currently a student at Canara Engineering College, pursuing Information scirnce and enginerring Branch. 
-                I have a strong interest in software development, such as Coding, web developing and designing etc. and I am actively working 
-                on building my skills in this area. In addition to academics, I enjoy playing Volleyball, coding, Drawings and making reels on instagram 
-                of my own content, to become a content creator is also one of my dream. I look forward to learning and contributing
-                 through collaborative opportunities.</p>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/vikas-gunagi-33ba48298?utm_source=share&utm_campaign=share_via&utm_
-                    content=profile&utm_medium=android_app "><i class='bx bxl-linkedin'></i></a>
-                    <a href="#"><i class='bx bxl-github' ></i></a>
-                    <a href="https://www.instagram.com/vikas_gunagi/"><i class='bx bxl-instagram-alt' ></i></a>
-                    <a href="https://youtube.com/@vikasgunagi12?si=b9J_tB2gzX7RECA-"><i class='bx bxl-youtube'></i></a>
-                </div>
+    <a href="#home" class="logo">
+        Vikas <span>Gunagi</span>
+    </a>
 
-                <div class="btn-group">
-                    <a href="#" class="btn">Hire</a>
-                    <a href="#contact" class="btn">Contact</a>
-                </div>
-            </div>
+    <i class='bx bx-menu' id="menu-icon"></i>
 
-                <div class="home-img">
-                    <img src="vikasgunagi1.jpg" alt="" height="500px" width="500px">
-                </div>
-        
-    </section>
+    <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#creativework">Creative Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    <section class="education" id="education">
-        <h2 class="heading">Education</h2>
+</header>
 
-        <div class="timeline-items">
+<!-- =====================================================
+     HOME SECTION
+===================================================== -->
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                    <div class="timeline-date">2012-2019</div>
-                    <div class="timeline-content">
-                        <h3>Primary School</h3>
-                        <p>I completed my primary education at Balmandir High School, located in Karwar. It was a foundation phase that greatly 
-                            shaped my academic journey and instilled in me values of discipline and curiosity. The school provided a nurturing 
-                            environment that encouraged me to excel both in academics and extracurricular activities.</p>
-                    </div>
-                
-            </div>
+<section class="home" id="home">
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                    <div class="timeline-date">2020-2022</div>
-                    <div class="timeline-content">
-                        <h3>High School</h3>
-                        <p>I completed my primary and high school education at Balmandir High School, Karwar. The school played a significant role in 
-                            shaping my academic foundation and personal growth. During my time there, I developed a strong interest in science, mathematics, 
-                            and actively participated in various extracurricular activities, which helped build my confidence and skills. The 
-                            experiences and lessons learned during these formative years have greatly influenced my journey so far.</p>
-                    </div>
-                
-            </div>
+    <div class="home-content">
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                    <div class="timeline-date">2023-2024</div>
-                    <div class="timeline-content">
-                        <h3>Pre University College</h3>
-                        <p>I pursued my pre-university education at Government PU College, Karwar. My time there helped me deepen my knowledge in
-                             science and prepared me for higher education. The supportive teachers and learning 
-                             environment played a key role in shaping my academic goals.</p>
-                    </div>
-                
-            </div>
+        <h1>
+            Hi, It's <span>Vikas</span>
+        </h1>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"> </div>
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>Engineering College</h3>
-                        <p>After the completion of my Pu college at karwar. I joined enginerring of Information science and Technology course
-                            at manglore, Canara engineering college manglore. I am enjoying this degree.</p>
-                    </div>
-               
-            </div>
-        </div>
-    </section>
+        <h3 class="text-animation">
+            I'm a <span></span>
+        </h3>
 
-    <section class="creativework" id="creativework">
-        <h2 class="heading">Creative Work</h2>
+        <p>
+            Hi, I'm Vikas Gunagi — an Information Science Engineering student passionate about coding,
+            content creation, meme making, video editing, and digital creativity.
 
-        <div class="creativework-container">
-            <div class="creativework-box">
-                <div class="creativework-info">
-                    <h4>Reels</h4>
-                    <p>Content Creation and Reel Making As a creative content creator, I specialize in producing engaging and original reels.
-                         My skills include conceptualizing ideas, scripting, filming, and editing to deliver visually appealing and impactful 
-                         content tailored for social media platforms. My work showcases creativity, storytelling, and a strong understanding 
-                         of trends to connect with audiences effectively.</p>
-                </div>
-            </div>
+            I enjoy building responsive websites, solving programming problems, creating reels,
+            editing entertaining videos, and designing engaging social media content.
 
-            <div class="creativework-box">
-                <div class="creativework-info">
-                    <h4>Drawing</h4>
-                    <p>I specialize in creating detailed and expressive portrait drawings. My work focuses on capturing the personality, emotion, 
-                        and unique features of each subject, whether drawn from life, photographs, or imagination. Using techniques such as shading,
-                         hatching, and blending, I bring depth and realism to my art. </p>
-                </div>
-            </div>
+            I love combining technology with creativity to build projects that are useful,
+            modern, and visually attractive.
 
-            <div class="creativework-box">
-                <div class="creativework-info">
-                    <h4>sports</h4>
-                    <p>I have a deep passion for sports, which have played a significant role in shaping my discipline, teamwork, and leadership 
-                        abilities. Through active participation in volleyball and other athletic pursuits, I have gained valuable skills like 
-                        strategic thinking, resilience, and collaboration. </p>
-                </div>
-            </div>
-
-            <div class="creativework-box">
-                <div class="creativework-info">
-                    <h4>web designer</h4>
-                    <p>As a web designer, I specialize in creating user-friendly, visually appealing, and functional websites. My design process 
-                        focuses on understanding user needs and crafting intuitive interfaces that enhance the overall experience. With skills 
-                        as mentioned below, I bring ideas to life while ensuring responsiveness and cross-platform compatibility. 
-                        </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="skills" id="skills">
-        <div class="skills-box">
-            <h2 class="heading">Skills</h2>
-
-            <div class="wrapper">
-                <div class="skills-item">
-                    <img src="html1.jpg" alt="">
-                    <h2>HTML</h2>
-                    <div class="ratings">
-                        <i class='bx bxs-star' id="star"></i>
-                        <i class='bx bxs-star' id="star"></i>
-                        <i class='bx bxs-star' id="star"></i>
-                        <i class='bx bxs-star' id="star"></i>
-                        <i class='bx bx-star' id="star"></i>
-
-                    </div>
-                </div>
-
-                <div class="skills-item">
-                    <img src="CSS1.png" alt="" height="150px" width="200px">
-                    <h2>CSS</h2>
-                    <div class="ratings">
-                        <i class='bx bxs-star' id="star"></i>
-                        <i class='bx bxs-star' id="star"></i>
-                        <i class='bx bxs-star' id="star"></i>
-                        <i class='bx bxs-star-half' id="star"></i>
-                        <i class='bx bx-star' id="star"></i>
-                    </div>
-                </div>
-
-                <div class="skills-item">
-                    <img src="js1.jpg" alt="">
-                    <h2>JS</h2>
-                    <div class="ratings">
-                        <i class='bx bxs-star' id="star"></i>
-                        <i class='bx bxs-star' id="star"></i>
-                        <i class='bx bxs-star-half' id="star"></i>
-                        <i class='bx bx-star' id="star"></i>
-                        <i class='bx bx-star' id="star"></i>
-                                
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="contact" id="contacts">
-        <h2 class="heading">Contact <span>Me</span></h2>
-
-        <form action="">
-            <div class="input-group">
-                <div class="input-box">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email">
-                </div>
-                <div class="input-box">
-                    <input type="number" placeholder="Phone Number">
-                    <input type="text" placeholder="Subject">
-                </div>
-            </div>
-
-            <div class="input-group-2">
-                <textarea name="" id="" cols="" rows="10" placeholder="Your Message"></textarea>
-                <input type="submit" value="send Message" class="btn">
-            </div>
-        </form>
-    </section>
-<!-- from here the correctiomn is to be done-->
-    <footer class="footer">
-        <div class="social">
-            <a href="#"><i class='bx bxl-linkedin'></i></a>
-                    <a href="#"><i class='bx bxl-github' ></i></a>
-                    <a href="https://www.instagram.com/vikas_gunagi/"><i class='bx bxl-instagram-alt' ></i></a>
-                    <a href="#"><i class='bx bxl-twitter'></i></a>
-                    <button class="theme-btn" data-theme="yellow">Yellow Theme</button>
-<button class="theme-btn" data-theme="original">Original</button>
-<button class="theme-btn" data-theme="green">Pastel Theme</button>
-
-        <p class="copywrite">
-            <i class='bx bx-copyright'></i> 2024 vikas gunagi. All rights Reserved 
+            Currently, I am improving my skills in Web Development, C Programming,
+            GitHub, Video Editing, and Content Creation while actively working on
+            real-world projects and creative ideas.
         </p>
-        <p>Designated with <i class='bx bxs-heart' id="heart"></i> by vikas gunagi</p>
-        </div>
-    </footer>
 
-   
-    <script src="portfolio.js"></script>
-    
+        <div class="social-icons">
+
+            <a href="https://www.linkedin.com/">
+                <i class='bx bxl-linkedin'></i>
+            </a>
+
+            <a href="https://github.com/">
+                <i class='bx bxl-github'></i>
+            </a>
+
+            <a href="https://www.instagram.com/vikas_gunagi/">
+                <i class='bx bxl-instagram-alt'></i>
+            </a>
+
+            <a href="https://youtube.com/">
+                <i class='bx bxl-youtube'></i>
+            </a>
+
+        </div>
+
+        <div class="btn-group">
+
+            <a href="resume.pdf" class="btn" download>
+                Download Resume
+            </a>
+
+            <a href="#contact" class="btn secondary">
+                Contact Me
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="home-img">
+        <img src="vikasgunagi1.jpg" alt="Vikas Gunagi">
+    </div>
+
+</section>
+
+<!-- =====================================================
+     ABOUT SECTION
+===================================================== -->
+
+<section class="about" id="about">
+
+    <h2 class="heading">
+        About <span>Me</span>
+    </h2>
+
+    <div class="about-container">
+
+        <div class="about-img">
+            <img src="vikasgunagi1.jpg" alt="about image">
+        </div>
+
+        <div class="about-content">
+
+            <h3>
+                Creative Developer & Digital Creator
+            </h3>
+
+            <p>
+                I am passionate about creating things that combine creativity and technology.
+                From building websites to making reels and memes, I enjoy expressing ideas in unique ways.
+            </p>
+
+            <p>
+                Along with coding and development, I actively create social media content,
+                edit videos, and experiment with visual storytelling.
+            </p>
+
+            <p>
+                My goal is to continuously learn, improve, and build impactful projects
+                that showcase both technical and creative skills.
+            </p>
+
+            <a href="#projects" class="btn">
+                View Projects
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     EDUCATION SECTION
+===================================================== -->
+
+<section class="education" id="education">
+
+    <h2 class="heading">
+        Education
+    </h2>
+
+    <div class="timeline-items">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                2012 - 2019
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Primary School
+                </h3>
+
+                <p>
+                    Completed my primary education at Balmandir High School, Karwar.
+                    This phase built my academic foundation and improved my discipline,
+                    curiosity, and confidence.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                2020 - 2022
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    High School
+                </h3>
+
+                <p>
+                    During high school, I developed a strong interest in science,
+                    technology, and creative activities while participating in extracurricular events.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                2022 - 2024
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Pre-University College
+                </h3>
+
+                <p>
+                    Studied at Government PU College, Karwar where I strengthened
+                    my knowledge in science and prepared for engineering.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                2024 - Present
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Engineering
+                </h3>
+
+                <p>
+                    Currently pursuing Information Science and Engineering at
+                    Canara Engineering College. I am actively learning coding,
+                    web development, GitHub, and creative digital skills.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     CREATIVE WORK SECTION
+===================================================== -->
+
+<section class="creativework" id="creativework">
+
+    <h2 class="heading">
+        Creative Work
+    </h2>
+
+    <div class="creativework-container">
+
+        <div class="creativework-box">
+
+            <div class="creativework-info">
+
+                <h4>
+                    Reels & Editing
+                </h4>
+
+                <p>
+                    I create engaging Instagram reels and short-form content by combining
+                    creativity, storytelling, and editing techniques.
+                    I enjoy creating entertaining and relatable videos.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="creativework-box">
+
+            <div class="creativework-info">
+
+                <h4>
+                    Meme Creation
+                </h4>
+
+                <p>
+                    I enjoy creating original memes and humorous social media content
+                    using trending formats and creative editing techniques.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="creativework-box">
+
+            <div class="creativework-info">
+
+                <h4>
+                    Coding & Development
+                </h4>
+
+                <p>
+                    I build responsive websites and programming projects using
+                    HTML, CSS, JavaScript, and C programming.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="creativework-box">
+
+            <div class="creativework-info">
+
+                <h4>
+                    Graphic Design
+                </h4>
+
+                <p>
+                    I design creative visuals, social media posts,
+                    thumbnails, and digital content that improve audience engagement.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     PROJECTS SECTION
+===================================================== -->
+
+<section class="projects" id="projects">
+
+    <h2 class="heading">
+        My Projects
+    </h2>
+
+    <div class="projects-container">
+
+        <div class="project-card">
+
+            <img src="project1.jpg" alt="project">
+
+            <div class="project-content">
+
+                <h3>
+                    SGPA Calculator
+                </h3>
+
+                <p>
+                    Built a VTU SGPA calculator website using HTML, CSS, and JavaScript
+                    with responsive design and GitHub Pages deployment.
+                </p>
+
+                <a href="#" class="btn">
+                    View Project
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <img src="project2.jpg" alt="project">
+
+            <div class="project-content">
+
+                <h3>
+                    Portfolio Website
+                </h3>
+
+                <p>
+                    Designed and developed a personal portfolio website to showcase
+                    coding skills, projects, editing, and content creation.
+                </p>
+
+                <a href="#" class="btn">
+                    View Project
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <img src="project3.jpg" alt="project">
+
+            <div class="project-content">
+
+                <h3>
+                    Creative Content
+                </h3>
+
+                <p>
+                    Created social media reels, memes, and engaging digital content
+                    using video editing and storytelling techniques.
+                </p>
+
+                <a href="#" class="btn">
+                    Explore
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     SKILLS SECTION
+===================================================== -->
+
+<section class="skills" id="skills">
+
+    <h2 class="heading">
+        Skills
+    </h2>
+
+    <div class="wrapper">
+
+        <div class="skills-item">
+
+            <img src="html1.jpg" alt="HTML">
+
+            <h2>
+                HTML
+            </h2>
+
+            <div class="ratings">
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bx-star' id="star"></i>
+            </div>
+
+        </div>
+
+        <div class="skills-item">
+
+            <img src="CSS1.png" alt="CSS">
+
+            <h2>
+                CSS
+            </h2>
+
+            <div class="ratings">
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star-half' id="star"></i>
+                <i class='bx bx-star' id="star"></i>
+            </div>
+
+        </div>
+
+        <div class="skills-item">
+
+            <img src="js1.jpg" alt="JS">
+
+            <h2>
+                JavaScript
+            </h2>
+
+            <div class="ratings">
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star-half' id="star"></i>
+                <i class='bx bx-star' id="star"></i>
+                <i class='bx bx-star' id="star"></i>
+            </div>
+
+        </div>
+
+        <div class="skills-item">
+
+            <img src="c.jpg" alt="C Programming">
+
+            <h2>
+                C Programming
+            </h2>
+
+            <div class="ratings">
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star-half' id="star"></i>
+                <i class='bx bx-star' id="star"></i>
+                <i class='bx bx-star' id="star"></i>
+            </div>
+
+        </div>
+
+        <div class="skills-item">
+
+            <img src="editing.jpg" alt="Editing">
+
+            <h2>
+                Video Editing
+            </h2>
+
+            <div class="ratings">
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star-half' id="star"></i>
+                <i class='bx bx-star' id="star"></i>
+            </div>
+
+        </div>
+
+        <div class="skills-item">
+
+            <img src="creator.jpg" alt="Content Creator">
+
+            <h2>
+                Content Creation
+            </h2>
+
+            <div class="ratings">
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star' id="star"></i>
+                <i class='bx bxs-star-half' id="star"></i>
+                <i class='bx bx-star' id="star"></i>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     CONTACT SECTION
+===================================================== -->
+
+<section class="contact" id="contact">
+
+    <h2 class="heading">
+        Contact <span>Me</span>
+    </h2>
+
+    <form>
+
+        <div class="input-box">
+
+            <input type="text" placeholder="Full Name">
+
+            <input type="email" placeholder="Email Address">
+
+        </div>
+
+        <div class="input-box">
+
+            <input type="number" placeholder="Phone Number">
+
+            <input type="text" placeholder="Subject">
+
+        </div>
+
+        <textarea cols="30" rows="10" placeholder="Your Message"></textarea>
+
+        <input type="submit" value="Send Message" class="btn">
+
+    </form>
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="social">
+
+        <a href="#">
+            <i class='bx bxl-linkedin'></i>
+        </a>
+
+        <a href="#">
+            <i class='bx bxl-github'></i>
+        </a>
+
+        <a href="#">
+            <i class='bx bxl-instagram-alt'></i>
+        </a>
+
+        <a href="#">
+            <i class='bx bxl-youtube'></i>
+        </a>
+
+    </div>
+
+    <p>
+        <i class='bx bx-copyright'></i>
+        2026 Vikas Gunagi | All Rights Reserved
+    </p>
+
+    <p>
+        Designed with <i class='bx bxs-heart' id="heart"></i> by Vikas Gunagi
+    </p>
+
+</footer>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () => {
+    navbar.classList.toggle('active');
+}
+
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('header nav a');
+
+window.onscroll = () => {
+
+    sections.forEach(sec => {
+
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if(top >= offset && top < offset + height){
+
+            navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+            });
+        }
+    });
+}
+
+</script>
+
 </body>
 </html>
