@@ -216,7 +216,20 @@
       font-size:1.3rem;
       font-weight:600;
     }
+.tags{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
 
+.tag{
+  transition:0.3s ease;
+}
+
+a.tag:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px var(--main-color);
+}
     /* ================= STATS ================= */
 
     .stats{
@@ -545,22 +558,32 @@
 
       <div class="content-card">
 
-        <img src="Images/reel3.png" alt="edit image">
+  <img src="Images/reel3.png" alt="edit image">
 
-        <div class="content-info">
+  <div class="content-info">
 
-          <h3>Video Editing</h3>
+    <h3>Video Editing</h3>
 
-          <p>
-            High-quality edits using transitions, color grading,
-            sound syncing, and cinematic effects.
-          </p>
+    <p>
+      High-quality edits using transitions, color grading,
+      sound syncing, and cinematic effects.
+    </p>
 
-          <span class="tag">Editing</span>
+    <div class="tags">
 
-        </div>
+      <span class="tag">
+        Editing
+      </span>
 
-      </div>
+      <a href="template.html" class="tag">
+        Templates
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
 
       <div class="content-card">
 
