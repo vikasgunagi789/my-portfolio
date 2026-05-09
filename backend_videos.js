@@ -138,29 +138,28 @@ function createCard(meme){
 
         <div class="buttons">
 
-            <a
-                href="${meme.video}"
-                target="_blank"
-                class="btn">
+    <a
+    href="${meme.video}"
+    target="_blank"
+    class="btn">
 
-                <i class='bx bx-play'></i>
+        <i class='bx bx-play'></i>
 
-                Watch
+        Watch
 
-            </a>
+    </a>
 
-            <a
-                href="${meme.video}"
-                download
-                class="btn">
+    <a
+href="${meme.video.replace('/upload/', '/upload/fl_attachment:' + meme.title.replace(/\s+/g,'_') + '/')}"
+class="btn">
 
-                <i class='bx bx-download'></i>
+    <i class='bx bx-download'></i>
 
-                Download
+    Download
 
-            </a>
+</a>
 
-        </div>
+</div>
 
     </div>
 
@@ -250,7 +249,7 @@ searchInput.addEventListener("keyup", () => {
         if(matchSearch && matchFilter){
 
             card.style.display =
-            "block";
+            "flex";
 
         }
 

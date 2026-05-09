@@ -221,21 +221,38 @@ section{
 /* GRID */
 
 .templates-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(340px,340px));
+
+    justify-content:center;
+
     gap:3rem;
+
 }
 
 /* CARD */
 
 .template-card{
+
+    display:flex;
+    flex-direction:column;
+
+    width:100%;
+    max-width:380px;
+
     background:var(--second-bg-color);
+
     border-radius:2rem;
+
     overflow:hidden;
 
     border:2px solid transparent;
 
-    transition:0.4s;
+    transition:0.4s ease;
+
 }
 
 .template-card:hover{
@@ -667,7 +684,7 @@ section{
 
     <nav class="navbar">
 
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="#">Content</a>
         <a href="#">Templates</a>
 
