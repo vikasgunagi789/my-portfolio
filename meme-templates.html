@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meme Templates | Vikas Gunagi</title>
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+    --bg-color:#080808;
+    --second-bg-color:#131313;
+    --main-color:#00ffee;
+    --text-color:#ffffff;
+}
+
+html{
+    font-size:62.5%;
+    overflow-x:hidden;
+}
+
+body{
+    background:var(--bg-color);
+    color:var(--text-color);
+    overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--main-color);
+    border-radius:20px;
+}
+
+/* HEADER */
+
+.header{
+    width:100%;
+    padding:2rem 8%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:3rem;
+    color:white;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--main-color);
+}
+
+.navbar{
+    display:flex;
+    gap:3rem;
+}
+
+.navbar a{
+    color:white;
+    font-size:1.7rem;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:var(--main-color);
+}
+
+/* HERO */
+
+.hero{
+    min-height:50vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:14rem 8% 6rem;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),
+    url("Images/meme-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:7rem;
+    margin-bottom:2rem;
+}
+
+.hero h1 span{
+    color:var(--main-color);
+}
+
+.hero p{
+    max-width:900px;
+    font-size:1.8rem;
+    line-height:1.8;
+    color:#ddd;
+}
+
+/* SECTION */
+
+section{
+    padding:8rem 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:5rem;
+    margin-bottom:5rem;
+}
+
+.section-title span{
+    color:var(--main-color);
+}
+
+/* SEARCH */
+
+.search-box{
+    max-width:700px;
+    margin:0 auto 4rem;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:1.7rem 2rem 1.7rem 6rem;
+
+    border-radius:50px;
+    border:2px solid var(--main-color);
+
+    background:#111;
+    color:white;
+
+    font-size:1.6rem;
+    outline:none;
+}
+
+.search-box i{
+    position:absolute;
+    left:2rem;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:2.2rem;
+    color:var(--main-color);
+}
+
+/* FILTER */
+
+.filter-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:1.5rem;
+    margin-bottom:5rem;
+}
+
+.filter-btn{
+    padding:1rem 2rem;
+    border-radius:40px;
+
+    border:2px solid var(--main-color);
+
+    background:transparent;
+    color:var(--main-color);
+
+    font-size:1.5rem;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:var(--main-color);
+    color:black;
+    box-shadow:0 0 20px var(--main-color);
+}
+
+/* GRID */
+
+.templates-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:3rem;
+}
+
+/* CARD */
+
+.template-card{
+    background:var(--second-bg-color);
+    border-radius:2rem;
+    overflow:hidden;
+
+    border:2px solid transparent;
+
+    transition:0.4s;
+}
+
+.template-card:hover{
+    transform:translateY(-10px);
+
+    border-color:var(--main-color);
+
+    box-shadow:0 0 25px rgba(0,255,238,0.4);
+}
+
+/* VIDEO */
+
+.video-box{
+    width:100%;
+    height:280px;
+    overflow:hidden;
+    background:black;
+}
+
+.video-box video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* CONTENT */
+
+.template-content{
+    padding:2.5rem;
+}
+
+.template-content h3{
+    font-size:2.5rem;
+    margin-bottom:1rem;
+}
+
+.template-content p{
+    font-size:1.5rem;
+    line-height:1.8;
+    color:#ccc;
+    margin-bottom:2rem;
+}
+
+/* TAGS */
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    margin-bottom:2rem;
+}
+
+.tag{
+    padding:0.7rem 1.5rem;
+    border-radius:30px;
+
+    background:var(--main-color);
+    color:black;
+
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    gap:1.5rem;
+}
+
+.btn{
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:0.8rem;
+
+    padding:1.2rem 2rem;
+
+    border-radius:40px;
+
+    background:var(--main-color);
+    color:black;
+
+    font-size:1.5rem;
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px var(--main-color);
+}
+
+/* LOAD MORE */
+
+.load-more-container{
+    text-align:center;
+    margin-top:5rem;
+}
+
+#loadMoreBtn{
+    padding:1.5rem 4rem;
+
+    border:none;
+    border-radius:40px;
+
+    background:var(--main-color);
+    color:black;
+
+    font-size:1.7rem;
+    font-weight:700;
+
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#loadMoreBtn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px var(--main-color);
+}
+
+/* FOOTER */
+
+.footer{
+    padding:5rem 8%;
+    background:black;
+    text-align:center;
+    margin-top:8rem;
+}
+
+.footer p{
+    font-size:1.5rem;
+    margin-top:1rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    html{
+        font-size:55%;
+    }
+
+    .hero h1{
+        font-size:5rem;
+    }
+
+    .templates-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="#" class="logo">
+        Vikas <span>Creates</span>
+    </a>
+
+    <nav class="navbar">
+
+        <a href="#">Home</a>
+        <a href="#">Content</a>
+        <a href="#">Templates</a>
+
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <h1>
+        Meme <span>Templates</span>
+    </h1>
+
+    <p>
+        Trending viral meme templates, reels, cinematic edits,
+        funny clips, and velocity edits for creators.
+    </p>
+
+</section>
+
+<section>
+
+    <h2 class="section-title">
+        Viral <span>Templates</span>
+    </h2>
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <i class='bx bx-search'></i>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search templates..."
+        >
+
+    </div>
+
+    <!-- FILTERS -->
+
+    <div class="filter-buttons">
+
+        <button class="filter-btn active" data-filter="all">All</button>
+
+        <button class="filter-btn" data-filter="Trending">Trending</button>
+
+        <button class="filter-btn" data-filter="Funny">Funny</button>
+
+        <button class="filter-btn" data-filter="Velocity">Velocity</button>
+
+        <button class="filter-btn" data-filter="Cinematic">Cinematic</button>
+
+        <button class="filter-btn" data-filter="Instagram">Instagram</button>
+
+    </div>
+
+    <!-- GRID -->
+
+    <div class="templates-grid" id="templatesGrid">
+
+    </div>
+
+    <!-- LOAD MORE -->
+
+    <div class="load-more-container">
+
+        <button id="loadMoreBtn">
+            See More
+        </button>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <p>
+        © 2026 Vikas Gunagi | Meme Templates
+    </p>
+
+    <p>
+        Designed & Developed by Vikas Gunagi
+    </p>
+
+</footer>
+<script src="backend_videos.js"></script>
+
+</body>
+</html>
