@@ -376,18 +376,279 @@ section{
 
 /* RESPONSIVE */
 
-@media(max-width:768px){
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1200px){
+
+    html{
+        font-size:58%;
+    }
+
+    .templates-grid{
+        grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+    }
+
+}
+
+@media(max-width:991px){
 
     html{
         font-size:55%;
     }
 
-    .hero h1{
-        font-size:5rem;
+    .header{
+        padding:2rem 5%;
     }
+
+    section{
+        padding:7rem 5%;
+    }
+
+    .hero{
+        padding:14rem 5% 6rem;
+    }
+
+    .hero h1{
+        font-size:5.5rem;
+    }
+
+    .hero p{
+        font-size:1.7rem;
+    }
+
+    .section-title{
+        font-size:4.5rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    html{
+        font-size:52%;
+    }
+
+    /* HEADER */
+
+    .header{
+        flex-direction:column;
+        gap:1.5rem;
+        padding:2rem 4%;
+    }
+
+    .navbar{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:2rem;
+    }
+
+    .navbar a{
+        font-size:1.6rem;
+    }
+
+    /* HERO */
+
+    .hero{
+        min-height:45vh;
+        padding-top:18rem;
+    }
+
+    .hero h1{
+        font-size:4.5rem;
+        line-height:1.2;
+    }
+
+    .hero p{
+        font-size:1.5rem;
+    }
+
+    /* TITLES */
+
+    .section-title{
+        font-size:4rem;
+    }
+
+    /* SEARCH */
+
+    .search-box input{
+        padding:1.5rem 2rem 1.5rem 5.5rem;
+        font-size:1.5rem;
+    }
+
+    /* FILTER BUTTONS */
+
+    .filter-buttons{
+        gap:1rem;
+    }
+
+    .filter-btn{
+        padding:0.9rem 1.8rem;
+        font-size:1.4rem;
+    }
+
+    /* GRID */
 
     .templates-grid{
         grid-template-columns:1fr;
+        gap:2.5rem;
+    }
+
+    /* VIDEO */
+
+    .video-box{
+        height:240px;
+    }
+
+    /* BUTTONS */
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+}
+
+@media(max-width:480px){
+
+    html{
+        font-size:50%;
+    }
+
+    /* HEADER */
+
+    .header{
+        padding:1.5rem 3%;
+    }
+
+    .logo{
+        font-size:2.4rem;
+    }
+
+    .navbar{
+        gap:1.2rem;
+    }
+
+    .navbar a{
+        font-size:1.4rem;
+    }
+
+    /* HERO */
+
+    .hero{
+        padding-top:17rem;
+        padding-left:4%;
+        padding-right:4%;
+    }
+
+    .hero h1{
+        font-size:3.8rem;
+    }
+
+    .hero p{
+        font-size:1.4rem;
+        line-height:1.7;
+    }
+
+    /* SECTION */
+
+    section{
+        padding:6rem 4%;
+    }
+
+    .section-title{
+        font-size:3.3rem;
+    }
+
+    /* SEARCH */
+
+    .search-box{
+        margin-bottom:3rem;
+    }
+
+    .search-box input{
+        font-size:1.4rem;
+        padding:1.4rem 1.5rem 1.4rem 5rem;
+    }
+
+    .search-box i{
+        font-size:2rem;
+        left:1.7rem;
+    }
+
+    /* FILTER BUTTONS */
+
+    .filter-buttons{
+        justify-content:flex-start;
+        overflow-x:auto;
+        flex-wrap:nowrap;
+        padding-bottom:1rem;
+    }
+
+    .filter-buttons::-webkit-scrollbar{
+        height:6px;
+    }
+
+    .filter-btn{
+        white-space:nowrap;
+        font-size:1.3rem;
+        padding:0.8rem 1.6rem;
+    }
+
+    /* VIDEO */
+
+    .video-box{
+        height:210px;
+    }
+
+    /* CONTENT */
+
+    .template-content{
+        padding:2rem;
+    }
+
+    .template-content h3{
+        font-size:2.1rem;
+    }
+
+    .template-content p{
+        font-size:1.4rem;
+    }
+
+    /* TAGS */
+
+    .tag{
+        font-size:1.1rem;
+        padding:0.6rem 1.3rem;
+    }
+
+    /* BUTTONS */
+
+    .btn{
+        font-size:1.4rem;
+        padding:1rem 1.5rem;
+    }
+
+    /* LOAD MORE */
+
+    #loadMoreBtn{
+        width:100%;
+        font-size:1.5rem;
+        padding:1.3rem 2rem;
+    }
+
+    /* FOOTER */
+
+    .footer{
+        padding:4rem 4%;
+    }
+
+    .footer p{
+        font-size:1.3rem;
     }
 
 }
@@ -457,9 +718,9 @@ section{
 
         <button class="filter-btn" data-filter="Funny">Funny</button>
 
-        <button class="filter-btn" data-filter="Velocity">Velocity</button>
-
         <button class="filter-btn" data-filter="Cinematic">Cinematic</button>
+
+        <button class="filter-btn" data-filter="Anime">Anime</button>
 
         <button class="filter-btn" data-filter="Instagram">Instagram</button>
 

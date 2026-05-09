@@ -12,7 +12,7 @@ const memeVideos = [
         "https://res.cloudinary.com/deeafkyhs/video/upload/v1778350652/videoplayback_1_dfihaj.mp4",
 
         tags: [
-            "virat kohli",
+            "cinematic",
             "attitude",
             "relief"
         ],
@@ -22,13 +22,13 @@ const memeVideos = [
     },
 
     {
-        title: "Velocity Beat Edit",
+        title: "Luffy using laptop",
 
         video:
         "https://res.cloudinary.com/deeafkyhs/video/upload/v1778350648/AQOY-YuLOXiZtIgLV1WA7espFvukDh-XT-wORYtt9AedxJkWghn_KTPZ-4urDpy-Gt8hey6sn2nj3iSb7X6X_aWTL8uCFhN5kswIDs67zL8J5g_oyfidx.mp4",
 
         tags: [
-            "Velocity",
+            "Anime",
             "Trending"
         ],
 
@@ -37,22 +37,22 @@ const memeVideos = [
     },
 
     {
-        title: "Cinematic Reel Meme",
+        title: "Ishowspeed reacting meme",
 
         video:
         "https://res.cloudinary.com/deeafkyhs/video/upload/v1778350645/iShowSpeed_Shocking_-_Green_Screen_720p_ohk8ug.mp4",
 
         tags: [
-            "Cinematic",
+            "funny",
             "Instagram"
         ],
 
         description:
-        "Cinematic viral reel template."
+        "Ishowspeed reacting to something"
     },
 
     {
-        title: "Dark Meme Edit",
+        title: "Rajanikanth shit meme",
 
         video:
         "https://res.cloudinary.com/deeafkyhs/video/upload/v1778350636/Rajinikanth_shit_meme_green_screen_720p_vyunqq.mp4",
@@ -63,7 +63,7 @@ const memeVideos = [
         ],
 
         description:
-        "Dark humor meme template."
+        "Rajanikanth shit meme"
     }
 
 ];
