@@ -4,23 +4,6 @@
 =================================================== */
 
 const memeVideos = [
-
-    {
-        title: "virat kohli walking",
-
-        video:
-        "https://res.cloudinary.com/deeafkyhs/video/upload/v1778350652/videoplayback_1_dfihaj.mp4",
-
-        tags: [
-            "cinematic",
-            "attitude",
-            "relief"
-        ],
-
-        description:
-        "virat kohli walking  video templates"
-    },
-
     {
         title: "Luffy using laptop",
 
@@ -34,6 +17,21 @@ const memeVideos = [
 
         description:
         "Velocity beat synced meme template."
+    },
+     {
+        title: "virat kohli walking",
+
+        video:
+        "https://res.cloudinary.com/deeafkyhs/video/upload/v1778350652/videoplayback_1_dfihaj.mp4",
+
+        tags: [
+            "cinematic",
+            "attitude",
+            "relief"
+        ],
+
+        description:
+        "virat kohli walking  video templates"
     },
 
     {
