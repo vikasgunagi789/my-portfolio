@@ -62,6 +62,20 @@ const memeVideos = [
 
         description:
         "Rajanikanth shit meme"
+    },
+    {
+        title: "Salman Khan meme template",
+
+        video:
+        "https://res.cloudinary.com/du7vnk0na/video/upload/v1778507289/salman_khan_dabang_3_removing_goggles_and_looking_instagram_meme_template_720p_jl2xjg.mp4",
+
+        tags: [
+            "movie",
+            "Trending"
+        ],
+
+        description:
+        "Salman khan removing his sunglasses romantically"
     }
 
 ];
