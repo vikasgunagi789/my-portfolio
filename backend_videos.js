@@ -76,7 +76,157 @@ const memeVideos = [
 
         description:
         "Salman khan removing his sunglasses romantically"
+    },
+
+    {
+        title: "superman praised meme template",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522977/superman_praised_meme_template_HD_s5y7o9.mp4",
+
+        tags: [
+            "cinematics",
+            "Trending"
+        ],
+
+        description:
+        "A superman getting praised by the people surrounding him"
+    },
+
+    {
+        title: "Skeleton Berserks Roasting Meme Template",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522977/Skeleton_Berserks_Roasting_Meme_Template_Edit_%EF%B8%8F_nrvckm.mp4",
+
+        tags: [
+            "Trending"
+        ],
+
+        description:
+        "Skeleton Berserks Roasting Meme Template ( Edit )"
+    },
+
+    {
+        title: "Dexter Doakes Famous Meme template",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522974/Dexter_Doakes_Famous_Meme_template_shorts_dexter_djd9do.mp4",
+
+        tags: [
+            "Instagram",
+            "Trending"
+        ],
+
+        description:
+        "Dexter Doakes Famous Meme template"
+    },
+
+    {
+        title: "IshowSpeed sleep meme template",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522967/IshowSpeed_sleep_meme_template._iroehi.mp4",
+
+        tags: [
+            "Instagram",
+            "Trending"
+        ],
+
+        description:
+        "IshowSpeed sleep meme template"
+    },
+
+    {
+        title: "Zoolander Meme Template 4K",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522963/Zoolander_Meme_Template_4K_60FPS_solw2v.mp4",
+
+        tags: [
+            "Instagram",
+            "Trending"
+        ],
+
+        description:
+        "Zoolander Meme Template - staring at someone and walking away"
+    },
+
+    {
+        title: "Explaining Meme Template",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522960/Explaining_Meme_Template_vu8tzx.mp4",
+
+        tags: [
+            "Instagram",
+            "Trending"
+        ],
+
+        description:
+        "Explaining Meme Template "
+    },
+
+    {
+        title: "Gunna Writing In Fire Meme Template",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522959/Gunna_Writing_In_Fire_Meme_Template_FHD_60FPS_vlca4d.mp4",
+
+        tags: [
+            "Instagram",
+            "Trending"
+        ],
+
+        description:
+        "Gunna Writing In Fire Meme Template - writning something with fired scripts"
+    },
+
+    {
+        title: "Skeleton Smoking Meme Template",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522956/Skeleton_Smoking_Meme_Template_%EF%B8%8F_s4lzdk.mp4",
+
+        tags: [
+            "Instagram",
+            "Trending"
+        ],
+
+        description:
+        "Skeleton Smoking Meme Template"
+    },
+
+    {
+        title: "Patrick Bateman Sigma Meme Template",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522951/Patrick_Bateman_Sigma_Meme_Template_iu3hlm.mp4",
+
+        tags: [
+            "Instagram",
+            "Trending"
+        ],
+
+        description:
+        "Patrick Bateman Sigma Meme Template"
+    },
+
+    {
+        title: "Homelander Staring And Being Sad",
+
+        video:
+        "https://res.cloudinary.com/dos0wypkl/video/upload/v1778522939/Homelander_Staring_And_Being_Sad_Meme_Template_Meme_Templates_By_Tayef_k2gh3l.mp4",
+
+        tags: [
+            "Instagram",
+            "Trending"
+        ],
+
+        description:
+        "Homelander Staring And Being Sad meme template"
     }
+
 
 ];
 
