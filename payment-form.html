@@ -81,6 +81,37 @@ h1{
   border-radius:1rem;
 }
 
+
+.upload-btn{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:1.3rem;
+
+border-radius:1rem;
+
+background:#1e1e1e;
+
+border:1px dashed #00ffee;
+
+color:#00ffee;
+
+cursor:pointer;
+
+font-size:1.3rem;
+
+transition:0.3s ease;
+
+}
+
+.upload-btn:hover{
+
+background:#00ffee;
+color:black;
+
+}
 .info{
 
   text-align:center;
@@ -260,13 +291,17 @@ name="utr"
 placeholder="Enter UTR Number"
 required>
 
+<label for="screenshot" class="upload-btn">
+Upload Payment Screenshot
+</label>
+
 <input
 type="file"
 id="screenshot"
 name="attachment"
 accept="image/*"
-capture="environment"
-required>
+required
+hidden>
 
 <button type="submit">
 
