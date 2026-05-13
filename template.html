@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>After Effects Templates | Vikas Gunagi</title>
 
-  <!-- BOXICONS -->
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- GOOGLE FONT -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>After Effects Templates | Vikas Gunagi</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-  <style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    /* ================= GOOGLE FONT RESET ================= */
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= RESET ================= */
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   text-decoration:none;
-  scroll-behavior:smooth;
   font-family:'Poppins',sans-serif;
 }
 
@@ -34,31 +34,10 @@
   --text-color:#ffffff;
 }
 
-html{
-  font-size:62.5%;
-  overflow-x:hidden;
-}
-
 body{
   background:var(--bg-color);
   color:var(--text-color);
   overflow-x:hidden;
-  line-height:1.6;
-}
-
-/* ================= SCROLLBAR ================= */
-
-::-webkit-scrollbar{
-  width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-  background:var(--main-color);
-  border-radius:10px;
-}
-
-::-webkit-scrollbar-track{
-  background:var(--bg-color);
 }
 
 /* ================= HEADER ================= */
@@ -68,69 +47,53 @@ body{
   top:0;
   left:0;
   width:100%;
-  padding:1.8rem 7%;
-  background:rgba(0,0,0,0.7);
+  padding:2rem 7%;
+  background:rgba(0,0,0,0.75);
   backdrop-filter:blur(12px);
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-  font-size:2.8rem;
+  font-size:2.7rem;
   font-weight:800;
   color:white;
 }
 
 .logo span{
   color:var(--main-color);
-  text-shadow:0 0 15px var(--main-color);
 }
 
 .navbar{
   display:flex;
-  align-items:center;
-  gap:2.5rem;
+  gap:2rem;
 }
 
 .navbar a{
   color:white;
-  font-size:1.5rem;
-  font-weight:500;
-  transition:0.3s ease;
-  border-bottom:2px solid transparent;
-  padding-bottom:0.3rem;
+  font-size:1.4rem;
 }
 
 .navbar a:hover{
   color:var(--main-color);
-  border-bottom:2px solid var(--main-color);
 }
 
 /* ================= HERO ================= */
 
 .hero{
-  min-height:65vh;
+  min-height:60vh;
   display:flex;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
-  flex-direction:column;
   text-align:center;
-  padding:15rem 8% 7rem;
-
-  background:
-  linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),
-  url('Images/template-bg.jpg');
-
-  background-size:cover;
-  background-position:center;
+  padding:14rem 7% 6rem;
 }
 
 .hero h1{
-  font-size:6.5rem;
-  line-height:1.2;
+  font-size:5rem;
   margin-bottom:2rem;
 }
 
@@ -139,22 +102,22 @@ body{
 }
 
 .hero p{
-  font-size:1.7rem;
-  max-width:850px;
-  color:#d0d0d0;
-  line-height:1.9;
+  max-width:800px;
+  font-size:1.5rem;
+  color:#ccc;
+  line-height:1.8;
 }
 
-/* ================= GLOBAL SECTION ================= */
+/* ================= SECTION ================= */
 
 section{
-  padding:8rem 8%;
+  padding:7rem 7%;
 }
 
 .heading{
   text-align:center;
-  font-size:5rem;
-  margin-bottom:6rem;
+  font-size:4rem;
+  margin-bottom:5rem;
 }
 
 .heading span{
@@ -165,59 +128,43 @@ section{
 
 .templates-container{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:3rem;
-  align-items:start;
 }
-
-/* ================= TEMPLATE CARD ================= */
 
 .template-card{
   background:var(--second-bg-color);
   border-radius:2rem;
   overflow:hidden;
+  transition:0.3s ease;
   border:1px solid rgba(255,255,255,0.05);
-  transition:0.35s ease;
-  position:relative;
-  max-width:420px;
-  margin:auto;
 }
 
 .template-card:hover{
   transform:translateY(-8px);
   border-color:var(--main-color);
-  box-shadow:0 0 25px rgba(0,255,238,0.2);
+  box-shadow:0 0 20px rgba(0,255,238,0.15);
 }
-
-/* ================= VIDEO ================= */
 
 .template-card video{
   width:100%;
   height:320px;
   object-fit:cover;
-  display:block;
-  background:black;
 }
-
-.template-card video::-webkit-media-controls-panel{
-  background:rgba(0,0,0,0.75);
-}
-
-/* ================= CONTENT ================= */
 
 .template-content{
-  padding:2.2rem;
+  padding:2rem;
 }
 
 .template-content h3{
-  font-size:2.3rem;
-  margin-bottom:1.2rem;
+  font-size:2rem;
+  margin-bottom:1rem;
 }
 
 .template-content p{
-  font-size:1.45rem;
-  color:#d3d3d3;
-  line-height:1.8;
+  color:#ccc;
+  line-height:1.7;
+  font-size:1.4rem;
   margin-bottom:2rem;
 }
 
@@ -231,13 +178,12 @@ section{
 }
 
 .tag{
-  padding:0.7rem 1.4rem;
-  border-radius:30px;
-  background:rgba(0,255,238,0.08);
-  border:1px solid rgba(0,255,238,0.5);
+  padding:0.7rem 1.3rem;
+  border-radius:3rem;
+  background:rgba(0,255,238,0.1);
+  border:1px solid rgba(0,255,238,0.4);
   color:var(--main-color);
-  font-size:1.15rem;
-  font-weight:600;
+  font-size:1rem;
 }
 
 /* ================= BUTTONS ================= */
@@ -245,618 +191,384 @@ section{
 .buttons{
   display:flex;
   gap:1rem;
-  flex-wrap:wrap;
 }
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:0.8rem;
-  padding:1rem 1.8rem;
-  border-radius:40px;
-  background:var(--main-color);
-  color:black;
-  font-size:1.35rem;
-  font-weight:600;
-  transition:0.3s ease;
   flex:1;
   text-align:center;
+  padding:1rem;
+  border-radius:5rem;
+  background:var(--main-color);
+  color:black;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s ease;
 }
 
 .btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 0 12px var(--main-color);
+  box-shadow:0 0 15px var(--main-color);
 }
 
-.btn.secondary{
+.secondary{
   background:transparent;
+  border:1px solid var(--main-color);
   color:var(--main-color);
-  border:1.5px solid var(--main-color);
 }
 
-.btn.secondary:hover{
+.secondary:hover{
   background:var(--main-color);
   color:black;
 }
 
 /* ================= STATS ================= */
 
-.stats{
-  background:var(--second-bg-color);
-}
-
 .stats-container{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:2.5rem;
+  gap:2rem;
 }
 
 .stat-box{
-  background:#1b1b1b;
+  background:#141414;
   border-radius:2rem;
   text-align:center;
-  padding:4rem 2rem;
-  transition:0.3s ease;
-  border:1px solid rgba(255,255,255,0.04);
-}
-
-.stat-box:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 20px rgba(0,255,238,0.25);
+  padding:3rem;
 }
 
 .stat-box h2{
-  font-size:4.8rem;
   color:var(--main-color);
+  font-size:4rem;
   margin-bottom:1rem;
-}
-
-.stat-box p{
-  font-size:1.7rem;
 }
 
 /* ================= FOOTER ================= */
 
 .footer{
-  background:black;
-  padding:5rem 8%;
+  padding:5rem 7%;
   text-align:center;
-}
-
-.social-links{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:2rem;
-  flex-wrap:wrap;
-  margin-bottom:2rem;
-}
-
-.social-links a{
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  border:2px solid var(--main-color);
-  color:var(--main-color);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:2rem;
-  transition:0.3s ease;
-}
-
-.social-links a:hover{
-  background:var(--main-color);
-  color:black;
-  transform:translateY(-5px);
-  box-shadow:0 0 15px var(--main-color);
+  background:black;
 }
 
 .footer p{
-  font-size:1.45rem;
-  color:#d0d0d0;
-  margin-top:0.8rem;
-}
-/* ================= PAYMENT SECTION ================= */
-
-.payment-section{
-  padding:8rem 5%;
+  color:#ccc;
+  margin-top:1rem;
 }
 
-.payment-box{
-  max-width:420px;
-  margin:auto;
+/* ================= PAYMENT POPUP ================= */
+
+.payment-popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  padding:2rem;
+}
+
+.payment-form-box{
+  width:100%;
+  max-width:450px;
   background:#111;
   padding:3rem;
   border-radius:2rem;
-  text-align:center;
-  border:1px solid rgba(0,255,238,0.2);
+  position:relative;
 }
 
-.payment-box h2{
+.close-popup{
+  position:absolute;
+  top:15px;
+  right:20px;
   font-size:3rem;
+  cursor:pointer;
+}
+
+.payment-form-box h2{
+  text-align:center;
   margin-bottom:2rem;
   color:var(--main-color);
 }
 
 .qr{
-  width:260px;
-  border-radius:1.5rem;
-  margin-bottom:2rem;
+  width:220px;
+  display:block;
+  margin:0 auto 2rem;
+  border-radius:1rem;
 }
 
-.payment-box p{
-  font-size:1.5rem;
-  color:#ccc;
-  line-height:1.7;
-}
-/* ================= LARGE LAPTOP ================= */
-
-@media(max-width:1200px){
-
-  html{
-    font-size:58%;
-  }
-
-  .hero h1{
-    font-size:5.8rem;
-  }
-
+.payment-form-box form{
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
 }
 
-/* ================= TABLET ================= */
-
-@media(max-width:991px){
-
-  html{
-    font-size:55%;
-  }
-
-  .header{
-    padding:1.8rem 5%;
-  }
-
-  .hero{
-    padding-top:16rem;
-  }
-
-  .hero h1{
-    font-size:5rem;
-  }
-
-  .heading{
-    font-size:4.5rem;
-  }
-
-  .template-card video{
-    height:280px;
-  }
-
+.payment-form-box input{
+  padding:1.2rem;
+  border:none;
+  outline:none;
+  border-radius:1rem;
+  background:#1c1c1c;
+  color:white;
 }
 
-/* ================= MOBILE NAV ================= */
+.submit-btn{
+  padding:1.3rem;
+  border:none;
+  border-radius:5rem;
+  background:var(--main-color);
+  color:black;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.submit-btn:hover{
+  box-shadow:0 0 15px var(--main-color);
+}
+
+/* ================= MOBILE ================= */
 
 @media(max-width:768px){
 
-  html{
-    font-size:52%;
-  }
-
   .header{
     flex-direction:column;
-    gap:1.5rem;
-    padding:2rem 5%;
-  }
-
-  .navbar{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:1.5rem;
-  }
-
-  .hero{
-    min-height:55vh;
-    padding:18rem 5% 7rem;
-  }
-
-  .hero h1{
-    font-size:4.5rem;
-  }
-
-  .hero p{
-    font-size:1.55rem;
-  }
-
-  section{
-    padding:7rem 5%;
-  }
-
-  .heading{
-    font-size:4rem;
-    margin-bottom:5rem;
-  }
-
-  .templates-container{
-    grid-template-columns:1fr;
-  }
-
-  .template-card{
-    max-width:100%;
-  }
-
-  .template-card video{
-    height:240px;
-  }
-
-  .buttons{
-    flex-direction:column;
-  }
-
-  .btn{
-    width:100%;
-  }
-
-}
-
-/* ================= SMALL MOBILE ================= */
-
-@media(max-width:480px){
-
-  html{
-    font-size:50%;
-  }
-
-  .logo{
-    font-size:2.4rem;
+    gap:1rem;
   }
 
   .hero h1{
     font-size:3.8rem;
   }
 
-  .hero p{
-    font-size:1.45rem;
-  }
-
-  .heading{
-    font-size:3.5rem;
-  }
-
-  .template-card video{
-    height:210px;
-  }
-
-  .template-content{
-    padding:1.8rem;
-  }
-
-  .template-content h3{
-    font-size:2rem;
-  }
-
-  .template-content p{
-    font-size:1.35rem;
-  }
-
-  .tag{
-    font-size:1rem;
-    padding:0.6rem 1.2rem;
-  }
-
-  .stat-box h2{
-    font-size:4rem;
-  }
-
-  .stat-box p{
-    font-size:1.5rem;
-  }
-
-  .social-links a{
-    width:45px;
-    height:45px;
-    font-size:1.8rem;
+  .buttons{
+    flex-direction:column;
   }
 
 }
 
-  </style>
+</style>
 
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+<!-- ================= HEADER ================= -->
 
-  <header class="header">
+<header class="header">
 
-    <a href="#" class="logo">
-      Vikas <span>Templates</span>
-    </a>
+<a href="#" class="logo">
+Vikas <span>Templates</span>
+</a>
 
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="content-creation.html">Content</a>
-      <a href="#templates">Templates</a>
-      <a href="#stats">Stats</a>
-    </nav>
+<nav class="navbar">
 
-  </header>
+<a href="#">Home</a>
+<a href="#templates">Templates</a>
+<a href="#stats">Stats</a>
 
-  <!-- ================= HERO ================= -->
+</nav>
 
-  <section class="hero">
+</header>
 
-    <h1>
-      After Effects <span>Templates</span>
-    </h1>
+<!-- ================= HERO ================= -->
 
-    <p>
-      Explore my cinematic editing templates, velocity edits,
-      transitions, typography animations, reel presets,
-      and professional motion graphics created using Adobe After Effects.
-    </p>
+<section class="hero">
 
-  </section>
+<h1>
+After Effects <span>Templates</span>
+</h1>
 
-  <!-- ================= TEMPLATES ================= -->
+<p>
+Explore cinematic editing templates, transitions,
+velocity edits and professional motion graphics.
+</p>
 
-  <section id="templates">
+</section>
 
-    <h2 class="heading">
-      My <span>Templates</span>
-    </h2>
+<!-- ================= TEMPLATES ================= -->
 
-    <div class="templates-container">
+<section id="templates">
 
-      <!-- TEMPLATE 1 -->
+<h2 class="heading">
+My <span>Templates</span>
+</h2>
 
-      <div class="template-card">
+<div class="templates-container">
 
-        <video controls autoplay muted loop>
-  <source src="https://res.cloudinary.com/dhqd9rqtl/video/upload/v1778257447/Self_edit7_bez2ky.mp4" type="video/mp4">
+<!-- TEMPLATE 1 -->
+
+<div class="template-card">
+
+<video controls autoplay muted loop>
+<source src="https://res.cloudinary.com/dhqd9rqtl/video/upload/v1778257447/Self_edit7_bez2ky.mp4" type="video/mp4">
 </video>
 
-        <div class="template-content">
+<div class="template-content">
 
-          <h3>SELF EDIT</h3>
+<h3>SELF EDIT</h3>
 
-          <p>
-            Smooth self edit template with glow effects,
-            motion blur, transitions, and aesthetic typography.
-          </p>
+<p>
+Smooth self edit template with glow effects,
+motion blur and typography.
+</p>
 
-          <div class="tags">
-            <span class="tag">After Effects</span>
-            <span class="tag">Aesthetic</span>
-            <span class="tag">Intro</span>
-          </div>
+<div class="tags">
 
-          <div class="buttons">
+<span class="tag">After Effects</span>
+<span class="tag">Aesthetic</span>
+<span class="tag">Intro</span>
 
-          <a class="btn"
-href="https://docs.google.com/forms/d/e/1FAIpQLSe8glxlBu5OsPhxVboPlJ7VlIqYLFZxccfZlKKEdZhS39b4KQ/viewform?usp=header"
-target="_blank">
+</div>
+
+<div class="buttons">
+
+<a class="btn"
+href="payment-form.html?template=SELF%20EDIT">
 
 Buy Template • ₹29
 
 </a>
-                       
 
-            
+<a href="#"
+class="btn secondary">
 
-            <a href="#"
-               class="btn secondary">
+Preview
 
-               <i class='bx bx-play-circle'></i>
-               Preview
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- TEMPLATE 2 -->
-
-      <div class="template-card">
-
-        <video controls autoplay muted loop>
-  <source src="https://res.cloudinary.com/dhqd9rqtl/video/upload/v1778257112/Comp_1_5_grg95c.mp4" type="video/mp4">
-</video>
-        
-
-        <div class="template-content">
-
-          <h3>Car / Toy Edit</h3>
-
-          <p>
-            Toy edit with saber effects, 3d Text displaying in the ground and Transition 
-          </p>
-
-          <div class="tags">
-            <span class="tag">Velocity</span>
-            <span class="tag">Transitions</span>
-            <span class="tag">Trending</span>
-          </div>
-
-          <div class="buttons">
-
-            <a class="btn" onclick="increaseDownload('t2')"
-   href="https://drive.google.com/file/d/118y3T0Q3QoysXowJ2fn6IXTtSxFwFnMV/view?usp=drive_link"
-   target="_blank">
-   Download Template
 </a>
 
-            <a href="#"
-               class="btn secondary">
+</div>
 
-               <i class='bx bx-play-circle'></i>
-               Preview
+</div>
 
-            </a>
+</div>
 
-          </div>
+<!-- TEMPLATE 2 -->
 
-        </div>
+<div class="template-card">
 
-      </div>
-      <!-- TEMPLATE 2 -->
-
-      <div class="template-card">
-
-        <video controls autoplay muted loop>
-  <source src="https://res.cloudinary.com/dhqd9rqtl/video/upload/v1778257112/Comp_1_5_grg95c.mp4" type="video/mp4">
+<video controls autoplay muted loop>
+<source src="https://res.cloudinary.com/dhqd9rqtl/video/upload/v1778257112/Comp_1_5_grg95c.mp4" type="video/mp4">
 </video>
-        
 
-        <div class="template-content">
+<div class="template-content">
 
-          <h3>Lord Krishna Edit</h3>
+<h3>Car / Toy Edit</h3>
 
-          <p>
-            This Edit is done using 3d camera animation with assets. 
-          </p>
+<p>
+Toy edit with saber effects and 3D text animation.
+</p>
 
-          <div class="tags">
-            <span class="tag">3D Camera</span>
-            <span class="tag">Animation</span>
-            <span class="tag">Devotion</span>
-          </div>
+<div class="tags">
 
-          <div class="buttons">
+<span class="tag">Velocity</span>
+<span class="tag">Trending</span>
+<span class="tag">Transitions</span>
 
-            <a class="btn" onclick="increaseDownload('t3')"
-   href="https://drive.google.com/file/d/1ZI2ibeGmMjqmjOY1tDCIhG83b2nuktBe/view?usp=drive_link"
-   target="_blank">
-   Download Template
+</div>
+
+<div class="buttons">
+
+<a class="btn"
+href="payment-form.html?template=Car%20Toy%20Edit">
+
+Buy Template • ₹29
+
 </a>
 
-            <a href="#"
-               class="btn secondary">
+<a href="#"
+class="btn secondary">
 
-               <i class='bx bx-play-circle'></i>
-               Preview
+Preview
 
-            </a>
+</a>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    </div>
-<section class="payment-section">
+</div>
 
-  <div class="payment-box">
+</section>
 
-    <h2>Pay ₹29</h2>
+<!-- ================= STATS ================= -->
 
-    <img src="QR code.jpeg" class="qr">
+<section id="stats">
 
-    <p>
-      Scan the QR and complete payment.
-      After payment submit the form.
-    </p>
+<h2 class="heading">
+Template <span>Stats</span>
+</h2>
 
-  </div>
-  </section>
-  </section>
+<div class="stats-container">
 
-  <!-- ================= STATS ================= -->
+<div class="stat-box">
 
-  <section class="stats" id="stats">
+<h2>2+</h2>
+<p>Templates</p>
 
-    <h2 class="heading">
-      Template <span>Stats</span>
-    </h2>
+</div>
 
-    <div class="stats-container">
+<div class="stat-box">
 
-      <div class="stat-box">
-        <h2>2+</h2>
-        <p>Templates Created</p>
-      </div>
+<h2 id="downloads">0</h2>
+<p>Purchases</p>
 
-      <div class="stat-box">
-        <h2 id="t1">0</h2>
-        <p>Template Downloads</p>
-      </div>
+</div>
 
-      <div class="stat-box">
-        <h2>100+</h2>
-        <p>Editing Assets</p>
-      </div>
+<div class="stat-box">
 
-      <div class="stat-box">
-        <h2>24/7</h2>
-        <p>Creative Learning</p>
-      </div>
+<h2>100+</h2>
+<p>Assets</p>
 
-    </div>
-    
+</div>
 
-  </section>
+<div class="stat-box">
 
-  <!-- ================= FOOTER ================= -->
+<h2>24/7</h2>
+<p>Creativity</p>
 
-  <footer class="footer">
+</div>
 
-    <div class="social-links">
+</div>
 
-      <a href="#">
-        <i class='bx bxl-instagram-alt'></i>
-      </a>
+</section>
 
-      <a href="#">
-        <i class='bx bxl-youtube'></i>
-      </a>
+<!-- ================= FOOTER ================= -->
 
-      <a href="#">
-        <i class='bx bxl-linkedin'></i>
-      </a>
+<footer class="footer">
 
-      <a href="#">
-        <i class='bx bxl-github'></i>
-      </a>
+<p>
+© 2026 Vikas Gunagi
+</p>
 
-    </div>
+<p>
+Designed with creativity and motion graphics.
+</p>
 
-    <p>
-      © 2026 Vikas Gunagi | After Effects Templates
-    </p>
+</footer>
 
-    <p>
-      Designed with creativity and motion graphics.
-    </p>
+<!-- ================= SCRIPT ================= -->
 
-  </footer>
+<script>
+
+/* ================= DOWNLOAD COUNTER ================= */
+
+function updateDownloads(){
+
+let count =
+localStorage.getItem("downloads") || 0;
+
+document.getElementById("downloads")
+.innerText = count;
+}
+
+updateDownloads();
+
+</script>
 
 </body>
-<script>
-function increaseDownload(id){
-
-  let count = localStorage.getItem(id);
-  count = count ? parseInt(count) : 0;
-  count++;
-
-  localStorage.setItem(id, count);
-
-  updateUI();
-}
-
-function updateUI(){
-
-  let t1 = localStorage.getItem('t1') || 0;
-  let t2 = localStorage.getItem('t2') || 0;
-
-  document.getElementById('t1').innerText =
-    parseInt(t1) + parseInt(t2);
-}
-
-window.onload = updateUI;
-</script>
 </html>

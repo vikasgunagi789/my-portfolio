@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Payment Form</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+
+  min-height:100vh;
+
+  background:#080808;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:2rem;
+
+  color:white;
+}
+
+.container{
+
+  width:100%;
+  max-width:500px;
+
+  background:#131313;
+
+  border-radius:2rem;
+
+  padding:3rem;
+
+  border:1px solid rgba(0,255,238,0.2);
+
+  box-shadow:0 0 30px rgba(0,255,238,0.08);
+}
+
+h1{
+
+  text-align:center;
+
+  color:#00ffee;
+
+  margin-bottom:2rem;
+
+  font-size:3rem;
+}
+
+.qr{
+
+  width:220px;
+
+  display:block;
+
+  margin:0 auto 2rem;
+
+  border-radius:1rem;
+}
+
+.info{
+
+  text-align:center;
+
+  color:#ccc;
+
+  margin-bottom:2rem;
+
+  line-height:1.8;
+
+  font-size:1.4rem;
+}
+
+form{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:1.5rem;
+}
+
+.input-box{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:0.7rem;
+}
+
+label{
+
+  font-size:1.4rem;
+
+  color:#ddd;
+}
+
+input{
+
+  width:100%;
+
+  padding:1.3rem;
+
+  border:none;
+
+  outline:none;
+
+  border-radius:1rem;
+
+  background:#1e1e1e;
+
+  color:white;
+
+  font-size:1.4rem;
+}
+
+input::placeholder{
+
+  color:#888;
+}
+
+button{
+
+  margin-top:1rem;
+
+  padding:1.4rem;
+
+  border:none;
+
+  border-radius:5rem;
+
+  background:#00ffee;
+
+  color:black;
+
+  font-size:1.5rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+}
+
+button:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:0 0 20px #00ffee;
+}
+
+@media(max-width:600px){
+
+  .container{
+
+    padding:2rem;
+  }
+
+  h1{
+
+    font-size:2.5rem;
+  }
+
+  .qr{
+
+    width:180px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Complete Payment</h1>
+
+<img src="QR code.jpeg"
+class="qr">
+
+<p class="info">
+
+Pay ₹29 using the QR code above.
+After payment, fill the details below.
+
+</p>
+
+<form
+id="paymentForm"
+action="https://formsubmit.co/vikasgunagi7@gmail.com"
+method="POST"
+enctype="multipart/form-data">
+
+<input
+type="hidden"
+name="_captcha"
+value="false">
+
+<input
+type="hidden"
+name="_template"
+value="table">
+
+<input
+type="hidden"
+name="_autoresponse"
+value="Payment submitted successfully">
+
+<input
+type="text"
+id="name"
+name="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="Your Email"
+required>
+
+<input
+type="text"
+id="template"
+name="template"
+readonly>
+
+<input
+type="text"
+id="utr"
+name="utr"
+placeholder="Enter UTR Number"
+required>
+
+<input
+type="file"
+id="screenshot"
+name="attachment"
+accept="image/*"
+capture="environment"
+required>
+
+<button type="submit">
+
+Submit Payment
+
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+/* ================= TEMPLATE NAME ================= */
+
+const params =
+new URLSearchParams(window.location.search);
+
+const templateName =
+params.get("template");
+
+document.getElementById("template")
+.value = templateName || "";
+
+
+/* ================= GOOGLE SCRIPT URL ================= */
+
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbzt-LT5s4AFArMmkBB4h80JRhJs8pS0CnZ10Be1ui7j_z-o3wvgm12F8TdW31UJA2yj/exec";
+
+
+/* ================= FORM SUBMIT ================= */
+
+document
+.getElementById("paymentForm")
+.addEventListener(
+"submit",
+async function(e){
+
+e.preventDefault();
+
+const button =
+document.querySelector("button");
+
+button.innerText =
+"Submitting...";
+
+button.disabled = true;
+
+
+/* ================= GOOGLE SHEET DATA ================= */
+
+const data = {
+
+name:
+document.getElementById("name").value,
+
+email:
+document.getElementById("email").value,
+
+template:
+document.getElementById("template").value,
+
+utr:
+document.getElementById("utr").value
+
+};
+
+
+try{
+
+/* ================= SAVE TO GOOGLE SHEET ================= */
+
+await fetch(scriptURL, {
+
+method:"POST",
+
+body:JSON.stringify(data)
+
+});
+
+
+/* ================= SEND IMAGE TO GMAIL ================= */
+
+const formData =
+new FormData(
+document.getElementById("paymentForm")
+);
+
+await fetch(
+"https://formsubmit.co/ajax/vikasgunagi7@gmail.com",
+{
+
+method:"POST",
+
+body: formData
+
+}
+
+);
+
+
+/* ================= SUCCESS PAGE ================= */
+
+window.location.href =
+"payment-success.html";
+
+}
+
+
+catch(error){
+
+alert("Submission Failed");
+
+button.innerText =
+"Submit Payment";
+
+button.disabled = false;
+
+console.log(error);
+
+}
+
+});
+
+</script>
+</body>
+</html>
