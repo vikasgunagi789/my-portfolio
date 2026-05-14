@@ -4,8 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Payment Form</title>
 
@@ -21,205 +20,281 @@ rel="stylesheet">
 
 <style>
 
+/* ================= RESET ================= */
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+    --bg:#080808;
+    --card:#131313;
+    --main:#00ffee;
+    --text:#ffffff;
 }
 
 body{
-
-  min-height:100vh;
-
-  background:#080808;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  padding:2rem;
-
-  color:white;
+    min-height:100vh;
+    background:var(--bg);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:2rem;
+    color:var(--text);
 }
+
+/* ================= MAIN CONTAINER ================= */
 
 .container{
+    width:100%;
+    max-width:1100px;
+    background:var(--card);
+    border-radius:2.5rem;
+    overflow:hidden;
+    border:1px solid rgba(0,255,238,0.15);
+    box-shadow:0 0 30px rgba(0,255,238,0.08);
 
-  width:100%;
-  max-width:500px;
-
-  background:#131313;
-
-  border-radius:2rem;
-
-  padding:3rem;
-
-  border:1px solid rgba(0,255,238,0.2);
-
-  box-shadow:0 0 30px rgba(0,255,238,0.08);
+    display:grid;
+    grid-template-columns:420px 1fr;
 }
 
-h1{
+/* ================= LEFT SIDE ================= */
 
-  text-align:center;
+.left-side{
+    background:#0d0d0d;
+    padding:4rem 3rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border-right:1px solid rgba(255,255,255,0.05);
+}
 
-  color:#00ffee;
-
-  margin-bottom:2rem;
-
-  font-size:3rem;
+.left-side h1{
+    font-size:3.2rem;
+    color:var(--main);
+    margin-bottom:2rem;
+    text-align:center;
 }
 
 .qr{
-
-  width:220px;
-
-  display:block;
-
-  margin:0 auto 2rem;
-
-  border-radius:1rem;
+    width:100%;
+    max-width:260px;
+    border-radius:1.5rem;
+    margin-bottom:2rem;
+    border:2px solid rgba(0,255,238,0.2);
 }
 
-
-.upload-btn{
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-padding:1.3rem;
-
-border-radius:1rem;
-
-background:#1e1e1e;
-
-border:1px dashed #00ffee;
-
-color:#00ffee;
-
-cursor:pointer;
-
-font-size:1.3rem;
-
-transition:0.3s ease;
-
-}
-
-.upload-btn:hover{
-
-background:#00ffee;
-color:black;
-
-}
 .info{
+    text-align:center;
+    color:#bdbdbd;
+    line-height:1.8;
+    font-size:1.4rem;
+}
 
-  text-align:center;
+/* ================= RIGHT SIDE ================= */
 
-  color:#ccc;
+.right-side{
+    padding:4rem;
+}
 
-  margin-bottom:2rem;
-
-  line-height:1.8;
-
-  font-size:1.4rem;
+.form-title{
+    font-size:3rem;
+    margin-bottom:2rem;
+    color:white;
 }
 
 form{
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:1.5rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.8rem;
 }
 
 .input-box{
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:0.7rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.8rem;
 }
 
 label{
-
-  font-size:1.4rem;
-
-  color:#ddd;
+    font-size:1.4rem;
+    color:#ddd;
 }
 
 input{
+    width:100%;
+    padding:1.4rem;
+    border:none;
+    outline:none;
+    border-radius:1.2rem;
+    background:#1d1d1d;
+    color:white;
+    font-size:1.4rem;
+    border:1px solid transparent;
+    transition:0.3s ease;
+}
 
-  width:100%;
-
-  padding:1.3rem;
-
-  border:none;
-
-  outline:none;
-
-  border-radius:1rem;
-
-  background:#1e1e1e;
-
-  color:white;
-
-  font-size:1.4rem;
+input:focus{
+    border-color:var(--main);
+    box-shadow:0 0 10px rgba(0,255,238,0.2);
 }
 
 input::placeholder{
-
-  color:#888;
+    color:#777;
 }
 
+/* ================= FILE UPLOAD ================= */
+
+.upload-area{
+    width:100%;
+}
+
+.upload-btn{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:1rem;
+    padding:1.5rem;
+    border-radius:1.2rem;
+    background:#1e1e1e;
+    border:2px dashed rgba(0,255,238,0.5);
+    color:var(--main);
+    cursor:pointer;
+    font-size:1.4rem;
+    transition:0.3s ease;
+    text-align:center;
+}
+
+.upload-btn:hover{
+    background:rgba(0,255,238,0.08);
+}
+
+/* ================= FILE PREVIEW ================= */
+
+.file-preview{
+    margin-top:1.5rem;
+    display:none;
+    align-items:center;
+    gap:1rem;
+    background:#1b1b1b;
+    padding:1rem;
+    border-radius:1rem;
+    border:1px solid rgba(0,255,238,0.15);
+}
+
+.file-preview img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:1rem;
+}
+
+.file-details{
+    flex:1;
+}
+
+.file-name{
+    font-size:1.3rem;
+    color:white;
+    word-break:break-all;
+}
+
+.file-size{
+    font-size:1.2rem;
+    color:#aaa;
+    margin-top:0.4rem;
+}
+
+.success-text{
+    color:#00ff88;
+    font-size:1.3rem;
+    margin-top:1rem;
+    display:none;
+}
+
+/* ================= BUTTON ================= */
+
 button{
-
-  margin-top:1rem;
-
-  padding:1.4rem;
-
-  border:none;
-
-  border-radius:5rem;
-
-  background:#00ffee;
-
-  color:black;
-
-  font-size:1.5rem;
-
-  font-weight:700;
-
-  cursor:pointer;
-
-  transition:0.3s ease;
+    margin-top:1rem;
+    padding:1.5rem;
+    border:none;
+    border-radius:5rem;
+    background:var(--main);
+    color:black;
+    font-size:1.5rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s ease;
 }
 
 button:hover{
-
-  transform:translateY(-2px);
-
-  box-shadow:0 0 20px #00ffee;
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(0,255,238,0.5);
 }
 
-@media(max-width:600px){
+button:disabled{
+    opacity:0.7;
+    cursor:not-allowed;
+}
 
-  .container{
+/* ================= MOBILE ================= */
 
-    padding:2rem;
-  }
+@media(max-width:900px){
 
-  h1{
+    .container{
+        grid-template-columns:1fr;
+    }
 
-    font-size:2.5rem;
-  }
+    .left-side{
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        padding:3rem 2rem;
+    }
 
-  .qr{
+    .right-side{
+        padding:3rem 2rem;
+    }
 
-    width:180px;
-  }
+    .left-side h1{
+        font-size:2.8rem;
+    }
+
+    .form-title{
+        text-align:center;
+        font-size:2.6rem;
+    }
+
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media(max-width:500px){
+
+    body{
+        padding:1rem;
+    }
+
+    .container{
+        border-radius:2rem;
+    }
+
+    .left-side,
+    .right-side{
+        padding:2rem 1.5rem;
+    }
+
+    .qr{
+        max-width:220px;
+    }
+
+    .upload-btn{
+        font-size:1.3rem;
+        padding:1.3rem;
+    }
 
 }
 
@@ -231,85 +306,170 @@ button:hover{
 
 <div class="container">
 
-<h1>Complete Payment</h1>
+    <!-- ================= LEFT SIDE ================= -->
 
-<img src="QR code.jpeg"
-class="qr">
+    <div class="left-side">
 
-<p class="info">
+        <h1>Scan & Pay</h1>
 
-Pay ₹29 using the QR code above.
-After payment, fill the details below.
+        <img src="QR code.jpeg"
+        class="qr">
 
-</p>
+        <p class="info">
+            Pay ₹29 using the QR code above.
+            After payment, upload the screenshot
+            and fill the form details.
+        </p>
 
-<form
-id="paymentForm"
-action="https://formsubmit.co/vikasgunagi7@gmail.com"
-method="POST"
-enctype="multipart/form-data">
+    </div>
 
-<input
-type="hidden"
-name="_captcha"
-value="false">
+    <!-- ================= RIGHT SIDE ================= -->
 
-<input
-type="hidden"
-name="_template"
-value="table">
+    <div class="right-side">
 
-<input
-type="hidden"
-name="_autoresponse"
-value="Payment submitted successfully">
+        <h2 class="form-title">
+            Complete Payment
+        </h2>
 
-<input
-type="text"
-id="name"
-name="name"
-placeholder="Your Name"
-required>
+        <form
+        id="paymentForm"
+        action="https://formsubmit.co/vikasgunagi7@gmail.com"
+        method="POST"
+        enctype="multipart/form-data">
 
-<input
-type="email"
-id="email"
-name="email"
-placeholder="Your Email"
-required>
+        <input
+        type="hidden"
+        name="_captcha"
+        value="false">
 
-<input
-type="text"
-id="template"
-name="template"
-readonly>
+        <input
+        type="hidden"
+        name="_template"
+        value="table">
 
-<input
-type="text"
-id="utr"
-name="utr"
-placeholder="Enter UTR Number"
-required>
+        <input
+        type="hidden"
+        name="_autoresponse"
+        value="Payment submitted successfully">
 
-<label for="screenshot" class="upload-btn">
-Upload Payment Screenshot
-</label>
+        <!-- NAME -->
 
-<input
-type="file"
-id="screenshot"
-name="attachment"
-accept="image/*"
-required
-hidden>
+        <div class="input-box">
 
-<button type="submit">
+            <label>Your Name</label>
 
-Submit Payment
+            <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required>
 
-</button>
+        </div>
 
-</form>
+        <!-- EMAIL -->
+
+        <div class="input-box">
+
+            <label>Email Address</label>
+
+            <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required>
+
+        </div>
+
+        <!-- TEMPLATE -->
+
+        <div class="input-box">
+
+            <label>Template Name</label>
+
+            <input
+            type="text"
+            id="template"
+            name="template"
+            readonly>
+
+        </div>
+
+        <!-- UTR -->
+
+        <div class="input-box">
+
+            <label>UTR Number</label>
+
+            <input
+            type="text"
+            id="utr"
+            name="utr"
+            placeholder="Enter payment UTR number"
+            required>
+
+        </div>
+
+        <!-- IMAGE UPLOAD -->
+
+        <div class="upload-area">
+
+            <label
+            for="screenshot"
+            class="upload-btn">
+
+            📤 Upload Payment Screenshot
+
+            </label>
+
+            <input
+            type="file"
+            id="screenshot"
+            name="attachment"
+            accept="image/*"
+            required
+            hidden>
+
+            <!-- FILE PREVIEW -->
+
+            <div class="file-preview"
+            id="filePreview">
+
+                <img id="previewImage">
+
+                <div class="file-details">
+
+                    <div class="file-name"
+                    id="fileName"></div>
+
+                    <div class="file-size"
+                    id="fileSize"></div>
+
+                </div>
+
+            </div>
+
+            <div class="success-text"
+            id="successText">
+
+            Screenshot Uploaded Successfully
+
+            </div>
+
+        </div>
+
+        <!-- BUTTON -->
+
+        <button type="submit">
+
+            Submit Payment
+
+        </button>
+
+        </form>
+
+    </div>
 
 </div>
 
@@ -317,116 +477,100 @@ Submit Payment
 
 /* ================= TEMPLATE NAME ================= */
 
-const params =
-new URLSearchParams(window.location.search);
+const params = new URLSearchParams(window.location.search);
+const templateName = params.get("template");
 
-const templateName =
-params.get("template");
-
-document.getElementById("template")
-.value = templateName || "";
-
+document.getElementById("template").value = templateName || "";
 
 /* ================= GOOGLE SCRIPT URL ================= */
 
-const scriptURL =
-"https://script.google.com/macros/s/AKfycbzt-LT5s4AFArMmkBB4h80JRhJs8pS0CnZ10Be1ui7j_z-o3wvgm12F8TdW31UJA2yj/exec";
-
+const scriptURL = "https://script.google.com/macros/s/AKfycbzt-LT5s4AFArMmkBB4h80JRhJs8pS0CnZ10Be1ui7j_z-o3wvgm12F8TdW31UJA2yj/exec";
 
 /* ================= FORM SUBMIT ================= */
 
-document
-.getElementById("paymentForm")
-.addEventListener(
-"submit",
-async function(e){
+document.getElementById("paymentForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-e.preventDefault();
+    const button = document.querySelector("button");
+    button.innerText = "Submitting...";
+    button.disabled = true;
 
-const button =
-document.querySelector("button");
+    try {
 
-button.innerText =
-"Submitting...";
+        /* ================= 1. SEND DATA TO GOOGLE SHEET ================= */
 
-button.disabled = true;
+        const data = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            template: document.getElementById("template").value,
+            utr: document.getElementById("utr").value
+        };
 
+        await fetch(scriptURL, {
+            method: "POST",
+            body: JSON.stringify(data)
+        });
 
-/* ================= GOOGLE SHEET DATA ================= */
+        /* ================= 2. SEND FULL FORM (WITH IMAGE) ================= */
 
-const data = {
+        const form = document.getElementById("paymentForm");
+        const formData = new FormData(form);
 
-name:
-document.getElementById("name").value,
+        const res = await fetch("https://formsubmit.co/ajax/vikasgunagi7@gmail.com", {
+            method: "POST",
+            body: formData
+        });
 
-email:
-document.getElementById("email").value,
+        if (!res.ok) {
+            throw new Error("FormSubmit failed");
+        }
 
-template:
-document.getElementById("template").value,
+        /* ================= 3. SUCCESS ================= */
 
-utr:
-document.getElementById("utr").value
+        window.location.href = "payment-success.html";
 
-};
+    } catch (error) {
 
+        console.log(error);
 
-try{
+        alert("Payment Failed. Please try again.");
 
-/* ================= SAVE TO GOOGLE SHEET ================= */
-
-await fetch(scriptURL, {
-
-method:"POST",
-
-body:JSON.stringify(data)
-
+        button.innerText = "Submit Payment";
+        button.disabled = false;
+    }
 });
 
 
-/* ================= SEND IMAGE TO GMAIL ================= */
+/* ================= FILE UPLOAD PREVIEW (OPTIONAL BUT GOOD UX) ================= */
 
-const formData =
-new FormData(
-document.getElementById("paymentForm")
-);
+const screenshotInput = document.getElementById("screenshot");
+const filePreview = document.getElementById("filePreview");
+const previewImage = document.getElementById("previewImage");
+const fileName = document.getElementById("fileName");
+const fileSize = document.getElementById("fileSize");
+const successText = document.getElementById("successText");
 
-await fetch(
-"https://formsubmit.co/ajax/vikasgunagi7@gmail.com",
-{
+screenshotInput.addEventListener("change", function () {
 
-method:"POST",
+    const file = this.files[0];
 
-body: formData
+    if (file) {
 
-}
+        filePreview.style.display = "flex";
+        successText.style.display = "block";
 
-);
+        fileName.innerText = file.name;
+        fileSize.innerText = (file.size / 1024).toFixed(2) + " KB";
 
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            previewImage.src = e.target.result;
+        };
 
-/* ================= SUCCESS PAGE ================= */
-
-window.location.href =
-"payment-success.html";
-
-}
-
-
-catch(error){
-
-alert("Submission Failed");
-
-button.innerText =
-"Submit Payment";
-
-button.disabled = false;
-
-console.log(error);
-
-}
-
+        reader.readAsDataURL(file);
+    }
 });
-
 </script>
+
 </body>
 </html>
