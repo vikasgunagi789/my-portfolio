@@ -516,10 +516,10 @@ document.getElementById("paymentForm").addEventListener("submit", async function
         const form = document.getElementById("paymentForm");
         const formData = new FormData(form);
 
-        const res = await fetch("https://formsubmit.co/ajax/vikasgunagi7@gmail.com", {
-            method: "POST",
-            body: formData
-        });
+        const res = await fetch("https://formsubmit.co/vikasgunagi7@gmail.com", {
+    method: "POST",
+    body: formData
+});
 
         if (!res.ok) {
             throw new Error("FormSubmit failed");
