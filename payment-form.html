@@ -331,25 +331,30 @@ button:disabled{
             Complete Payment
         </h2>
 
-        <form id="paymentForm"
-      action="https://script.google.com/macros/s/AKfycbzt-LT5s4AFArMmkBB4h80JRhJs8pS0CnZ10Be1ui7j_z-o3wvgm12F8TdW31UJA2yj/exec"
-      method="POST"
-      enctype="multipart/form-data">
+<form id="paymentForm"
+action="https://script.google.com/macros/s/AKfycbzt-LT5s4AFArMmkBB4h80JRhJs8pS0CnZ10Be1ui7j_z-o3wvgm12F8TdW31UJA2yj/exec"
+method="POST"
+enctype="multipart/form-data">
 
-        <input
-        type="hidden"
-        name="_captcha"
-        value="false">
+<input
+type="hidden"
+name="_next"
+value="https://vikasgunagi789.github.io/payment-success.html">
 
-        <input
-        type="hidden"
-        name="_template"
-        value="table">
+<input
+type="hidden"
+name="_captcha"
+value="false">
 
-        <input
-        type="hidden"
-        name="_autoresponse"
-        value="Payment submitted successfully">
+<input
+type="hidden"
+name="_template"
+value="table">
+
+<input
+type="hidden"
+name="_autoresponse"
+value="Payment submitted successfully">
 
         <!-- NAME -->
 
@@ -480,17 +485,20 @@ const params = new URLSearchParams(window.location.search);
 const templateName = params.get("template");
 document.getElementById("template").value = templateName || "";
 
-/* ================= GOOGLE SCRIPT URL ================= */
+//* ================= FORM SUBMIT BUTTON ================= */
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbzt-LT5s4AFArMmkBB4h80JRhJs8pS0CnZ10Be1ui7j_z-o3wvgm12F8TdW31UJA2yj/exec";
+const paymentForm = document.getElementById("paymentForm");
 
 /* ================= FORM SUBMIT ================= */
-document.getElementById("paymentForm").addEventListener("submit", function () {
+
+paymentForm.addEventListener("submit", function () {
+
     const button = document.querySelector("button");
+
     button.innerText = "Submitting...";
     button.disabled = true;
-});
 
+});
 
 /* ================= FILE UPLOAD PREVIEW ================= */
 
@@ -506,6 +514,7 @@ screenshotInput.addEventListener("change", function () {
     const file = this.files[0];
 
     if (file) {
+
         filePreview.style.display = "flex";
         successText.style.display = "block";
 
@@ -513,12 +522,17 @@ screenshotInput.addEventListener("change", function () {
         fileSize.innerText = (file.size / 1024).toFixed(2) + " KB";
 
         const reader = new FileReader();
+
         reader.onload = function (e) {
+
             previewImage.src = e.target.result;
+
         };
 
         reader.readAsDataURL(file);
+
     }
+
 });
 
 </script>
