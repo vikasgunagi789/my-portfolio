@@ -332,11 +332,14 @@ button:disabled{
         </h2>
 
         <form
-        id="paymentForm"
-        action="https://formsubmit.co/vikasgunagi7@gmail.com"
-        method="POST"
-        enctype="multipart/form-data">
-
+id="paymentForm"
+action="https://formsubmit.co/vikasgunagi7@gmail.com"
+method="POST"
+enctype="multipart/form-data">
+<input
+type="hidden"
+name="_next"
+value="https://vikasgunagi789.github.io/payment-success.html">
         <input
         type="hidden"
         name="_captcha"
@@ -482,66 +485,20 @@ const templateName = params.get("template");
 
 document.getElementById("template").value = templateName || "";
 
-/* ================= GOOGLE SCRIPT URL ================= */
+/* ================= FORM SUBMIT BUTTON ================= */
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbzt-LT5s4AFArMmkBB4h80JRhJs8pS0CnZ10Be1ui7j_z-o3wvgm12F8TdW31UJA2yj/exec";
+const paymentForm = document.getElementById("paymentForm");
 
-/* ================= FORM SUBMIT ================= */
-
-document.getElementById("paymentForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
+paymentForm.addEventListener("submit", function () {
 
     const button = document.querySelector("button");
+
     button.innerText = "Submitting...";
     button.disabled = true;
 
-    try {
-
-        /* ================= 1. SEND DATA TO GOOGLE SHEET ================= */
-
-        const data = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            template: document.getElementById("template").value,
-            utr: document.getElementById("utr").value
-        };
-
-        await fetch(scriptURL, {
-            method: "POST",
-            body: JSON.stringify(data)
-        });
-
-        /* ================= 2. SEND FULL FORM (WITH IMAGE) ================= */
-
-        const form = document.getElementById("paymentForm");
-        const formData = new FormData(form);
-
-        const res = await fetch("https://formsubmit.co/vikasgunagi7@gmail.com", {
-    method: "POST",
-    body: formData
 });
 
-        if (!res.ok) {
-            throw new Error("FormSubmit failed");
-        }
-
-        /* ================= 3. SUCCESS ================= */
-
-        window.location.href = "payment-success.html";
-
-    } catch (error) {
-
-        console.log(error);
-
-        alert("Payment Failed. Please try again.");
-
-        button.innerText = "Submit Payment";
-        button.disabled = false;
-    }
-});
-
-
-/* ================= FILE UPLOAD PREVIEW (OPTIONAL BUT GOOD UX) ================= */
+/* ================= FILE UPLOAD PREVIEW ================= */
 
 const screenshotInput = document.getElementById("screenshot");
 const filePreview = document.getElementById("filePreview");
@@ -556,20 +513,32 @@ screenshotInput.addEventListener("change", function () {
 
     if (file) {
 
+        /* SHOW PREVIEW BOX */
+
         filePreview.style.display = "flex";
         successText.style.display = "block";
+
+        /* FILE DETAILS */
 
         fileName.innerText = file.name;
         fileSize.innerText = (file.size / 1024).toFixed(2) + " KB";
 
+        /* IMAGE PREVIEW */
+
         const reader = new FileReader();
+
         reader.onload = function (e) {
+
             previewImage.src = e.target.result;
+
         };
 
         reader.readAsDataURL(file);
+
     }
+
 });
+
 </script>
 
 </body>
