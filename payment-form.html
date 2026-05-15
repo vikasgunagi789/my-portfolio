@@ -270,8 +270,6 @@ button:disabled{
 
 }
 
-/* ================= SMALL MOBILE ================= */
-
 @media(max-width:500px){
 
     body{
@@ -306,8 +304,6 @@ button:disabled{
 
 <div class="container">
 
-    <!-- ================= LEFT SIDE ================= -->
-
     <div class="left-side">
 
         <h1>Scan & Pay</h1>
@@ -323,40 +319,13 @@ button:disabled{
 
     </div>
 
-    <!-- ================= RIGHT SIDE ================= -->
-
     <div class="right-side">
 
         <h2 class="form-title">
             Complete Payment
         </h2>
 
-<form id="paymentForm"
-action="https://script.google.com/macros/s/AKfycbzt-LT5s4AFArMmkBB4h80JRhJs8pS0CnZ10Be1ui7j_z-o3wvgm12F8TdW31UJA2yj/exec"
-method="POST"
-enctype="multipart/form-data">
-
-<input
-type="hidden"
-name="_next"
-value="https://vikasgunagi789.github.io/payment-success.html">
-
-<input
-type="hidden"
-name="_captcha"
-value="false">
-
-<input
-type="hidden"
-name="_template"
-value="table">
-
-<input
-type="hidden"
-name="_autoresponse"
-value="Payment submitted successfully">
-
-        <!-- NAME -->
+<form id="paymentForm">
 
         <div class="input-box">
 
@@ -365,13 +334,10 @@ value="Payment submitted successfully">
             <input
             type="text"
             id="name"
-            name="name"
             placeholder="Enter your name"
             required>
 
         </div>
-
-        <!-- EMAIL -->
 
         <div class="input-box">
 
@@ -380,13 +346,10 @@ value="Payment submitted successfully">
             <input
             type="email"
             id="email"
-            name="email"
             placeholder="Enter your email"
             required>
 
         </div>
-
-        <!-- TEMPLATE -->
 
         <div class="input-box">
 
@@ -395,12 +358,9 @@ value="Payment submitted successfully">
             <input
             type="text"
             id="template"
-            name="template"
             readonly>
 
         </div>
-
-        <!-- UTR -->
 
         <div class="input-box">
 
@@ -409,13 +369,10 @@ value="Payment submitted successfully">
             <input
             type="text"
             id="utr"
-            name="utr"
             placeholder="Enter payment UTR number"
             required>
 
         </div>
-
-        <!-- IMAGE UPLOAD -->
 
         <div class="upload-area">
 
@@ -430,12 +387,8 @@ value="Payment submitted successfully">
             <input
             type="file"
             id="screenshot"
-            name="attachment"
             accept="image/*"
-            required
             hidden>
-
-            <!-- FILE PREVIEW -->
 
             <div class="file-preview"
             id="filePreview">
@@ -457,13 +410,11 @@ value="Payment submitted successfully">
             <div class="success-text"
             id="successText">
 
-            Screenshot Uploaded Successfully
+            Screenshot Selected Successfully
 
             </div>
 
         </div>
-
-        <!-- BUTTON -->
 
         <button type="submit">
 
@@ -471,7 +422,7 @@ value="Payment submitted successfully">
 
         </button>
 
-        </form>
+</form>
 
     </div>
 
@@ -482,31 +433,73 @@ value="Payment submitted successfully">
 /* ================= TEMPLATE NAME ================= */
 
 const params = new URLSearchParams(window.location.search);
+
 const templateName = params.get("template");
+
 document.getElementById("template").value = templateName || "";
-
-//* ================= FORM SUBMIT BUTTON ================= */
-
-const paymentForm = document.getElementById("paymentForm");
 
 /* ================= FORM SUBMIT ================= */
 
-paymentForm.addEventListener("submit", function () {
+const paymentForm = document.getElementById("paymentForm");
+
+paymentForm.addEventListener("submit", async function(e){
+
+    e.preventDefault();
 
     const button = document.querySelector("button");
 
     button.innerText = "Submitting...";
     button.disabled = true;
 
+    const formData = new FormData();
+
+    /* REPLACE THESE ENTRY IDs WITH YOUR REAL IDs */
+
+    formData.append(
+    "entry.1592136715",
+    document.getElementById("name").value
+);
+
+formData.append(
+    "entry.1970011121",
+    document.getElementById("email").value
+);
+
+formData.append(
+    "entry.1044563917",
+    document.getElementById("template").value
+);
+
+formData.append(
+    "entry.446561530",
+    document.getElementById("utr").value
+);
+
+    await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSe8glxlBu5OsPhxVboPlJ7VlIqYLFZxccfZlKKEdZhS39b4KQ/formResponse",
+        {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+        }
+    );
+
+    window.location.href = "payment-success.html";
+
 });
 
-/* ================= FILE UPLOAD PREVIEW ================= */
+/* ================= FILE PREVIEW ================= */
 
 const screenshotInput = document.getElementById("screenshot");
+
 const filePreview = document.getElementById("filePreview");
+
 const previewImage = document.getElementById("previewImage");
+
 const fileName = document.getElementById("fileName");
+
 const fileSize = document.getElementById("fileSize");
+
 const successText = document.getElementById("successText");
 
 screenshotInput.addEventListener("change", function () {
@@ -516,10 +509,13 @@ screenshotInput.addEventListener("change", function () {
     if (file) {
 
         filePreview.style.display = "flex";
+
         successText.style.display = "block";
 
         fileName.innerText = file.name;
-        fileSize.innerText = (file.size / 1024).toFixed(2) + " KB";
+
+        fileSize.innerText =
+        (file.size / 1024).toFixed(2) + " KB";
 
         const reader = new FileReader();
 
