@@ -42,208 +42,162 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:2rem;
+    padding:25px;
     color:var(--text);
 }
 
-/* ================= MAIN CONTAINER ================= */
+/* ================= CONTAINER ================= */
 
 .container{
     width:100%;
-    max-width:1100px;
+    max-width:1150px;
     background:var(--card);
-    border-radius:2.5rem;
+    border-radius:30px;
     overflow:hidden;
-    border:1px solid rgba(0,255,238,0.15);
-    box-shadow:0 0 30px rgba(0,255,238,0.08);
+    border:1px solid rgba(0,255,238,0.12);
+    box-shadow:0 0 35px rgba(0,255,238,0.08);
 
     display:grid;
-    grid-template-columns:420px 1fr;
+    grid-template-columns:380px 1fr;
 }
 
 /* ================= LEFT SIDE ================= */
 
 .left-side{
     background:#0d0d0d;
-    padding:4rem 3rem;
+    padding:45px 30px;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    border-right:1px solid rgba(255,255,255,0.05);
+
+    border-right:1px solid rgba(255,255,255,0.06);
 }
 
 .left-side h1{
-    font-size:3.2rem;
+    font-size:2.7rem;
     color:var(--main);
-    margin-bottom:2rem;
+    margin-bottom:25px;
     text-align:center;
 }
 
 .qr{
     width:100%;
-    max-width:260px;
-    border-radius:1.5rem;
-    margin-bottom:2rem;
-    border:2px solid rgba(0,255,238,0.2);
+    max-width:250px;
+    border-radius:20px;
+    border:2px solid rgba(0,255,238,0.18);
+    margin-bottom:25px;
 }
 
 .info{
     text-align:center;
     color:#bdbdbd;
-    line-height:1.8;
-    font-size:1.4rem;
+    line-height:1.7;
+    font-size:1rem;
+    max-width:280px;
 }
 
 /* ================= RIGHT SIDE ================= */
 
 .right-side{
-    padding:4rem;
+    padding:50px;
 }
 
 .form-title{
-    font-size:3rem;
-    margin-bottom:2rem;
+    font-size:2.4rem;
+    margin-bottom:30px;
     color:white;
 }
 
 form{
     display:flex;
     flex-direction:column;
-    gap:1.8rem;
+    gap:20px;
 }
+
+/* ================= INPUTS ================= */
 
 .input-box{
     display:flex;
     flex-direction:column;
-    gap:0.8rem;
+    gap:8px;
 }
 
 label{
-    font-size:1.4rem;
+    font-size:1rem;
     color:#ddd;
+    font-weight:500;
 }
 
 input{
     width:100%;
-    padding:1.4rem;
+    padding:15px 18px;
     border:none;
     outline:none;
-    border-radius:1.2rem;
+    border-radius:14px;
     background:#1d1d1d;
     color:white;
-    font-size:1.4rem;
+    font-size:1rem;
     border:1px solid transparent;
     transition:0.3s ease;
 }
 
 input:focus{
     border-color:var(--main);
-    box-shadow:0 0 10px rgba(0,255,238,0.2);
+    box-shadow:0 0 12px rgba(0,255,238,0.15);
 }
 
 input::placeholder{
     color:#777;
 }
 
-/* ================= FILE UPLOAD ================= */
-
-.upload-area{
-    width:100%;
-}
-
-.upload-btn{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:1rem;
-    padding:1.5rem;
-    border-radius:1.2rem;
-    background:#1e1e1e;
-    border:2px dashed rgba(0,255,238,0.5);
-    color:var(--main);
-    cursor:pointer;
-    font-size:1.4rem;
-    transition:0.3s ease;
-    text-align:center;
-}
-
-.upload-btn:hover{
-    background:rgba(0,255,238,0.08);
-}
-
-/* ================= FILE PREVIEW ================= */
-
-.file-preview{
-    margin-top:1.5rem;
-    display:none;
-    align-items:center;
-    gap:1rem;
-    background:#1b1b1b;
-    padding:1rem;
-    border-radius:1rem;
-    border:1px solid rgba(0,255,238,0.15);
-}
-
-.file-preview img{
-    width:70px;
-    height:70px;
-    object-fit:cover;
-    border-radius:1rem;
-}
-
-.file-details{
-    flex:1;
-}
-
-.file-name{
-    font-size:1.3rem;
-    color:white;
-    word-break:break-all;
-}
-
-.file-size{
-    font-size:1.2rem;
-    color:#aaa;
-    margin-top:0.4rem;
-}
-
-.success-text{
-    color:#00ff88;
-    font-size:1.3rem;
-    margin-top:1rem;
-    display:none;
-}
-
 /* ================= BUTTON ================= */
 
-button{
-    margin-top:1rem;
-    padding:1.5rem;
+.submit-btn{
+    margin-top:10px;
+    padding:16px;
     border:none;
-    border-radius:5rem;
+    border-radius:50px;
     background:var(--main);
     color:black;
-    font-size:1.5rem;
+    font-size:1rem;
     font-weight:700;
     cursor:pointer;
     transition:0.3s ease;
 }
 
-button:hover{
+.submit-btn:hover{
     transform:translateY(-2px);
-    box-shadow:0 0 20px rgba(0,255,238,0.5);
+    box-shadow:0 0 18px rgba(0,255,238,0.45);
 }
 
-button:disabled{
+.submit-btn:disabled{
     opacity:0.7;
     cursor:not-allowed;
 }
 
-/* ================= MOBILE ================= */
+/* ================= LARGE LAPTOPS ================= */
+
+@media(max-width:1200px){
+
+    .container{
+        max-width:1000px;
+    }
+
+    .right-side{
+        padding:40px;
+    }
+
+}
+
+/* ================= TABLETS ================= */
 
 @media(max-width:900px){
+
+    body{
+        padding:18px;
+    }
 
     .container{
         grid-template-columns:1fr;
@@ -252,46 +206,95 @@ button:disabled{
     .left-side{
         border-right:none;
         border-bottom:1px solid rgba(255,255,255,0.05);
-        padding:3rem 2rem;
+        padding:35px 25px;
     }
 
     .right-side{
-        padding:3rem 2rem;
+        padding:35px 25px;
     }
 
     .left-side h1{
-        font-size:2.8rem;
+        font-size:2.3rem;
     }
 
     .form-title{
         text-align:center;
-        font-size:2.6rem;
+        font-size:2rem;
+    }
+
+    .info{
+        font-size:0.95rem;
     }
 
 }
 
-@media(max-width:500px){
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
 
     body{
-        padding:1rem;
+        padding:12px;
+        align-items:flex-start;
     }
 
     .container{
-        border-radius:2rem;
+        border-radius:22px;
     }
 
     .left-side,
     .right-side{
-        padding:2rem 1.5rem;
+        padding:25px 18px;
+    }
+
+    .left-side h1{
+        font-size:2rem;
+        margin-bottom:20px;
     }
 
     .qr{
-        max-width:220px;
+        max-width:210px;
     }
 
-    .upload-btn{
-        font-size:1.3rem;
-        padding:1.3rem;
+    .form-title{
+        font-size:1.7rem;
+        margin-bottom:20px;
+    }
+
+    input{
+        padding:14px;
+        font-size:0.95rem;
+    }
+
+    .submit-btn{
+        padding:15px;
+        font-size:1rem;
+    }
+
+    label{
+        font-size:0.95rem;
+    }
+
+    .info{
+        font-size:0.9rem;
+        line-height:1.6;
+    }
+
+}
+
+/* ================= EXTRA SMALL DEVICES ================= */
+
+@media(max-width:380px){
+
+    .left-side h1{
+        font-size:1.7rem;
+    }
+
+    .form-title{
+        font-size:1.5rem;
+    }
+
+    .qr{
+        max-width:180px;
     }
 
 }
@@ -313,8 +316,8 @@ button:disabled{
 
         <p class="info">
             Pay ₹29 using the QR code above.
-            After payment, upload the screenshot
-            and fill the form details.
+            Copy the UTR number to Paste it Below.
+            After submitting, You will redirect to whatsapp to send the screenshot 
         </p>
 
     </div>
@@ -325,130 +328,6 @@ button:disabled{
             Complete Payment
         </h2>
 
-<!-- <form
-id="paymentForm"
-action="https://formsubmit.co/vikasgunagi7@gmail.com"
-method="POST"
-enctype="multipart/form-data">
-
-        <div class="input-box">
-
-            <label>Your Name</label>
-
-            <input
-            type="text"
-            id="name"
-            placeholder="Enter your name"
-            required>
-
-        </div>
-
-        <div class="input-box">
-
-            <label>Email Address</label>
-
-            <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            required>
-
-        </div>
-
-        <div class="input-box">
-
-            <label>Template Name</label>
-
-            <input
-            type="text"
-            id="template"
-            readonly>
-
-        </div>
-
-        <div class="input-box">
-
-            <label>UTR Number</label>
-
-            <input
-            type="text"
-            id="utr"
-            placeholder="Enter payment UTR number"
-            required>
-
-        </div>
-
-        <div class="upload-area">
-
-            <label
-            for="screenshot"
-            class="upload-btn">
-
-            📤 Upload Payment Screenshot
-
-            </label>
-
-            <input
-            type="file"
-            id="screenshot"
-            accept="image/*"
-            hidden>
-
-            <div class="file-preview"
-            id="filePreview">
-
-                <img id="previewImage">
-
-                <div class="file-details">
-
-                    <div class="file-name"
-                    id="fileName"></div>
-
-                    <div class="file-size"
-                    id="fileSize"></div>
-
-                </div>
-
-            </div>
-            <input type="hidden" name="_captcha" value="false">
-
-<input type="hidden"
-name="_next"
-value="https://vikasgunagi789.github.io/my-portfolio/payment-success.html">
-
-<input type="hidden"
-name="_subject"
-value="New Payment Submission">
-            <div class="input-box">
-
-<label>Phone Number</label>
-
-<input
-type="tel"
-id="phone"
-placeholder="Enter WhatsApp number"
-required>
-
-</div>
-            
-            
-
-            <div class="success-text"
-            id="successText">
-
-            Screenshot Selected Successfully
-
-            </div>
-
-        </div>
-
-        <button type="submit">
-
-            Submit Payment
-
-        </button>
-
-</form> -->
 <form
 id="paymentForm"
 action="https://api.web3forms.com/submit"
