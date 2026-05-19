@@ -241,20 +241,37 @@ p{
 
     <h1>Order Successful </h1>
 
-    <p>
-        Thank you for your purchase!<br>
-        Your <span class="highlight">template will be delivered to your email within a few minutes</span>.
-    </p>
+  <p>
 
-    <p>
-        If you don’t receive it, contact support immediately.
-    </p>
+Your payment details have been
+<span class="highlight">submitted successfully</span>.
+
+</p>
+
+<p>
+
+To complete verification, please click the
+<span class="highlight">WhatsApp button below</span>
+and send your payment screenshot.
+
+</p>
+
+<p>
+
+After verification, your template will be delivered to your email shortly.
+
+</p>
 
     <div class="btn-group">
 
-        <a href="https://wa.me/919353475001" class="btn primary">
-            Contact on WhatsApp
-        </a>
+        <a
+href="https://wa.me/919353475001"
+target="_blank"
+class="btn primary">
+
+Send Screenshot on WhatsApp
+
+</a>
 
         <a href="index.html" class="btn secondary">
             Back to Website
@@ -267,6 +284,26 @@ p{
     </div>
 
 </div>
+<script>
 
+const whatsappBtn =
+document.getElementById("whatsappBtn");
+
+const message =
+localStorage.getItem("whatsappMessage");
+
+whatsappBtn.addEventListener(
+"click",
+function(){
+
+const whatsappURL =
+
+`https://wa.me/919353475001?text=${encodeURIComponent(message)}`;
+
+window.open(whatsappURL, "_blank");
+
+});
+
+</script>
 </body>
 </html>
