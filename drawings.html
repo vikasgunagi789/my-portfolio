@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vikas Gunagi | Pencil Drawings</title>
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+    --bg-color:#050505;
+    --second-bg:#101010;
+    --text-color:#ffffff;
+    --main-color:#00ffee;
+    --card-color:#141414;
+}
+
+html{
+    font-size:62.5%;
+}
+
+body{
+    background:var(--bg-color);
+    color:var(--text-color);
+    overflow-x:hidden;
+}
+
+/* =====================================================
+   CUSTOM SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0a0a0a;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--main-color);
+    border-radius:10px;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:2.2rem 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(0,0,0,0.6);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,0.05);
+
+    z-index:1000;
+}
+
+.logo{
+    font-size:3.4rem;
+    font-weight:800;
+    color:white;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:var(--main-color);
+
+    text-shadow:
+    0 0 10px var(--main-color),
+    0 0 30px var(--main-color);
+}
+
+.navbar{
+    display:flex;
+    gap:3.5rem;
+}
+
+.navbar a{
+    color:white;
+    font-size:1.8rem;
+    font-weight:500;
+    position:relative;
+    transition:0.3s ease;
+}
+
+.navbar a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+
+    width:0%;
+    height:2px;
+
+    background:var(--main-color);
+
+    transition:0.3s ease;
+}
+
+.navbar a:hover{
+    color:var(--main-color);
+}
+
+.navbar a:hover::after{
+    width:100%;
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:15rem 10% 6rem;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.45)
+    ),
+    url("drawing_images/image5.jpeg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    position:relative;
+}
+
+/* MOBILE BACKGROUND */
+
+@media(max-width:768px){
+
+    .hero{
+
+        background:
+        linear-gradient(
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.4)
+        ),
+        url("drawing_images/image27.jpeg");
+
+        background-size:cover;
+        background-position:center;
+        background-attachment:scroll;
+    }
+
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(0,255,238,0.08), transparent 25%),
+
+    radial-gradient(circle at bottom right,
+    rgba(0,255,238,0.08), transparent 25%);
+}
+
+.hero h1{
+    font-size:9rem;
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    line-height:1.1;
+
+    letter-spacing:3px;
+
+    position:relative;
+    z-index:1;
+}
+
+.hero h1 span{
+    color:var(--main-color);
+
+    text-shadow:
+    0 0 15px var(--main-color),
+    0 0 35px var(--main-color);
+}
+
+.hero p{
+    max-width:1000px;
+
+    margin-top:3rem;
+
+    font-size:2.1rem;
+    line-height:1.9;
+
+    color:#d8d8d8;
+
+    position:relative;
+    z-index:1;
+}
+
+.scroll-btn{
+    margin-top:5rem;
+
+    width:7rem;
+    height:7rem;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    border:2px solid var(--main-color);
+
+    color:var(--main-color);
+
+    font-size:3.5rem;
+
+    transition:0.4s ease;
+
+    position:relative;
+    z-index:1;
+
+    animation:float 2s infinite;
+}
+
+.scroll-btn:hover{
+    background:var(--main-color);
+
+    color:black;
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 20px var(--main-color),
+    0 0 45px var(--main-color);
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* =====================================================
+   GALLERY SECTION
+===================================================== */
+
+.gallery{
+    padding:10rem 7%;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(0,255,238,0.08), transparent 25%),
+
+    radial-gradient(circle at bottom right,
+    rgba(0,255,238,0.05), transparent 25%),
+
+    var(--bg-color);
+}
+
+/* ================= HEADING ================= */
+
+.heading{
+    text-align:center;
+
+    font-size:7rem;
+
+    margin-bottom:7rem;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    letter-spacing:2px;
+}
+
+.heading span{
+    color:var(--main-color);
+
+    text-shadow:
+    0 0 15px var(--main-color),
+    0 0 35px var(--main-color);
+}
+
+/* =====================================================
+   MASONRY GALLERY
+===================================================== */
+
+.gallery-container{
+    columns:4 300px;
+    column-gap:2.2rem;
+}
+
+/* ================= IMAGE BOX ================= */
+
+.image-box{
+    position:relative;
+
+    overflow:hidden;
+
+    margin-bottom:2.2rem;
+
+    break-inside:avoid;
+
+    border-radius:2.3rem;
+
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    transition:0.45s ease;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.35);
+
+    isolation:isolate;
+}
+
+/* PREMIUM GLOW BORDER */
+
+.image-box::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    border-radius:2.3rem;
+
+    padding:1px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,255,238,0.8),
+        transparent,
+        rgba(0,255,238,0.4)
+    );
+
+    -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+    opacity:0;
+
+    transition:0.5s ease;
+
+    z-index:3;
+}
+
+/* IMAGE */
+
+.image-box img{
+    width:100%;
+
+    display:block;
+
+    border-radius:2.3rem;
+
+    transition:
+    transform 0.7s ease,
+    filter 0.6s ease;
+
+    filter:
+    brightness(0.93)
+    contrast(1.05);
+}
+
+/* OVERLAY */
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,0.92),
+        rgba(0,0,0,0.25),
+        transparent
+    );
+
+    display:flex;
+    align-items:flex-end;
+
+    padding:2.5rem;
+
+    opacity:0;
+
+    transition:0.45s ease;
+
+    z-index:2;
+}
+
+.overlay h3{
+    font-size:2.3rem;
+    font-weight:600;
+
+    color:white;
+
+    transform:translateY(30px);
+
+    transition:0.45s ease;
+}
+
+/* ================= HOVER ================= */
+
+.image-box:hover{
+    transform:
+    translateY(-12px)
+    scale(1.01);
+
+    box-shadow:
+    0 0 20px rgba(0,255,238,0.15),
+    0 0 45px rgba(0,255,238,0.12),
+    0 25px 45px rgba(0,0,0,0.55);
+}
+
+.image-box:hover::after{
+    opacity:1;
+}
+
+.image-box:hover img{
+    transform:scale(1.08);
+
+    filter:
+    brightness(1)
+    contrast(1.08);
+}
+
+.image-box:hover .overlay{
+    opacity:1;
+}
+
+.image-box:hover .overlay h3{
+    transform:translateY(0);
+}
+
+/* =====================================================
+   QUOTE SECTION
+===================================================== */
+
+.quote-section{
+    padding:10rem 10%;
+
+    background:var(--second-bg);
+
+    text-align:center;
+
+    position:relative;
+}
+
+.quote-section i{
+    font-size:7rem;
+
+    color:var(--main-color);
+
+    margin-bottom:3rem;
+
+    text-shadow:
+    0 0 20px var(--main-color);
+}
+
+.quote-section h2{
+    font-size:4.5rem;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    line-height:1.6;
+
+    font-weight:700;
+}
+
+.quote-section span{
+    color:var(--main-color);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    padding:5rem 10%;
+
+    background:black;
+
+    text-align:center;
+}
+
+.social{
+    margin-bottom:3rem;
+}
+
+.social a{
+    width:6rem;
+    height:6rem;
+
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    border:2px solid var(--main-color);
+
+    color:var(--main-color);
+
+    font-size:2.5rem;
+
+    margin:0 1rem;
+
+    transition:0.35s ease;
+}
+
+.social a:hover{
+    background:var(--main-color);
+
+    color:black;
+
+    transform:
+    translateY(-7px)
+    scale(1.08);
+
+    box-shadow:
+    0 0 20px var(--main-color),
+    0 0 40px var(--main-color);
+}
+
+.footer p{
+    font-size:1.8rem;
+
+    color:#cfcfcf;
+
+    letter-spacing:1px;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+/* LARGE LAPTOP */
+
+@media(max-width:1400px){
+
+    .gallery-container{
+        columns:3 280px;
+    }
+
+    .hero h1{
+        font-size:8rem;
+    }
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+    html{
+        font-size:58%;
+    }
+
+    .gallery-container{
+        columns:2 250px;
+    }
+
+    .overlay{
+        opacity:1;
+    }
+
+    .overlay h3{
+        transform:none;
+    }
+
+    .hero h1{
+        font-size:7rem;
+    }
+
+    .hero p{
+        font-size:2rem;
+    }
+
+    .heading{
+        font-size:6rem;
+    }
+
+    .quote-section h2{
+        font-size:4rem;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    html{
+        font-size:55%;
+    }
+
+    .header{
+        padding:2rem 5%;
+    }
+
+    .logo{
+        font-size:2.8rem;
+    }
+
+    .navbar{
+        gap:2rem;
+    }
+
+    .navbar a{
+        font-size:1.6rem;
+    }
+
+    .hero{
+        padding:13rem 6% 5rem;
+
+        background-attachment:scroll;
+    }
+
+    .hero h1{
+        font-size:5.8rem;
+    }
+
+    .hero p{
+        font-size:1.9rem;
+        line-height:1.8;
+    }
+
+    .heading{
+        font-size:5rem;
+        margin-bottom:5rem;
+    }
+
+    .gallery{
+        padding:8rem 4%;
+    }
+
+    .gallery-container{
+        columns:2 180px;
+        column-gap:1.5rem;
+    }
+
+    .image-box{
+        margin-bottom:1.5rem;
+        border-radius:1.8rem;
+    }
+
+    .image-box img{
+        border-radius:1.8rem;
+    }
+
+    .overlay{
+        padding:1.8rem;
+    }
+
+    .overlay h3{
+        font-size:1.8rem;
+    }
+
+    .quote-section{
+        padding:8rem 6%;
+    }
+
+    .quote-section h2{
+        font-size:3.2rem;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:480px){
+
+    html{
+        font-size:50%;
+    }
+
+    .hero h1{
+        font-size:4.8rem;
+    }
+
+    .hero p{
+        font-size:1.7rem;
+    }
+
+    .gallery-container{
+        columns:1 100%;
+    }
+
+    .heading{
+        font-size:4.2rem;
+    }
+
+    .overlay{
+        opacity:1;
+    }
+
+    .overlay h3{
+        transform:none;
+        font-size:1.7rem;
+    }
+
+    .image-box:hover{
+        transform:none;
+    }
+
+    .image-box:hover img{
+        transform:scale(1.04);
+    }
+
+    .quote-section h2{
+        font-size:2.8rem;
+    }
+
+    .social a{
+        width:5rem;
+        height:5rem;
+        font-size:2rem;
+    }
+
+    .footer p{
+        font-size:1.5rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        Vikas <span>Gunagi</span>
+    </a>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#gallery">Gallery</a>
+    </nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <h1>
+        Pencil <span>Drawings</span>
+    </h1>
+
+    <p>
+        Art is another way I express creativity. These pencil drawings reflect my
+        passion for detailing, imagination, shading, patience, and visual storytelling.
+        Every sketch represents practice, creativity, and artistic expression.
+    </p>
+
+    <a href="#gallery" class="scroll-btn">
+        <i class='bx bx-chevrons-down'></i>
+    </a>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section class="gallery" id="gallery">
+
+    <h2 class="heading">
+        My <span>Artwork</span>
+    </h2>
+
+    <div class="gallery-container">
+
+        <!-- IMAGE 1 -->
+        <div class="image-box">
+            <img src="drawing_images/image1.jpeg" alt="">
+            <div class="overlay">
+                <h3>Pencil Art</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 2 -->
+        <div class="image-box">
+            <img src="drawing_images/image2.jpeg" alt="">
+            <div class="overlay">
+                <h3>Creative Sketch</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 3 -->
+        <div class="image-box">
+            <img src="drawing_images/image3.jpeg" alt="">
+            <div class="overlay">
+                <h3>Portrait Drawing</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 4 -->
+        <div class="image-box">
+            <img src="drawing_images/image4.jpeg" alt="">
+            <div class="overlay">
+                <h3>Artwork</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 5 -->
+        <div class="image-box">
+            <img src="drawing_images/image5.jpeg" alt="">
+            <div class="overlay">
+                <h3>Pencil Sketch</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 6 -->
+        <div class="image-box">
+            <img src="drawing_images/image6.jpeg" alt="">
+            <div class="overlay">
+                <h3>Creative Art</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 7 -->
+        <div class="image-box">
+            <img src="drawing_images/image7.jpeg" alt="">
+            <div class="overlay">
+                <h3>Realistic Drawing</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 8 -->
+        <div class="image-box">
+            <img src="drawing_images/image8.jpeg" alt="">
+            <div class="overlay">
+                <h3>Artistic Work</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 9 -->
+        <div class="image-box">
+            <img src="drawing_images/image9.jpeg" alt="">
+            <div class="overlay">
+                <h3>Shading Practice</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 10 -->
+        <div class="image-box">
+            <img src="drawing_images/image10.jpeg" alt="">
+            <div class="overlay">
+                <h3>Portrait Sketch</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 11 -->
+        <div class="image-box">
+            <img src="drawing_images/image11.jpeg" alt="">
+            <div class="overlay">
+                <h3>Creative Drawing</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 12 -->
+        <div class="image-box">
+            <img src="drawing_images/image12.jpeg" alt="">
+            <div class="overlay">
+                <h3>Pencil Creativity</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 13 -->
+        <div class="image-box">
+            <img src="drawing_images/image13.jpeg" alt="">
+            <div class="overlay">
+                <h3>Art Piece</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 14 -->
+        <div class="image-box">
+            <img src="drawing_images/image14.jpeg" alt="">
+            <div class="overlay">
+                <h3>Detailed Drawing</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 15 -->
+        <div class="image-box">
+            <img src="drawing_images/image15.jpeg" alt="">
+            <div class="overlay">
+                <h3>Handmade Sketch</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 16 -->
+        <div class="image-box">
+            <img src="drawing_images/image16.jpeg" alt="">
+            <div class="overlay">
+                <h3>Creative Pencil Work</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 17 -->
+        <div class="image-box">
+            <img src="drawing_images/image17.jpeg" alt="">
+            <div class="overlay">
+                <h3>Visual Art</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 18 -->
+        <div class="image-box">
+            <img src="drawing_images/image18.jpeg" alt="">
+            <div class="overlay">
+                <h3>Sketch Design</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 19 -->
+        <div class="image-box">
+            <img src="drawing_images/image19.jpeg" alt="">
+            <div class="overlay">
+                <h3>Artwork Collection</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 20 -->
+        <div class="image-box">
+            <img src="drawing_images/image20.jpeg" alt="">
+            <div class="overlay">
+                <h3>Art & Creativity</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 21 -->
+        <div class="image-box">
+            <img src="drawing_images/image21.jpeg" alt="">
+            <div class="overlay">
+                <h3>Sketching Passion</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 22 -->
+        <div class="image-box">
+            <img src="drawing_images/image22.jpeg" alt="">
+            <div class="overlay">
+                <h3>Creative Vision</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 23 -->
+        <div class="image-box">
+            <img src="drawing_images/image23.jpeg" alt="">
+            <div class="overlay">
+                <h3>Drawing Collection</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 24 -->
+        <div class="image-box">
+            <img src="drawing_images/image24.jpeg" alt="">
+            <div class="overlay">
+                <h3>Detailed Pencil Art</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 25 -->
+        <div class="image-box">
+            <img src="drawing_images/image25.jpeg" alt="">
+            <div class="overlay">
+                <h3>Creative Expression</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 26 -->
+        <div class="image-box">
+            <img src="drawing_images/image26.jpeg" alt="">
+            <div class="overlay">
+                <h3>Artistic Imagination</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 27 -->
+        <div class="image-box">
+            <img src="drawing_images/image27.jpeg" alt="">
+            <div class="overlay">
+                <h3>Passion for Art</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 28 -->
+        <div class="image-box">
+            <img src="drawing_images/image28.jpeg" alt="">
+            <div class="overlay">
+                <h3>Final Artwork</h3>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= QUOTE ================= -->
+
+<section class="quote-section">
+
+    <i class='bx bxs-quote-alt-left'></i>
+
+    <h2>
+        “Drawing is not just art for me,
+        it is a way to turn <span>imagination into reality.</span>”
+    </h2>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="social">
+
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-github'></i></a>
+        <a href="#"><i class='bx bxl-youtube'></i></a>
+
+    </div>
+
+    <p>
+        © 2026 Vikas Gunagi | Pencil Drawing Gallery
+    </p>
+
+</footer>
+
+</body>
+</html>
