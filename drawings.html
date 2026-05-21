@@ -360,7 +360,321 @@ body{
 
     isolation:isolate;
 }
+/* =========================================
+   LIKE BUTTON
+========================================= */
 
+.like-btn{
+    position:absolute;
+    top:1.5rem;
+    right:1.5rem;
+
+    background:rgba(0,0,0,0.6);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:50px;
+
+    padding:0.8rem 1.2rem;
+
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+
+    z-index:5;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+}
+
+.like-btn i{
+    font-size:2.2rem;
+    color:white;
+    transition:0.3s ease;
+}
+
+.like-btn span{
+    font-size:1.5rem;
+    color:white;
+}
+
+.like-btn.liked i{
+    color:#ff004f;
+    transform:scale(1.15);
+}
+
+/* =========================================
+   IMAGE MODAL
+========================================= */
+
+.image-modal{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.95);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:2rem;
+
+    z-index:2000;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:0.4s ease;
+}
+
+.image-modal.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.modal-content{
+    width:100%;
+    max-width:1200px;
+
+    background:#111;
+
+    border-radius:2rem;
+
+    overflow:hidden;
+
+    display:grid;
+    grid-template-columns:1.3fr 0.7fr;
+
+    box-shadow:
+    0 0 30px rgba(0,255,238,0.15);
+
+    animation:popup 0.35s ease;
+}
+
+/* POPUP ANIMATION */
+
+@keyframes popup{
+
+    from{
+        transform:scale(0.9);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* IMAGE AREA */
+
+.modal-image{
+    background:black;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:2rem;
+}
+
+.modal-image img{
+    width:100%;
+    max-height:85vh;
+
+    object-fit:contain;
+
+    border-radius:1.5rem;
+}
+
+/* INFO AREA */
+
+.modal-info{
+    padding:4rem 3rem;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    color:white;
+}
+
+.modal-info h2{
+    font-size:4rem;
+    margin-bottom:2rem;
+
+    color:var(--main-color);
+}
+
+.modal-info p{
+    font-size:1.7rem;
+    line-height:1.9;
+
+    color:#d5d5d5;
+
+    margin-bottom:3rem;
+}
+
+/* LIKE INFO */
+
+.modal-stats{
+    display:flex;
+    align-items:center;
+    gap:1.2rem;
+
+    margin-bottom:3rem;
+}
+
+.modal-stats i{
+    font-size:3rem;
+    color:#ff0055;
+}
+
+.modal-stats span{
+    font-size:2rem;
+    font-weight:600;
+}
+
+/* EXTRA DETAILS */
+
+.art-details{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+}
+
+.art-details div{
+    background:rgba(255,255,255,0.05);
+
+    padding:1.5rem;
+
+    border-radius:1.2rem;
+
+    font-size:1.5rem;
+
+    line-height:1.7;
+}
+
+/* CLOSE BUTTON */
+
+.close-modal{
+    position:fixed;
+
+    top:2rem;
+    right:2rem;
+
+    width:5.5rem;
+    height:5.5rem;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:50%;
+
+    color:white;
+
+    font-size:3rem;
+
+    cursor:pointer;
+
+    z-index:999999;
+
+    transition:0.3s ease;
+}
+
+.close-modal:hover{
+    background:var(--main-color);
+
+    color:black;
+
+    transform:rotate(90deg) scale(1.08);
+}
+
+.close-modal:hover{
+    color:var(--main-color);
+    transform:rotate(90deg);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media(max-width:992px){
+
+    .modal-content{
+        grid-template-columns:1fr;
+        max-height:95vh;
+        overflow-y:auto;
+    }
+
+    .modal-image img{
+        max-height:60vh;
+    }
+
+    .modal-info{
+        padding:3rem 2rem;
+    }
+
+    .modal-info h2{
+        font-size:3.2rem;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+    .image-modal{
+        padding:1rem;
+    }
+
+    .modal-content{
+        border-radius:1.5rem;
+    }
+
+    .modal-image{
+        padding:1rem;
+    }
+
+    .modal-image img{
+        max-height:45vh;
+        border-radius:1rem;
+    }
+
+    .modal-info{
+        padding:2rem;
+    }
+
+    .modal-info h2{
+        font-size:2.6rem;
+    }
+
+    .modal-info p{
+        font-size:1.5rem;
+    }
+
+    .modal-stats span{
+        font-size:1.7rem;
+    }
+
+    .art-details div{
+        font-size:1.4rem;
+    }
+
+    .close-modal{
+        font-size:4rem;
+        top:1rem;
+        right:2rem;
+    }
+}
 /* PREMIUM GLOW BORDER */
 
 .image-box::after{
@@ -773,6 +1087,62 @@ body{
     }
 }
 
+/* =========================================
+   CREATE PORTRAIT BUTTON
+========================================= */
+
+.portrait-btn{
+    margin-bottom:3rem;
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:1rem;
+
+    background:#25D366;
+
+    color:white;
+
+    padding:1.6rem 2rem;
+
+    border-radius:1.4rem;
+
+    font-size:1.8rem;
+    font-weight:600;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 0 20px rgba(37,211,102,0.25);
+}
+
+.portrait-btn i{
+    font-size:2.5rem;
+}
+
+.portrait-btn:hover{
+    transform:
+    translateY(-5px)
+    scale(1.02);
+
+    background:#1ebe5d;
+
+    box-shadow:
+    0 0 30px rgba(37,211,102,0.45);
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .portrait-btn{
+        font-size:1.6rem;
+        padding:1.4rem;
+    }
+}
+
 </style>
 </head>
 
@@ -821,234 +1191,7 @@ body{
         My <span>Artwork</span>
     </h2>
 
-    <div class="gallery-container">
-
-        <!-- IMAGE 1 -->
-        <div class="image-box">
-            <img src="drawing_images/image1.jpeg" alt="">
-            <div class="overlay">
-                <h3>Pencil Art</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 2 -->
-        <div class="image-box">
-            <img src="drawing_images/image2.jpeg" alt="">
-            <div class="overlay">
-                <h3>Creative Sketch</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 3 -->
-        <div class="image-box">
-            <img src="drawing_images/image3.jpeg" alt="">
-            <div class="overlay">
-                <h3>Portrait Drawing</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 4 -->
-        <div class="image-box">
-            <img src="drawing_images/image4.jpeg" alt="">
-            <div class="overlay">
-                <h3>Artwork</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 5 -->
-        <div class="image-box">
-            <img src="drawing_images/image5.jpeg" alt="">
-            <div class="overlay">
-                <h3>Pencil Sketch</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 6 -->
-        <div class="image-box">
-            <img src="drawing_images/image6.jpeg" alt="">
-            <div class="overlay">
-                <h3>Creative Art</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 7 -->
-        <div class="image-box">
-            <img src="drawing_images/image7.jpeg" alt="">
-            <div class="overlay">
-                <h3>Realistic Drawing</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 8 -->
-        <div class="image-box">
-            <img src="drawing_images/image8.jpeg" alt="">
-            <div class="overlay">
-                <h3>Artistic Work</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 9 -->
-        <div class="image-box">
-            <img src="drawing_images/image9.jpeg" alt="">
-            <div class="overlay">
-                <h3>Shading Practice</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 10 -->
-        <div class="image-box">
-            <img src="drawing_images/image10.jpeg" alt="">
-            <div class="overlay">
-                <h3>Portrait Sketch</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 11 -->
-        <div class="image-box">
-            <img src="drawing_images/image11.jpeg" alt="">
-            <div class="overlay">
-                <h3>Creative Drawing</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 12 -->
-        <div class="image-box">
-            <img src="drawing_images/image12.jpeg" alt="">
-            <div class="overlay">
-                <h3>Pencil Creativity</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 13 -->
-        <div class="image-box">
-            <img src="drawing_images/image13.jpeg" alt="">
-            <div class="overlay">
-                <h3>Art Piece</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 14 -->
-        <div class="image-box">
-            <img src="drawing_images/image14.jpeg" alt="">
-            <div class="overlay">
-                <h3>Detailed Drawing</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 15 -->
-        <div class="image-box">
-            <img src="drawing_images/image15.jpeg" alt="">
-            <div class="overlay">
-                <h3>Handmade Sketch</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 16 -->
-        <div class="image-box">
-            <img src="drawing_images/image16.jpeg" alt="">
-            <div class="overlay">
-                <h3>Creative Pencil Work</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 17 -->
-        <div class="image-box">
-            <img src="drawing_images/image17.jpeg" alt="">
-            <div class="overlay">
-                <h3>Visual Art</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 18 -->
-        <div class="image-box">
-            <img src="drawing_images/image18.jpeg" alt="">
-            <div class="overlay">
-                <h3>Sketch Design</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 19 -->
-        <div class="image-box">
-            <img src="drawing_images/image19.jpeg" alt="">
-            <div class="overlay">
-                <h3>Artwork Collection</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 20 -->
-        <div class="image-box">
-            <img src="drawing_images/image20.jpeg" alt="">
-            <div class="overlay">
-                <h3>Art & Creativity</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 21 -->
-        <div class="image-box">
-            <img src="drawing_images/image21.jpeg" alt="">
-            <div class="overlay">
-                <h3>Sketching Passion</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 22 -->
-        <div class="image-box">
-            <img src="drawing_images/image22.jpeg" alt="">
-            <div class="overlay">
-                <h3>Creative Vision</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 23 -->
-        <div class="image-box">
-            <img src="drawing_images/image23.jpeg" alt="">
-            <div class="overlay">
-                <h3>Drawing Collection</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 24 -->
-        <div class="image-box">
-            <img src="drawing_images/image24.jpeg" alt="">
-            <div class="overlay">
-                <h3>Detailed Pencil Art</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 25 -->
-        <div class="image-box">
-            <img src="drawing_images/image25.jpeg" alt="">
-            <div class="overlay">
-                <h3>Creative Expression</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 26 -->
-        <div class="image-box">
-            <img src="drawing_images/image26.jpeg" alt="">
-            <div class="overlay">
-                <h3>Artistic Imagination</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 27 -->
-        <div class="image-box">
-            <img src="drawing_images/image27.jpeg" alt="">
-            <div class="overlay">
-                <h3>Passion for Art</h3>
-            </div>
-        </div>
-
-        <!-- IMAGE 28 -->
-        <div class="image-box">
-            <img src="drawing_images/image28.jpeg" alt="">
-            <div class="overlay">
-                <h3>Final Artwork</h3>
-            </div>
-        </div>
-
-    </div>
-
+    <div class="gallery-container" id="galleryContainer"></div>
 </section>
 
 <!-- ================= QUOTE ================= -->
@@ -1081,6 +1224,415 @@ body{
     </p>
 
 </footer>
+<!-- IMAGE MODAL -->
 
+<!-- IMAGE MODAL -->
+
+<div class="image-modal" id="imageModal">
+
+    <!-- CLOSE BUTTON -->
+
+    <div class="close-modal" id="closeModal">
+        <i class='bx bx-x'></i>
+    </div>
+
+    <!-- MODAL CONTENT -->
+
+    <div class="modal-content">
+
+        <!-- IMAGE -->
+
+        <div class="modal-image">
+            <img id="modalImg" src="" alt="">
+        </div>
+
+        <!-- INFO -->
+
+        <div class="modal-info">
+
+            <h2 id="modalTitle"></h2>
+
+            <!-- LIKES -->
+
+            <div class="modal-stats">
+                <i class='bx bxs-heart'></i>
+                <span id="modalLikes">0 Likes</span>
+            </div>
+
+            <!-- DESCRIPTION -->
+
+            <p id="modalDescription"></p>
+
+            <!-- WHATSAPP BUTTON -->
+
+            <a href="#" id="portraitBtn" class="portrait-btn">
+                <i class='bx bxl-whatsapp'></i>
+                Create Your Portrait
+            </a>
+
+            <!-- EXTRA DETAILS -->
+
+            <div class="art-details">
+
+                <div>
+                    ✏️ Medium: Pencil Sketch
+                </div>
+
+                <div>
+                    🎨 Category: Realistic Artwork
+                </div>
+
+                <div>
+                    🖤 Created with patience, shading,
+                    detailing and imagination.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+/* =========================================
+   AUTO LOAD ALL IMAGES
+========================================= */
+
+const galleryContainer =
+document.getElementById("galleryContainer");
+
+/* TOTAL IMAGES */
+
+const totalImages = 28;
+
+/* TITLES */
+
+const titles = [
+    "Pencil Art",
+    "Creative Sketch",
+    "Portrait Drawing",
+    "Artwork",
+    "Pencil Sketch",
+    "Creative Art",
+    "Realistic Drawing",
+    "Artistic Work",
+    "Shading Practice",
+    "Portrait Sketch",
+    "Creative Drawing",
+    "Pencil Creativity",
+    "Art Piece",
+    "Detailed Drawing",
+    "Handmade Sketch",
+    "Creative Pencil Work",
+    "Visual Art",
+    "Sketch Design",
+    "Artwork Collection",
+    "Art & Creativity",
+    "Sketching Passion",
+    "Creative Vision",
+    "Drawing Collection",
+    "Detailed Pencil Art",
+    "Creative Expression",
+    "Artistic Imagination",
+    "Passion for Art",
+    "Final Artwork"
+];
+
+/* DESCRIPTIONS */
+
+const descriptions = [
+    "A realistic pencil sketch focusing on facial shading and detailing.",
+    "Creative pencil artwork with smooth shading and detailing.",
+    "Portrait drawing made with patience and realistic effects.",
+    "Beautiful handmade artwork created using pencil techniques.",
+    "A clean and detailed pencil sketch artwork.",
+    "Creative art showing imagination and shading skills.",
+    "Realistic drawing with advanced detailing and texture.",
+    "An artistic work showcasing pencil creativity.",
+    "Shading practice artwork with realistic depth.",
+    "Portrait sketch with smooth pencil blending.",
+    "Creative drawing expressing imagination through art.",
+    "Pencil creativity with detailed line work.",
+    "An expressive art piece drawn with pencil.",
+    "Detailed drawing focused on realism and texture.",
+    "Handmade sketch created with patience and effort.",
+    "Creative pencil work with smooth finishing.",
+    "Visual art inspired by realistic sketching.",
+    "Sketch design showing creativity and imagination.",
+    "Artwork collection made with dedication and passion.",
+    "Art and creativity combined into pencil artwork.",
+    "Sketching passion reflected through detailing.",
+    "Creative vision represented using pencil art.",
+    "Drawing collection showcasing artistic skills.",
+    "Detailed pencil art with realistic shading.",
+    "Creative expression through handmade drawing.",
+    "Artistic imagination brought to life using pencil.",
+    "Passion for art reflected in every detail.",
+    "Final artwork completed with precision and creativity."
+];
+
+/* CREATE IMAGES */
+
+for(let i = 1; i <= totalImages; i++) {
+
+    galleryContainer.innerHTML += `
+
+    <div class="image-box">
+
+        <img
+            src="drawing_images/image${i}.jpeg"
+            alt="Artwork ${i}"
+
+            data-title="${titles[i-1]}"
+            data-description="${descriptions[i-1]}"
+        >
+
+        <div class="overlay">
+            <h3>${titles[i-1]}</h3>
+        </div>
+
+        <!-- LIKE BUTTON -->
+
+        <div class="like-btn">
+
+            <i class='bx bx-heart'></i>
+
+            <span>0</span>
+
+        </div>
+
+    </div>
+
+    `;
+}
+
+
+/* =========================================
+   SELECT ELEMENTS
+========================================= */
+
+const imageBoxes = document.querySelectorAll(".image-box");
+
+const modal = document.getElementById("imageModal");
+
+const modalImg = document.getElementById("modalImg");
+
+const modalTitle = document.getElementById("modalTitle");
+
+const modalDescription = document.getElementById("modalDescription");
+
+const modalLikes = document.getElementById("modalLikes");
+
+const closeModal = document.getElementById("closeModal");
+
+const portraitBtn = document.getElementById("portraitBtn");
+
+
+/* =========================================
+   LIKE SYSTEM
+========================================= */
+
+imageBoxes.forEach((box, index) => {
+
+    const likeBtn = box.querySelector(".like-btn");
+
+    const likeIcon = likeBtn.querySelector("i");
+
+    const likeCount = likeBtn.querySelector("span");
+
+    const img = box.querySelector("img");
+
+    /* LOAD SAVED LIKES */
+
+    let savedLikes =
+        localStorage.getItem("likes-" + index);
+
+    let liked =
+        localStorage.getItem("liked-" + index);
+
+    if(savedLikes){
+
+        likeCount.textContent = savedLikes;
+
+    }else{
+
+        likeCount.textContent = 0;
+    }
+
+    /* LOAD HEART STATE */
+
+    if(liked === "true"){
+
+        likeBtn.classList.add("liked");
+
+        likeIcon.classList.replace(
+            "bx-heart",
+            "bxs-heart"
+        );
+    }
+
+
+    /* LIKE CLICK */
+
+    likeBtn.addEventListener("click", (e) => {
+
+        e.stopPropagation();
+
+        let count =
+            parseInt(likeCount.textContent);
+
+        /* REMOVE LIKE */
+
+        if(likeBtn.classList.contains("liked")){
+
+            count--;
+
+            likeBtn.classList.remove("liked");
+
+            likeIcon.classList.replace(
+                "bxs-heart",
+                "bx-heart"
+            );
+
+            localStorage.setItem(
+                "liked-" + index,
+                "false"
+            );
+
+        }
+
+        /* ADD LIKE */
+
+        else{
+
+            count++;
+
+            likeBtn.classList.add("liked");
+
+            likeIcon.classList.replace(
+                "bx-heart",
+                "bxs-heart"
+            );
+
+            localStorage.setItem(
+                "liked-" + index,
+                "true"
+            );
+        }
+
+        /* SAVE */
+
+        likeCount.textContent = count;
+
+        localStorage.setItem(
+            "likes-" + index,
+            count
+        );
+
+        /* UPDATE MODAL LIVE */
+
+        modalLikes.textContent =
+            count + " Likes";
+
+    });
+
+
+    /* =========================================
+       OPEN MODAL
+    ========================================= */
+
+    box.addEventListener("click", () => {
+
+        modal.classList.add("active");
+
+        modalImg.src = img.src;
+
+        modalTitle.textContent =
+            img.dataset.title;
+
+        modalDescription.textContent =
+            img.dataset.description;
+
+        modalLikes.textContent =
+            likeCount.textContent + " Likes";
+
+        document.body.style.overflow = "hidden";
+
+
+        /* =====================================
+           WHATSAPP BUTTON
+        ===================================== */
+
+        const phoneNumber = "919353475001";
+
+        const message =
+`Hello Vikas...
+
+I want a custom pencil portrait drawing.
+
+Reference Artwork:
+${img.dataset.title}
+
+Please share:
+• Price
+• Size options
+• Delivery details
+
+Thank you...`;
+
+        portraitBtn.href =
+`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    });
+
+});
+
+
+/* =========================================
+   CLOSE MODAL
+========================================= */
+
+closeModal.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    e.stopPropagation();
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "auto";
+
+});
+
+
+/* CLICK OUTSIDE */
+
+modal.addEventListener("click", (e) => {
+
+    if(e.target === modal){
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "auto";
+    }
+
+});
+
+
+/* ESC KEY */
+
+document.addEventListener("keydown", (e) => {
+
+    if(e.key === "Escape"){
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "auto";
+    }
+
+});
+
+</script>
 </body>
 </html>
