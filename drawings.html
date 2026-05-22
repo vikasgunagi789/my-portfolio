@@ -507,17 +507,21 @@ body{
    MODAL
 ===================================================== */
 
+/* =====================================================
+   MODAL
+===================================================== */
+
 .image-modal{
     position:fixed;
     inset:0;
 
-    background:rgba(0,0,0,0.95);
+    background:rgba(0,0,0,0.94);
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    padding:2rem;
+    padding:3rem;
 
     z-index:2000;
 
@@ -534,19 +538,21 @@ body{
 
 .modal-content{
     width:100%;
-    max-width:1200px;
+    max-width:1400px;
+
+    max-height:92vh;
 
     background:#111;
 
-    border-radius:2rem;
+    border-radius:2.5rem;
 
     overflow:hidden;
 
     display:grid;
-    grid-template-columns:1.3fr 0.7fr;
+    grid-template-columns:1.1fr 0.9fr;
 
     box-shadow:
-    0 0 30px rgba(0,255,238,0.15);
+    0 0 30px rgba(0,255,238,0.12);
 
     animation:popup 0.35s ease;
 }
@@ -564,37 +570,60 @@ body{
     }
 }
 
+/* IMAGE SIDE */
+
 .modal-image{
-    background:black;
+    background:#000;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
     padding:2rem;
+
+    overflow:hidden;
 }
 
 .modal-image img{
     width:100%;
+    height:100%;
+
     max-height:85vh;
 
     object-fit:contain;
 
-    border-radius:1.5rem;
+    border-radius:2rem;
 }
 
+/* INFO SIDE */
+
 .modal-info{
-    padding:4rem 3rem;
+    padding:4rem;
+
+    overflow-y:auto;
 
     display:flex;
     flex-direction:column;
-    justify-content:center;
 
     color:white;
 }
 
+/* CUSTOM SCROLL */
+
+.modal-info::-webkit-scrollbar{
+    width:7px;
+}
+
+.modal-info::-webkit-scrollbar-thumb{
+    background:var(--main-color);
+    border-radius:20px;
+}
+
 .modal-info h2{
     font-size:4rem;
+
+    line-height:1.2;
+
     margin-bottom:2rem;
 
     color:var(--main-color);
@@ -602,30 +631,108 @@ body{
 
 .modal-info p{
     font-size:1.7rem;
+
     line-height:1.9;
 
     color:#d5d5d5;
-
-    margin-bottom:3rem;
 }
+
+/* LIKES */
 
 .modal-stats{
     display:flex;
     align-items:center;
-    gap:1.2rem;
+    gap:1rem;
 
-    margin-bottom:3rem;
+    margin-bottom:2.5rem;
 }
 
 .modal-stats i{
-    font-size:3rem;
-    color:#ff0055;
+    font-size:2.8rem;
+    color:#ff004f;
 }
 
 .modal-stats span{
     font-size:2rem;
     font-weight:600;
 }
+
+/* SHORT DESCRIPTION */
+
+#modalDescription{
+    margin-bottom:2.5rem;
+}
+
+/* WHATSAPP BUTTON */
+
+.portrait-btn{
+    margin-bottom:3rem;
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:1rem;
+
+    background:#25D366;
+
+    color:white;
+
+    padding:1.7rem 2rem;
+
+    border-radius:1.5rem;
+
+    font-size:1.8rem;
+    font-weight:600;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 0 20px rgba(37,211,102,0.25);
+}
+
+.portrait-btn i{
+    font-size:2.4rem;
+}
+
+.portrait-btn:hover{
+    transform:translateY(-4px);
+
+    background:#1ebe5d;
+}
+
+/* JOURNEY SECTION */
+
+.journey-section{
+    background:rgba(255,255,255,0.04);
+
+    padding:2.5rem;
+
+    border-radius:2rem;
+
+    margin-bottom:3rem;
+
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.journey-section h3{
+    font-size:2.5rem;
+
+    color:var(--main-color);
+
+    margin-bottom:1.5rem;
+}
+
+.journey-section p{
+    font-size:1.6rem;
+
+    line-height:2;
+
+    color:#d8d8d8;
+}
+
+/* EXTRA DETAILS */
 
 .art-details{
     display:flex;
@@ -636,14 +743,16 @@ body{
 .art-details div{
     background:rgba(255,255,255,0.05);
 
-    padding:1.5rem;
+    padding:1.6rem 1.8rem;
 
-    border-radius:1.2rem;
+    border-radius:1.4rem;
 
     font-size:1.5rem;
 
-    line-height:1.7;
+    line-height:1.8;
 }
+
+/* CLOSE BUTTON */
 
 .close-modal{
     position:fixed;
@@ -658,9 +767,9 @@ body{
     justify-content:center;
     align-items:center;
 
-    background:rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.1);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(10px);
 
     border-radius:50%;
 
@@ -681,6 +790,155 @@ body{
     color:black;
 
     transform:rotate(90deg) scale(1.08);
+}
+
+/* =====================================================
+   LAPTOP
+===================================================== */
+
+@media(max-width:1200px){
+
+    .modal-content{
+        max-width:1100px;
+    }
+
+    .modal-info{
+        padding:3rem;
+    }
+
+    .modal-info h2{
+        font-size:3.5rem;
+    }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:992px){
+
+    .modal-content{
+        grid-template-columns:1fr;
+
+        max-height:95vh;
+
+        overflow-y:auto;
+    }
+
+    .modal-image{
+        padding:1.5rem;
+    }
+
+    .modal-image img{
+        max-height:55vh;
+    }
+
+    .modal-info{
+        padding:3rem 2.5rem;
+    }
+
+    .modal-info h2{
+        font-size:3rem;
+    }
+
+    .journey-section{
+        padding:2rem;
+    }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+    .image-modal{
+        padding:1rem;
+    }
+
+    .modal-content{
+        border-radius:1.8rem;
+    }
+
+    .modal-image img{
+        max-height:42vh;
+        border-radius:1.5rem;
+    }
+
+    .modal-info{
+        padding:2rem;
+    }
+
+    .modal-info h2{
+        font-size:2.5rem;
+    }
+
+    .modal-info p{
+        font-size:1.5rem;
+    }
+
+    .modal-stats span{
+        font-size:1.7rem;
+    }
+
+    .journey-section h3{
+        font-size:2.1rem;
+    }
+
+    .journey-section p{
+        font-size:1.5rem;
+        line-height:1.9;
+    }
+
+    .portrait-btn{
+        font-size:1.6rem;
+        padding:1.4rem;
+    }
+
+    .close-modal{
+        width:5rem;
+        height:5rem;
+
+        font-size:2.5rem;
+
+        top:1rem;
+        right:1rem;
+    }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:480px){
+
+    .modal-info{
+        padding:1.8rem;
+    }
+
+    .modal-info h2{
+        font-size:2.2rem;
+    }
+
+    .modal-image img{
+        max-height:35vh;
+    }
+
+    .journey-section{
+        padding:1.7rem;
+    }
+
+    .journey-section p{
+        font-size:1.4rem;
+    }
+
+    .art-details div{
+        font-size:1.35rem;
+    }
+
+    .portrait-btn{
+        font-size:1.45rem;
+    }
 }
 
 /* =====================================================
@@ -1171,7 +1429,25 @@ body{
         line-height:1.7;
     }
 }
+/* =========================================
+   DRAWING JOURNEY
+========================================= */
 
+.journey-section{
+    margin-bottom:3rem;
+}
+
+.journey-section h3{
+    font-size:2.3rem;
+    color:var(--main-color);
+    margin-bottom:1.5rem;
+}
+
+.journey-section p{
+    font-size:1.6rem;
+    line-height:1.9;
+    color:#d8d8d8;
+}
 </style>
 </head>
 
@@ -1298,7 +1574,15 @@ body{
                 <i class='bx bxl-whatsapp'></i>
                 Create Your Portrait
             </a>
+            <!-- LONG DESCRIPTION -->
 
+<div class="journey-section">
+
+    <h3>Description</h3>
+
+    <p id="modalJourney"></p>
+
+</div>
             <!-- EXTRA DETAILS -->
 
             <div class="art-details">
@@ -1325,19 +1609,8 @@ body{
 </div>
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-    getDatabase,
-    ref,
-    set,
-    onValue,
-    get,
-    update
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, set, onValue, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyABIV6SOegBtBrYD44OyJ8zgYtpTq9HmF0",
@@ -1348,243 +1621,193 @@ const firebaseConfig = {
   appId: "1:66860058196:web:45c0944d69fd68eb0b4fc1",
   measurementId: "G-61780TL81W"
 };
-// Initialize Firebase
 
 const app = initializeApp(firebaseConfig);
-
 const db = getDatabase(app);
 
-/* =========================================
-   AUTO LOAD ALL IMAGES
-========================================= */
-
-const galleryContainer =
-document.getElementById("galleryContainer");
-
-const totalImages = 28;
-
-
-/* TITLES */
-
-const titles = [
-    "Pencil Art",
-    "Creative Sketch",
-    "Portrait Drawing",
-    "Artwork",
-    "Pencil Sketch",
-    "Creative Art",
-    "Realistic Drawing",
-    "Artistic Work",
-    "Shading Practice",
-    "Portrait Sketch",
-    "Creative Drawing",
-    "Pencil Creativity",
-    "Art Piece",
-    "Detailed Drawing",
-    "Handmade Sketch",
-    "Creative Pencil Work",
-    "Visual Art",
-    "Sketch Design",
-    "Artwork Collection",
-    "Art & Creativity",
-    "Sketching Passion",
-    "Creative Vision",
-    "Drawing Collection",
-    "Detailed Pencil Art",
-    "Creative Expression",
-    "Artistic Imagination",
-    "Passion for Art",
-    "Final Artwork"
+/* ================== MANUAL IMAGE FILES ================== */
+const imageFiles = [
+  "image1.jpeg", "image2.jpeg", "image3.jpeg", "image4.jpeg",
+  "image5.jpeg", "image6.jpeg", "image7.jpeg", "image8.jpeg",
+  "image9.jpeg", "image10.jpeg", "image11.jpeg",
+  // skip image12
+  "image13.jpeg", "image14.jpeg", "image15.jpeg", "image16.jpeg",
+  "image17.jpeg", "image18.jpeg", "image19.jpeg", "image20.jpeg",
+  "image21.jpeg", "image22.jpeg", "image23.jpeg", "image24.jpeg",
+  "image25.jpeg", "image26.jpeg", "image27.jpeg", "image28.jpeg"
 ];
 
-
-/* DESCRIPTIONS */
+/* ================== TITLES, DESCRIPTIONS, JOURNEYS ================== */
+const titles = [
+  "Pencil Art","Creative Sketch","Portrait Drawing","Artwork","Pencil Sketch",
+  "Creative Art","Realistic Drawing","Artistic Work","Shading Practice","Portrait Sketch",
+  "Creative Drawing","Pencil Creativity","Art Piece","Detailed Drawing","Handmade Sketch",
+  "Creative Pencil Work","Visual Art","Sketch Design","Artwork Collection","Art & Creativity",
+  "Sketching Passion","Creative Vision","Drawing Collection","Detailed Pencil Art","Creative Expression",
+  "Artistic Imagination","Passion for Art","Final Artwork"
+];
 
 const descriptions = [
-    "A realistic pencil sketch focusing on facial shading and detailing.",
-    "Creative pencil artwork with smooth shading and detailing.",
-    "Portrait drawing made with patience and realistic effects.",
-    "Beautiful handmade artwork created using pencil techniques.",
-    "A clean and detailed pencil sketch artwork.",
-    "Creative art showing imagination and shading skills.",
-    "Realistic drawing with advanced detailing and texture.",
-    "An artistic work showcasing pencil creativity.",
-    "Shading practice artwork with realistic depth.",
-    "Portrait sketch with smooth pencil blending.",
-    "Creative drawing expressing imagination through art.",
-    "Pencil creativity with detailed line work.",
-    "An expressive art piece drawn with pencil.",
-    "Detailed drawing focused on realism and texture.",
-    "Handmade sketch created with patience and effort.",
-    "Creative pencil work with smooth finishing.",
-    "Visual art inspired by realistic sketching.",
-    "Sketch design showing creativity and imagination.",
-    "Artwork collection made with dedication and passion.",
-    "Art and creativity combined into pencil artwork.",
-    "Sketching passion reflected through detailing.",
-    "Creative vision represented using pencil art.",
-    "Drawing collection showcasing artistic skills.",
-    "Detailed pencil art with realistic shading.",
-    "Creative expression through handmade drawing.",
-    "Artistic imagination brought to life using pencil.",
-    "Passion for art reflected in every detail.",
-    "Final artwork completed with precision and creativity."
+  "A realistic pencil sketch focusing on facial shading and detailing.",
+  "Creative pencil artwork with smooth shading and detailing.",
+  "Portrait drawing made with patience and realistic effects.",
+  "Beautiful handmade artwork created using pencil techniques.",
+  "A clean and detailed pencil sketch artwork.",
+  "Creative art showing imagination and shading skills.",
+  "Realistic drawing with advanced detailing and texture.",
+  "An artistic work showcasing pencil creativity.",
+  "Shading practice artwork with realistic depth.",
+  "Portrait sketch with smooth pencil blending.",
+  "Creative drawing expressing imagination through art.",
+  "Pencil creativity with detailed line work.",
+  "An expressive art piece drawn with pencil.",
+  "Detailed drawing focused on realism and texture.",
+  "Handmade sketch created with patience and effort.",
+  "Creative pencil work with smooth finishing.",
+  "Visual art inspired by realistic sketching.",
+  "Sketch design showing creativity and imagination.",
+  "Artwork collection made with dedication and passion.",
+  "Art and creativity combined into pencil artwork.",
+  "Sketching passion reflected through detailing.",
+  "Creative vision represented using pencil art.",
+  "Drawing collection showcasing artistic skills.",
+  "Detailed pencil art with realistic shading.",
+  "Creative expression through handmade drawing.",
+  "Artistic imagination brought to life using pencil.",
+  "Passion for art reflected in every detail.",
+  "Final artwork completed with precision and creativity."
 ];
 
+const journeys = [
+  "Description for Image 1...",
+  "Description for Image 2...",
+  "Description for Image 3...",
+  "Description for Image 4...",
+  "Description for Image 5...",
+  "Description for Image 6...",
+  "Description for Image 7...",
+  "Description for Image 8...",
+  "Description for Image 9...",
+  "Description for Image 10...",
+  "Description for Image 11...",
+  "Description for Image 12...",
+  "Description for Image 13...",
+  "Description for Image 14...",
+  "Description for Image 15...",
+  "Description for Image 16...",
+  "Description for Image 17...",
+  "Description for Image 18...",
+  "Description for Image 19...",
+  "Description for Image 20...",
+  "Description for Image 21...",
+  "Description for Image 22...",
+  "Description for Image 23...",
+  "Description for Image 24...",
+  "Description for Image 25...",
+  "Description for Image 26...",
+  "Description for Image 27...",
+  "Description for Image 28..."
+];
 
-/* CREATE IMAGES */
+/* ================== CREATE IMAGES ================== */
+const galleryContainer = document.getElementById("galleryContainer");
 
-for(let i = 1; i <= totalImages; i++) {
-
-    galleryContainer.innerHTML += `
-
+imageFiles.forEach((file, i) => {
+  galleryContainer.innerHTML += `
     <div class="image-box">
-
-        <img
-            src="drawing_images/image${i}.jpeg"
-            alt="Artwork ${i}"
-
-            data-title="${titles[i-1]}"
-            data-description="${descriptions[i-1]}"
-        >
-
-        <div class="overlay">
-            <h3>${titles[i-1]}</h3>
-        </div>
-
-        <div class="like-btn">
-
-            <i class='bx bx-heart'></i>
-
-            <span>0</span>
-
-        </div>
-
+      <img src="drawing_images/${file}" 
+           alt="Artwork ${i+1}"
+           data-title="${titles[i]}"
+           data-description="${descriptions[i]}"
+           data-journey="${journeys[i]}"
+      >
+      <div class="overlay">
+        <h3>${titles[i]}</h3>
+      </div>
+      <div class="like-btn">
+        <i class='bx bx-heart'></i>
+        <span>0</span>
+      </div>
     </div>
+  `;
+});
 
-    `;
-}
+/* ================== SELECT ALL IMAGE BOXES ================== */
+const imageBoxes = document.querySelectorAll(".image-box");
 
-
-const imageBoxes =
-document.querySelectorAll(".image-box");
-
-
+/* ================== LIKE BUTTON FUNCTIONALITY ================== */
 imageBoxes.forEach((box, index) => {
+  const likeBtn = box.querySelector(".like-btn");
+  const likeIcon = likeBtn.querySelector("i");
+  const likeCount = likeBtn.querySelector("span");
 
-    const likeBtn =
-    box.querySelector(".like-btn");
+  const likeRef = ref(db, "likes/image" + index);
 
-    const likeIcon =
-    likeBtn.querySelector("i");
+  // Realtime like update
+  onValue(likeRef, (snapshot) => {
+    const data = snapshot.val();
+    likeCount.textContent = data ? data.count || 0 : 0;
+    if (!data) set(likeRef, { count: 0 });
+  });
 
-    const likeCount =
-    likeBtn.querySelector("span");
+  // Local storage like state
+  let liked = localStorage.getItem("liked-" + index);
+  if (liked === "true") {
+    likeBtn.classList.add("liked");
+    likeIcon.classList.replace("bx-heart", "bxs-heart");
+  }
 
-
-    const likeRef =
-    ref(db, "likes/image" + index);
-
-
-    /* REALTIME UPDATE */
-
-    onValue(likeRef, (snapshot) => {
-
-        const data = snapshot.val();
-
-        if(data){
-
-            likeCount.textContent =
-            data.count || 0;
-
-        }else{
-
-            set(likeRef, {
-                count: 0
-            });
-        }
-
-    });
-
-
-    /* LOCAL LIKE STATE */
-
-    let liked =
-    localStorage.getItem("liked-" + index);
-
-    if(liked === "true"){
-
-        likeBtn.classList.add("liked");
-
-        likeIcon.classList.replace(
-            "bx-heart",
-            "bxs-heart"
-        );
-    }
-
-
-    /* CLICK LIKE */
-
-likeBtn.addEventListener("click", async (e) => {
-
+  // Click like button
+  likeBtn.addEventListener("click", async (e) => {
     e.stopPropagation();
-
     const snapshot = await get(likeRef);
+    let currentLikes = snapshot.exists() ? Number(snapshot.val().count || 0) : 0;
 
-    let currentLikes = 0;
-
-    if(snapshot.exists()){
-
-        const data = snapshot.val();
-
-        currentLikes = Number(data.count) || 0;
+    if (likeBtn.classList.contains("liked")) {
+      currentLikes = Math.max(0, currentLikes - 1);
+      likeBtn.classList.remove("liked");
+      likeIcon.classList.replace("bxs-heart", "bx-heart");
+      localStorage.setItem("liked-" + index, "false");
+    } else {
+      currentLikes++;
+      likeBtn.classList.add("liked");
+      likeIcon.classList.replace("bx-heart", "bxs-heart");
+      localStorage.setItem("liked-" + index, "true");
     }
 
-    /* UNLIKE */
-
-    if(likeBtn.classList.contains("liked")){
-
-        currentLikes = Math.max(0, currentLikes - 1);
-
-        likeBtn.classList.remove("liked");
-
-        likeIcon.classList.replace(
-            "bxs-heart",
-            "bx-heart"
-        );
-
-        localStorage.setItem(
-            "liked-" + index,
-            "false"
-        );
-
-    }
-
-    /* LIKE */
-
-    else{
-
-        currentLikes++;
-
-        likeBtn.classList.add("liked");
-
-        likeIcon.classList.replace(
-            "bx-heart",
-            "bxs-heart"
-        );
-
-        localStorage.setItem(
-            "liked-" + index,
-            "true"
-        );
-    }
-
-    await set(likeRef, {
-        count: currentLikes
-    });
-
+    await set(likeRef, { count: currentLikes });
+  });
 });
+
+/* ================== MODAL FUNCTIONALITY ================== */
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalJourney = document.getElementById("modalJourney");
+const modalLikes = document.getElementById("modalLikes");
+const portraitBtn = document.getElementById("portraitBtn");
+const closeModal = document.getElementById("closeModal");
+
+// Open modal
+imageBoxes.forEach((box, index) => {
+  const img = box.querySelector("img");
+  const likeCount = box.querySelector(".like-btn span");
+
+  box.addEventListener("click", () => {
+    modal.classList.add("active");
+    modalImg.src = img.src;
+    modalTitle.textContent = img.dataset.title;
+    modalDescription.textContent = img.dataset.description;
+    modalJourney.textContent = img.dataset.journey;
+    modalLikes.textContent = likeCount.textContent + " Likes";
+    portraitBtn.href = "https://wa.me/919353475001?text=Hi%20Vikas,%20I%20want%20a%20portrait%20drawing";
+  });
 });
+
+// Close modal
+closeModal.addEventListener("click", () => modal.classList.remove("active"));
+modal.addEventListener("click", (e) => { if(e.target === modal) modal.classList.remove("active"); });
 
 </script>
 </body>
