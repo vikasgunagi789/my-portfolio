@@ -63,6 +63,10 @@ body{
    HEADER
 ===================================================== */
 
+#modalJourney{
+    white-space: pre-line;
+}
+
 .header{
     position:fixed;
     top:0;
@@ -1627,8 +1631,8 @@ const db = getDatabase(app);
 
 /* ================== MANUAL IMAGE FILES ================== */
 const imageFiles = [
-  "image1.jpeg", "image2.jpeg", "image3.jpeg", "image4.jpeg",
-  "image5.jpeg", "image6.jpeg", "image7.jpeg", "image8.jpeg",
+  "image1.jpeg", "image3.jpeg", "image4.jpeg",
+  "image5.jpeg", "image7.jpeg", "image8.jpeg",
   "image9.jpeg", "image10.jpeg", "image11.jpeg",
   // skip image12
   "image13.jpeg", "image14.jpeg", "image15.jpeg", "image16.jpeg",
@@ -1639,8 +1643,7 @@ const imageFiles = [
 
 /* ================== TITLES, DESCRIPTIONS, JOURNEYS ================== */
 const titles = [
-  "Pencil Art","Creative Sketch","Portrait Drawing","Artwork","Pencil Sketch",
-  "Creative Art","Realistic Drawing","Artistic Work","Shading Practice","Portrait Sketch",
+  "Su from so Drawing","Lord Krishna and Radha Drawing","Ganesh Drawing(Kannada Movie Actor)","LegendaryCricketors Drawing","Realistic Drawing","Artistic Work","Shading Practice","Portrait Sketch",
   "Creative Drawing","Pencil Creativity","Art Piece","Detailed Drawing","Handmade Sketch",
   "Creative Pencil Work","Visual Art","Sketch Design","Artwork Collection","Art & Creativity",
   "Sketching Passion","Creative Vision","Drawing Collection","Detailed Pencil Art","Creative Expression",
@@ -1648,12 +1651,10 @@ const titles = [
 ];
 
 const descriptions = [
-  "A realistic pencil sketch focusing on facial shading and detailing.",
-  "Creative pencil artwork with smooth shading and detailing.",
-  "Portrait drawing made with patience and realistic effects.",
-  "Beautiful handmade artwork created using pencil techniques.",
-  "A clean and detailed pencil sketch artwork.",
-  "Creative art showing imagination and shading skills.",
+  "This Drawing is From the Movie Su From So",
+  "This Drawing is about Lord Krishna and Radha",
+  "This Drawing is from Krishnam Pranaya Sakhi Movie",
+  "Drawing is of 3 Legendary Cricketors",
   "Realistic drawing with advanced detailing and texture.",
   "An artistic work showcasing pencil creativity.",
   "Shading practice artwork with realistic depth.",
@@ -1679,10 +1680,62 @@ const descriptions = [
 ];
 
 const journeys = [
-  "Description for Image 1...",
-  "Description for Image 2...",
-  "Description for Image 3...",
-  "Description for Image 4...",
+  `This Drawing is from the su from so, It contains the drawing of Raj B. Shetty as Karunakara Guruji, Shanil Guru as Ravi, Prakash Thuminad as Chandra
+
+Su From So is a 2025 Kannada comedy-drama film that blends humor, supernatural elements, and emotional depth, directed by J. P. Thuminad.
+
+Overview
+Title: Su From So
+Release Date: July 25, 2025
+Language: Kannada
+Genre: Comedy, Drama, Horror
+
+Plot Summary
+The film follows Ashoka, a carefree young man living in the coastal village of Marlur...`,
+  `In this Drawing You can see that Lord Krishna and Radha, This is the coloured Drawing
+  
+  I have framed this artwork, placed it on my wall, and worship it daily, as you can also see in the images.
+  
+  The drawing represents pure love, peace, devotion, and spiritual connection.
+  
+  Special attention was given to the eyes, expressions, and traditional ornaments.
+  
+  The use of Brusto color pencils added richness and depth to the overall artwork.
+
+Completing this artwork gave me confidence and motivation to create more detailed portraits.`,
+  `This is Drawing is From Krishnam Pranaya Sakhi of Ganesh Acted name as krishna 
+  
+  Movie Description and Plot : 
+  
+  Krishnam Pranaya Sakhi is a 2024 Indian Kannada-language romantic comedy film directed by Srinivas Raju and produced by Prashant G. Rudrappa under Trishul Entertainments. The film stars Ganesh, Malvika Nair (in her Kannada debut) and Sharanya Shetty, alongside Sadhu Kokila, Rangayana Raghu, Shruti and Srinivasa Murthy.
+
+Krishnam Pranaya Sakhi was released on 15 August 2024, coinciding with Independence Day.[6] The film received mixed-to-positive reviews and became a commercial success at the box office.
+
+Plot
+Krishna, a business tycoon, meets Pranaya, an orphan who runs an orphanage. Krishna, worried that his socio-economic status may separate him from Pranaya, pretends to be a driver and becomes employed by Pranaya. Pranaya soon learns about Krishna's identity, but she later accepts his love.
+
+Jhanvi, a hot-headed daughter of a businessman Gurudutt, falls in love with Krishna. Though denying the proposal due to a past history with Krishna's family, Gurudutt agrees and Krishna's family asks Krishna about this, but Krishna denies it and reveals about Pranaya to the family. Krishna's family agrees and he marries Pranaya. Before they can enjoy their happily-ever-after, Krishna and Pranaya become victims of a violent attack.
+
+Krishna suffers from retrograde amnesia, leaving him to forget about Pranaya. Krishna's family and Pranaya doesn't reveal anything about it and Pranaya pretends to be Krishna's assistant. Jhanvi learns about this and tries to make Krishna fall in love with her, but Krishna rejects the proposal and soon falls for Pranaya. It is revealed that Jhanvi was actually behind the attack on Krishna and Pranaya as she wants to exact revenge on Krishna for marrying Pranaya. A series of comedic events ensues in which Krishna and Pranaya remarry.
+
+reference :- wikkipedia`,
+  `This artwork features three legendary Indian cricketers — Virat Kohli, MS Dhoni, and Rohit Sharma — drawn together in a single realistic composition.
+
+The drawing was created on a large A2-size chart paper, which provided enough space to capture detailed facial expressions and accurate proportions.
+
+This artwork was made using pencil shading and detailed sketching techniques with careful attention to realism.
+
+Each player was drawn with unique expressions and features to represent their personality and contribution to Indian cricket.
+
+Virat Kohli symbolizes passion and aggression, MS Dhoni represents calm leadership and experience, while Rohit Sharma reflects elegance and consistency.
+
+Creating three faces in one artwork was challenging because maintaining balance, symmetry, and realistic detailing required patience and precision.
+
+Special focus was given to hair texture, beard detailing, jersey folds, and facial shading to make the drawing look more lifelike.
+
+This artwork reflects my admiration and respect for these iconic cricketers who have inspired millions of fans across the world.
+
+Completing this large chart paper artwork helped improve my confidence in portrait drawing, large-scale sketching, and realistic pencil art techniques.`,
   "Description for Image 5...",
   "Description for Image 6...",
   "Description for Image 7...",
