@@ -1525,62 +1525,65 @@ imageBoxes.forEach((box, index) => {
 
     /* CLICK LIKE */
 
-    likeBtn.addEventListener("click", async (e) => {
+likeBtn.addEventListener("click", async (e) => {
 
-        e.stopPropagation();
+    e.stopPropagation();
 
-        const snapshot =
-        await get(likeRef);
+    const snapshot = await get(likeRef);
 
-        let currentLikes = 0;
+    let currentLikes = 0;
 
-        if(snapshot.exists()){
+    if(snapshot.exists()){
 
-            currentLikes =
-            snapshot.val().count || 0;
-        }
+        const data = snapshot.val();
 
+        currentLikes = Number(data.count) || 0;
+    }
 
-        if(likeBtn.classList.contains("liked")){
+    /* UNLIKE */
 
-            currentLikes--;
+    if(likeBtn.classList.contains("liked")){
 
-            likeBtn.classList.remove("liked");
+        currentLikes = Math.max(0, currentLikes - 1);
 
-            likeIcon.classList.replace(
-                "bxs-heart",
-                "bx-heart"
-            );
+        likeBtn.classList.remove("liked");
 
-            localStorage.setItem(
-                "liked-" + index,
-                "false"
-            );
+        likeIcon.classList.replace(
+            "bxs-heart",
+            "bx-heart"
+        );
 
-        }else{
+        localStorage.setItem(
+            "liked-" + index,
+            "false"
+        );
 
-            currentLikes++;
+    }
 
-            likeBtn.classList.add("liked");
+    /* LIKE */
 
-            likeIcon.classList.replace(
-                "bx-heart",
-                "bxs-heart"
-            );
+    else{
 
-            localStorage.setItem(
-                "liked-" + index,
-                "true"
-            );
-        }
+        currentLikes++;
 
+        likeBtn.classList.add("liked");
 
-        update(likeRef, {
-            count: currentLikes
-        });
+        likeIcon.classList.replace(
+            "bx-heart",
+            "bxs-heart"
+        );
 
+        localStorage.setItem(
+            "liked-" + index,
+            "true"
+        );
+    }
+
+    await set(likeRef, {
+        count: currentLikes
     });
 
+});
 });
 
 </script>
