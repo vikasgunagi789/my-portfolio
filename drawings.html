@@ -1323,7 +1323,37 @@ body{
     </div>
 
 </div>
-<script>
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getDatabase,
+    ref,
+    set,
+    onValue,
+    get,
+    update
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyABIV6SOegBtBrYD44OyJ8zgYtpTq9HmF0",
+  authDomain: "vikas-drawing-gallery.firebaseapp.com",
+  projectId: "vikas-drawing-gallery",
+  storageBucket: "vikas-drawing-gallery.firebasestorage.app",
+  messagingSenderId: "66860058196",
+  appId: "1:66860058196:web:45c0944d69fd68eb0b4fc1",
+  measurementId: "G-61780TL81W"
+};
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
 /* =========================================
    AUTO LOAD ALL IMAGES
 ========================================= */
@@ -1331,9 +1361,8 @@ body{
 const galleryContainer =
 document.getElementById("galleryContainer");
 
-/* TOTAL IMAGES */
-
 const totalImages = 28;
+
 
 /* TITLES */
 
@@ -1368,6 +1397,7 @@ const titles = [
     "Final Artwork"
 ];
 
+
 /* DESCRIPTIONS */
 
 const descriptions = [
@@ -1401,6 +1431,7 @@ const descriptions = [
     "Final artwork completed with precision and creativity."
 ];
 
+
 /* CREATE IMAGES */
 
 for(let i = 1; i <= totalImages; i++) {
@@ -1421,8 +1452,6 @@ for(let i = 1; i <= totalImages; i++) {
             <h3>${titles[i-1]}</h3>
         </div>
 
-        <!-- LIKE BUTTON -->
-
         <div class="like-btn">
 
             <i class='bx bx-heart'></i>
@@ -1437,59 +1466,51 @@ for(let i = 1; i <= totalImages; i++) {
 }
 
 
-/* =========================================
-   SELECT ELEMENTS
-========================================= */
+const imageBoxes =
+document.querySelectorAll(".image-box");
 
-const imageBoxes = document.querySelectorAll(".image-box");
-
-const modal = document.getElementById("imageModal");
-
-const modalImg = document.getElementById("modalImg");
-
-const modalTitle = document.getElementById("modalTitle");
-
-const modalDescription = document.getElementById("modalDescription");
-
-const modalLikes = document.getElementById("modalLikes");
-
-const closeModal = document.getElementById("closeModal");
-
-const portraitBtn = document.getElementById("portraitBtn");
-
-
-/* =========================================
-   LIKE SYSTEM
-========================================= */
 
 imageBoxes.forEach((box, index) => {
 
-    const likeBtn = box.querySelector(".like-btn");
+    const likeBtn =
+    box.querySelector(".like-btn");
 
-    const likeIcon = likeBtn.querySelector("i");
+    const likeIcon =
+    likeBtn.querySelector("i");
 
-    const likeCount = likeBtn.querySelector("span");
+    const likeCount =
+    likeBtn.querySelector("span");
 
-    const img = box.querySelector("img");
 
-    /* LOAD SAVED LIKES */
+    const likeRef =
+    ref(db, "likes/image" + index);
 
-    let savedLikes =
-        localStorage.getItem("likes-" + index);
+
+    /* REALTIME UPDATE */
+
+    onValue(likeRef, (snapshot) => {
+
+        const data = snapshot.val();
+
+        if(data){
+
+            likeCount.textContent =
+            data.count || 0;
+
+        }else{
+
+            set(likeRef, {
+                count: 0
+            });
+        }
+
+    });
+
+
+    /* LOCAL LIKE STATE */
 
     let liked =
-        localStorage.getItem("liked-" + index);
-
-    if(savedLikes){
-
-        likeCount.textContent = savedLikes;
-
-    }else{
-
-        likeCount.textContent = 0;
-    }
-
-    /* LOAD HEART STATE */
+    localStorage.getItem("liked-" + index);
 
     if(liked === "true"){
 
@@ -1502,20 +1523,27 @@ imageBoxes.forEach((box, index) => {
     }
 
 
-    /* LIKE CLICK */
+    /* CLICK LIKE */
 
-    likeBtn.addEventListener("click", (e) => {
+    likeBtn.addEventListener("click", async (e) => {
 
         e.stopPropagation();
 
-        let count =
-            parseInt(likeCount.textContent);
+        const snapshot =
+        await get(likeRef);
 
-        /* REMOVE LIKE */
+        let currentLikes = 0;
+
+        if(snapshot.exists()){
+
+            currentLikes =
+            snapshot.val().count || 0;
+        }
+
 
         if(likeBtn.classList.contains("liked")){
 
-            count--;
+            currentLikes--;
 
             likeBtn.classList.remove("liked");
 
@@ -1529,13 +1557,9 @@ imageBoxes.forEach((box, index) => {
                 "false"
             );
 
-        }
+        }else{
 
-        /* ADD LIKE */
-
-        else{
-
-            count++;
+            currentLikes++;
 
             likeBtn.classList.add("liked");
 
@@ -1550,115 +1574,12 @@ imageBoxes.forEach((box, index) => {
             );
         }
 
-        /* SAVE */
 
-        likeCount.textContent = count;
-
-        localStorage.setItem(
-            "likes-" + index,
-            count
-        );
-
-        /* UPDATE MODAL LIVE */
-
-        modalLikes.textContent =
-            count + " Likes";
+        update(likeRef, {
+            count: currentLikes
+        });
 
     });
-
-
-    /* =========================================
-       OPEN MODAL
-    ========================================= */
-
-    box.addEventListener("click", () => {
-
-        modal.classList.add("active");
-
-        modalImg.src = img.src;
-
-        modalTitle.textContent =
-            img.dataset.title;
-
-        modalDescription.textContent =
-            img.dataset.description;
-
-        modalLikes.textContent =
-            likeCount.textContent + " Likes";
-
-        document.body.style.overflow = "hidden";
-
-
-        /* =====================================
-           WHATSAPP BUTTON
-        ===================================== */
-
-        const phoneNumber = "919353475001";
-
-        const message =
-`Hello Vikas...
-
-I want a custom pencil portrait drawing.
-
-Reference Artwork:
-${img.dataset.title}
-
-Please share:
-• Price
-• Size options
-• Delivery details
-
-Thank you...`;
-
-        portraitBtn.href =
-`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-    });
-
-});
-
-
-/* =========================================
-   CLOSE MODAL
-========================================= */
-
-closeModal.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    e.stopPropagation();
-
-    modal.classList.remove("active");
-
-    document.body.style.overflow = "auto";
-
-});
-
-
-/* CLICK OUTSIDE */
-
-modal.addEventListener("click", (e) => {
-
-    if(e.target === modal){
-
-        modal.classList.remove("active");
-
-        document.body.style.overflow = "auto";
-    }
-
-});
-
-
-/* ESC KEY */
-
-document.addEventListener("keydown", (e) => {
-
-    if(e.key === "Escape"){
-
-        modal.classList.remove("active");
-
-        document.body.style.overflow = "auto";
-    }
 
 });
 
